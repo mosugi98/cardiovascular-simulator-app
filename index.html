@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cardiovascular Simulator: Case Search</title>
+  <style>
+    body { font: 16px system-ui, sans-serif; margin: 0; background: #f5f6f8; color: #1b1f24; }
+    main { max-width: 640px; margin: 0 auto; padding: 16px; }
+    .bar { display: flex; gap: 8px; margin-bottom: 12px; }
+    input[type=search] { flex: 1; padding: 10px 14px; border: 1px solid #c9ced6; border-radius: 8px; font: inherit; }
+    select { padding: 10px; border: 1px solid #c9ced6; border-radius: 8px; font: inherit; background: #fff; }
+    ul { list-style: none; padding: 0; margin: 0; }
+    li { background: #fff; border: 1px solid #e0e3e8; border-radius: 8px; padding: 10px 14px; margin-bottom: 8px; }
+    .meta { color: #5b6470; font-size: 13px; margin-top: 2px; }
+    .empty { text-align: center; color: #5b6470; padding: 32px 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Cases</h1>
+    <div class="bar">
+      <input id="q" type="search" placeholder="Search cases" autocomplete="off" aria-label="Search cases" />
+      <select id="sort" aria-label="Sort">
+        <option value="caseNumber">Case number</option>
+        <option value="recentlyPlayed">Recently played</option>
+        <option value="name">Name</option>
+      </select>
+    </div>
+    <ul id="list"></ul>
+    <p id="empty" class="empty" hidden></p>
+  </main>
+
+  <script type="module">
+    import { searchCases } from './src/search/caseSearch.js';
+    import { sampleCases } from './src/data/sampleCases.js';
+
+    const q = document.getElementById('q');
+    const sort = document.getElementById('sort');
+    const list = document.getElementById('list');
+    const empty = document.getElementById('empty');
+
+    function render() {
+      const { results } = searchCases(sampleCases, { query: q.value, sort: sort.value });
+      list.replaceChildren(...results.map((c) => {
+        const li = document.createElement('li');
+        const title = document.createElement('strong');
+        title.textContent = c.name; // textContent: never inject case data as HTML
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        meta.textContent = `${c.prefix}-${c.caseNumber} · ${(c.categories ?? []).join(', ')}`;
+        li.append(title, meta);
+        return li;
+      }));
+      empty.hidden = results.length > 0;
+      empty.textContent = 'No search results. Try another term.';
+    }
+
+    q.addEventListener('input', render);
+    q.addEventListener('keydown', (e) => { if (e.key === 'Escape') { q.value = ''; render(); } });
+    sort.addEventListener('change', render);
+    render();
+  </script>
+</body>
+</html>

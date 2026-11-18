@@ -1,0 +1,10 @@
+{
+  "name": "cardiovascular-simulator-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "start": "npx --yes serve ."
+  }
+}
