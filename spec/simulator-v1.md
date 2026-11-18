@@ -10,7 +10,7 @@ A browser-based cardiovascular emergency simulator for medical students, residen
 2. Fully static: no backend, no accounts, no server-side storage, and no build step required to run it.
 3. It must work on desktop and on phones, down to a 360 px wide viewport.
 4. It must be fully operable by keyboard. State shown with color (for example abnormal vitals) must also be conveyed another way. The ECG must have a text equivalent.
-5. It must work in current versions of Chrome, Edge, Firefox and Safari.
+5. It must work in current versions of Chrome, Edge and Firefox. Safari is not part of version 1 and has not been tested.
 6. No content, code or audio from the Full Code Medical Simulation app may be used. All clinical content, text and sounds are original or openly licensed.
 7. Clinical content is drafted by Claude from public guidelines and reviewed by the project owner afterwards. Until reviewed, the app must show a "not clinically reviewed" notice on every case.
 
