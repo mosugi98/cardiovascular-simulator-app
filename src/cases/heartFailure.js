@@ -1,4 +1,4 @@
-import { lin, round } from '../engine/util.js';
+﻿import { lin, round } from '../engine/util.js';
 import { SRC } from './sources.js';
 
 export const P = {
@@ -40,6 +40,20 @@ export default {
   deathRhythm: 'asystole',
   params: P,
 
+  triage: { level: 2, label: 'Emergent' },
+  person: { age: 72, sex: 'man', pose: 'upright', skin: '#D2A07A', hair: '#e4e2de', bay: 2 },
+  look: { sweaty: false, jvp: () => true, edema: true, dyspnea: (s) => s.severity > 0.3 },
+  handover: 'Paramedic handover: 72-year-old man with known heart failure. Three days of worsening breathlessness, sleeping on three pillows, swollen legs. He ran out of his water pill (furosemide) a week ago. Oxygen saturation 84% on air. No known allergies.',
+  speech(s) {
+    if (s.severity <= 0.3) return 'That is better. I can talk properly now.';
+    if (s.severity > 0.7) return 'Cannot... breathe...';
+    return 'I cannot catch my breath. I cannot lie down.';
+  },
+  echo: (s) => ({
+    ef: 0.25, lv: 1.3, la: 1.4, wall: 0.7, effusion: 0, rvCollapse: false, mr: true, hypokinesis: null,
+    caption: 'Dilated left ventricle with ejection fraction about 25%. Moderate functional mitral regurgitation. No pericardial effusion.',
+  }),
+
   setup: () => ({ severity: P.startSeverity, flags: {} }),
 
   rates(s) {
@@ -69,7 +83,7 @@ export default {
         temp: lin(P.vitals.temp, s.severity),
       },
       rhythm: 'sinus',
-      ecg: { amp: 1 },
+      ecg: { amp: 1, pattern: 'lbbb' },
     };
   },
 

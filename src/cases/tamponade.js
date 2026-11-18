@@ -1,4 +1,4 @@
-import { lin, round, addEvent } from '../engine/util.js';
+﻿import { lin, round, addEvent } from '../engine/util.js';
 import { SRC } from './sources.js';
 
 export const P = {
@@ -35,6 +35,24 @@ export default {
   deathRhythm: 'asystole',
   params: P,
 
+  triage: { level: 1, label: 'Resuscitation' },
+  person: { age: 45, sex: 'man', pose: 'upright', skin: '#8F5E40', hair: '#1f1b19', bay: 1 },
+  look: { sweaty: true, jvp: (s) => !s.flags.drained, edema: false, dyspnea: (s) => !s.flags.drained },
+  handover: 'Paramedic handover: 45-year-old man with 3 days of worsening breathlessness and chest discomfort that is easier when he leans forward. He had a viral illness last week. No regular medicines, no known allergies. He has become paler and sleepier on the way in.',
+  speech(s) {
+    if (s.flags.drained) return 'I can breathe again.';
+    if (s.severity > 0.7) return 'I cannot breathe. I am so tired.';
+    return 'It hurts when I breathe in, and I cannot lie flat.';
+  },
+  echo: (s) => ({
+    ef: 0.65, lv: 0.9, la: 1, wall: 1, mr: false, hypokinesis: null,
+    effusion: s.flags.drained ? 0.15 : 1,
+    rvCollapse: !s.flags.drained,
+    caption: s.flags.drained
+      ? 'Effusion reduced to a small rim. Right heart chambers fill normally.'
+      : 'Large circumferential pericardial effusion with the right ventricle collapsing in diastole. Tamponade physiology.',
+  }),
+
   setup: () => ({ severity: P.startSeverity, flags: {} }),
 
   rates: (s) => (s.flags.drained ? P.drainedRatePerMin : P.growthPerMin),
@@ -53,7 +71,7 @@ export default {
         temp: lin(P.vitals.temp, s.severity),
       },
       rhythm: 'sinus',
-      ecg: { amp: f.drained ? 1 : P.lowVoltageAmp, alternans: !f.drained },
+      ecg: { amp: f.drained ? 1 : P.lowVoltageAmp, alternans: !f.drained, pattern: f.drained ? 'pericarditis' : 'low-voltage' },
     };
   },
 

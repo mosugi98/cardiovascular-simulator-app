@@ -66,6 +66,24 @@ export function createAudio() {
     setMuted(value) { muted = !!value; if (muted) this.stop(); },
     stop() { stopFns.forEach((fn) => fn()); stopFns = []; },
 
+    /** A short monitor tone: the heartbeat beep, or an alarm tone. Silent when muted. */
+    beep(freq = 880, dur = 0.09, gain = 0.12) {
+      if (muted) return;
+      try {
+        const c = ensure();
+        const at = c.currentTime;
+        const osc = c.createOscillator();
+        const amp = c.createGain();
+        osc.type = 'sine';
+        osc.frequency.value = freq;
+        amp.gain.setValueAtTime(0.0001, at);
+        amp.gain.exponentialRampToValueAtTime(gain, at + 0.008);
+        amp.gain.exponentialRampToValueAtTime(0.0001, at + dur);
+        osc.connect(amp); amp.connect(c.destination);
+        osc.start(at); osc.stop(at + dur + 0.03);
+      } catch { /* audio is optional */ }
+    },
+
     /** kind: normal | muffled | afib | s3. Returns the duration in seconds. */
     playHeart(kind, hr) {
       if (muted) return 0;

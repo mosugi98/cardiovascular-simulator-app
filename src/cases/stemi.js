@@ -1,4 +1,4 @@
-import { lin, round } from '../engine/util.js';
+﻿import { lin, round } from '../engine/util.js';
 import { SRC } from './sources.js';
 
 export const P = {
@@ -46,6 +46,24 @@ export default {
   deathRhythm: 'vf',
   params: P,
 
+  triage: { level: 2, label: 'Emergent' },
+  person: { age: 58, sex: 'man', pose: 'reclined', skin: '#B97D5A', hair: '#2b2623', bay: 4 },
+  look: { sweaty: true, jvp: () => false, edema: false, dyspnea: (s) => s.severity > 0.7 },
+  handover: 'Paramedic handover: 58-year-old man with 45 minutes of crushing central chest pain that began while he carried shopping upstairs. He smokes and is treated for high blood pressure (amlodipine). No known allergies. He has not taken any aspirin. Pain 8 out of 10, sweaty and nauseated.',
+  speech(s) {
+    if (s.flags.reperfused) return 'The pain is much better. Thank you.';
+    if (s.severity > 0.7) return 'I feel like I am going to pass out.';
+    if (s.severity > 0.5) return 'The pressure is getting worse. I feel sick.';
+    return 'It feels like an elephant is sitting on my chest.';
+  },
+  echo: (s) => ({
+    ef: 0.4, lv: 1, la: 1, wall: 1, effusion: 0, rvCollapse: false, mr: false,
+    hypokinesis: 'anterior-apex',
+    caption: s.flags.reperfused
+      ? 'Anterior wall and apex still move poorly after reperfusion. Estimated ejection fraction about 40%. No pericardial effusion.'
+      : 'Anterior wall and apex barely move. Estimated ejection fraction about 40%. No pericardial effusion.',
+  }),
+
   setup: () => ({ severity: P.startSeverity, flags: {} }),
 
   rates(s) {
@@ -81,7 +99,11 @@ export default {
         temp: lin(P.vitals.temp, s.severity),
       },
       rhythm: 'sinus',
-      ecg: { stElev: f.reperfused ? P.residualStElevMv : P.stElevMv, amp: 1 },
+      ecg: {
+        stElev: f.reperfused ? P.residualStElevMv : P.stElevMv,
+        amp: 1,
+        pattern: f.reperfused ? 'anterior-stemi-reperfused' : 'anterior-stemi',
+      },
     };
   },
 

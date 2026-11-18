@@ -18,6 +18,17 @@ Live site: https://mosugi98.github.io/cardiovascular-simulator-app/
 - **Learning:** turn-based. Time moves only when you act, and each action costs minutes.
 - **Challenge:** real-time. A clock runs and the patient changes while you decide. You can pause.
 
+## The bay
+
+- **Probandus:** the patient lies on a trolley (SVG). They look worse as they deteriorate (paler, sweating, blue lips, neck veins, swollen legs, labored breathing), and what they say changes. Press a body zone to examine them: face, neck, chest (lungs and heart) and wrist.
+- **Tool tray:** Look, Stethoscope, Hands, ECG machine and Ultrasound. The full list of actions is still on the right, and works from the keyboard.
+- **Bedside monitor:** vitals, ECG, a pulse wave, alarms (with a nurse calling them out), an optional heartbeat beep, and silence alarms.
+- **12-lead ECG:** prints out on ECG paper with the right morphology in every lead (ST elevation, low voltage with alternans, LBBB, pericarditis, AF).
+- **Echo:** a live simulated apical four-chamber view that changes with the patient (for example, draining a tamponade).
+- **Devices appear as you treat:** oxygen and BiPAP masks, IV line, defibrillator pads, a pericardial drain and the ultrasound probe.
+
+All images and sounds are simulated in the browser and labelled as such. The fonts (Atkinson Hyperlegible) are served from `fonts/`, so the site makes no requests to Google.
+
 Wrong or harmful actions are allowed and really worsen the patient. The debrief shows an outcome, a score, and a timeline marking each action helpful, harmful or no effect, plus the key actions you missed.
 
 Leaving the page, refreshing, or switching tabs during a case restarts it from the beginning.

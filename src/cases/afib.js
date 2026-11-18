@@ -49,6 +49,21 @@ export default {
   deathRhythm: 'vf',
   params: P,
 
+  triage: { level: 3, label: 'Urgent' },
+  person: { age: 68, sex: 'woman', pose: 'reclined', skin: '#E6BC9A', hair: '#b9b6b1', bay: 3 },
+  look: { sweaty: false, jvp: () => false, edema: false, dyspnea: (s) => s.severity > 0.7 },
+  handover: 'Paramedic handover: 68-year-old woman with 6 hours of a fast, uneven heartbeat and mild light-headedness. No chest pain. She has high blood pressure (ramipril) and takes no blood thinners. No known allergies. She walked to the ambulance.',
+  speech(s) {
+    if (s.flags.stroke) return 'My right arm will not move, and the words will not come out.';
+    if (s.flags.sinus) return 'My heart feels normal again.';
+    if (s.severity > 0.7) return 'I feel faint. Everything is going grey.';
+    return 'My heart is racing and fluttering. I feel a bit dizzy.';
+  },
+  echo: () => ({
+    ef: 0.55, lv: 1, la: 1.35, wall: 1, effusion: 0, rvCollapse: false, mr: false, hypokinesis: null,
+    caption: 'Ejection fraction about 55%. Mildly enlarged left atrium. No pericardial effusion. Bedside views cannot rule out a clot in the left atrial appendage.',
+  }),
+
   setup: () => ({ severity: P.startSeverity, flags: {} }),
 
   rates(s) {
@@ -80,7 +95,7 @@ export default {
         temp: lin(P.vitals.temp, s.severity),
       },
       rhythm: f.sinus ? 'sinus' : 'afib',
-      ecg: { amp: 1 },
+      ecg: { amp: 1, pattern: 'normal' },
     };
   },
 

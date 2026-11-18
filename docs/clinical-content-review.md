@@ -53,11 +53,140 @@ This file is generated from the case data by `npm run review:gen`. Do not edit i
 | Activate cath lab (primary PCI) | treat | 2 |
 | Pericardiocentesis | treat | 10 |
 
+## Monitor alarms and nurse call-outs
+
+The bedside monitor raises an alarm when a vital sign passes a limit. The nurse says one line when an alarm starts.
+
+| Alarm | Limit | Urgent when | Nurse says |
+| --- | --- | --- | --- |
+| Heart rate high | above 120/min | above 150/min | Heart rate is N. |
+| Heart rate low | below 50/min | below 40/min | Heart rate has dropped to N. |
+| Blood pressure low | systolic below 90 mmHg | systolic below 80 mmHg | Pressure is N over N. |
+| Oxygen low | SpO2 below 90% | SpO2 below 85% | Sats are down to N%. |
+| Breathing rate high | above 28/min | never urgent | Breathing at N. |
+
+Vital-sign flags on the monitor tiles: heart rate Low below 60 and High above 100; systolic pressure Low below 90 and High at 140 or more; SpO2 Low below 92%; breathing rate Low below 12 and High above 20; temperature Low below 36 and High above 38.
+
+## 12-lead ECG morphology
+
+Each lead is built from P, Q, R, S and T waves (heights in mV; 1 mV is 10 mm on the paper), a J-point ST offset and a PR-segment offset. The printout shows 10 seconds at 25 mm/s and 10 mm/mV. Leads are drawn in the usual four columns of three, with a lead II rhythm strip.
+
+Normal values for each lead:
+
+| Lead | P | Q | R | S | T | ST | PR |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| I | 0.1 | -0.05 | 0.6 | -0.1 | 0.2 | 0 | 0 |
+| II | 0.15 | -0.05 | 1 | -0.15 | 0.3 | 0 | 0 |
+| III | 0.08 | -0.1 | 0.5 | -0.1 | 0.15 | 0 | 0 |
+| aVR | -0.12 | 0 | 0.1 | -0.8 | -0.25 | 0 | 0 |
+| aVL | 0.05 | -0.05 | 0.35 | -0.2 | 0.1 | 0 | 0 |
+| aVF | 0.12 | -0.05 | 0.75 | -0.1 | 0.25 | 0 | 0 |
+| V1 | 0.05 | 0 | 0.25 | -1 | 0 | 0 | 0 |
+| V2 | 0.06 | 0 | 0.5 | -1.1 | 0.3 | 0 | 0 |
+| V3 | 0.08 | 0 | 0.8 | -0.8 | 0.35 | 0 | 0 |
+| V4 | 0.1 | -0.05 | 1.1 | -0.4 | 0.4 | 0 | 0 |
+| V5 | 0.1 | -0.05 | 1.1 | -0.15 | 0.35 | 0 | 0 |
+| V6 | 0.1 | -0.05 | 0.9 | -0.05 | 0.3 | 0 | 0 |
+
+### ECG pattern: normal
+
+Normal morphology
+
+QRS width factor: 1.
+
+### ECG pattern: anterior-stemi
+
+Anterior STEMI: ST elevation V1 to V4 with tall T waves in V2 and V3, mild ST elevation in I and aVL, reciprocal ST depression in II, III and aVF
+
+QRS width factor: 1.
+
+| Lead | Values that differ from normal (mV) |
+| --- | --- |
+| V1 | st 0.2 |
+| V2 | st 0.4, t 0.55 |
+| V3 | st 0.4, t 0.55 |
+| V4 | st 0.3 |
+| V5 | st 0.1 |
+| I | st 0.1 |
+| aVL | st 0.15 |
+| II | st -0.1 |
+| III | st -0.15 |
+| aVF | st -0.12 |
+
+### ECG pattern: anterior-stemi-reperfused
+
+Anterior STEMI after reperfusion: ST elevation falling and T waves inverting in V1 to V4
+
+QRS width factor: 1.
+
+| Lead | Values that differ from normal (mV) |
+| --- | --- |
+| V1 | st 0.05, t -0.1 |
+| V2 | st 0.08, t -0.25 |
+| V3 | st 0.08, t -0.3 |
+| V4 | st 0.05, t -0.25 |
+
+### ECG pattern: low-voltage
+
+Low voltage: all complexes about half height (set by the case), with electrical alternans
+
+QRS width factor: 1.
+
+### ECG pattern: pericarditis
+
+Pericarditis: diffuse ST elevation with PR segment depression, and the opposite in aVR
+
+QRS width factor: 1.
+
+| Lead | Values that differ from normal (mV) |
+| --- | --- |
+| I | st 0.1, pr -0.05 |
+| II | st 0.12, pr -0.06 |
+| III | st 0.05, pr -0.04 |
+| aVF | st 0.1, pr -0.05 |
+| aVR | st -0.12, pr 0.06 |
+| V2 | st 0.12, pr -0.04 |
+| V3 | st 0.12, pr -0.05 |
+| V4 | st 0.12, pr -0.05 |
+| V5 | st 0.12, pr -0.05 |
+| V6 | st 0.12, pr -0.05 |
+
+### ECG pattern: lbbb
+
+Left bundle branch block: wide QRS, deep S or QS waves in V1 to V3 with ST elevation, broad R waves in I, aVL, V5 and V6 with ST depression and inverted T waves
+
+QRS width factor: 2.2.
+
+| Lead | Values that differ from normal (mV) |
+| --- | --- |
+| V1 | r 0.05, s -1.3, st 0.25, t 0.35 |
+| V2 | r 0.05, s -1.6, st 0.3, t 0.4 |
+| V3 | r 0.1, s -1.2, st 0.2, t 0.3 |
+| V4 | r 0.4, s -0.6, st 0, t 0.1 |
+| V5 | q 0, r 1.1, s 0, st -0.12, t -0.3 |
+| V6 | q 0, r 1, s 0, st -0.15, t -0.3 |
+| I | q 0, r 0.9, s 0, st -0.1, t -0.3 |
+| aVL | q 0, r 0.7, s 0, st -0.15, t -0.3 |
+| II | r 0.7, s -0.1, st 0.05, t 0.2 |
+| III | r 0.3, s -0.5, st 0.1, t 0.2 |
+| aVF | r 0.5, s -0.3, st 0.08, t 0.2 |
+| aVR | r 0, s -0.9, st 0.1, t 0.2 |
+
 ## Anterior STEMI (ACS-101)
 
 **Categories:** Acute Coronary Syndrome. **Chief complaints:** Chest pain.
 
 **Patient:** 58-year-old man with 45 minutes of crushing central chest pain spreading to the left arm. He smokes and has high blood pressure. He arrived by ambulance and is sweaty and anxious.
+
+### Probandus and handover
+
+| Item | Value |
+| --- | --- |
+| Age and sex | 58-year-old man |
+| Bay | 4 |
+| Triage | level 2: Emergent |
+| Posture | reclined |
+| Handover | Paramedic handover: 58-year-old man with 45 minutes of crushing central chest pain that began while he carried shopping upstairs. He smokes and is treated for high blood pressure (amlodipine). No known allergies. He has not taken any aspirin. Pain 8 out of 10, sweaty and nauseated. |
 
 ### Starting state
 
@@ -181,6 +310,57 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 | Load a P2Y12 inhibitor | Ticagrelor loading dose | 10 | 30 | Dual antiplatelet therapy supports PCI. | 2013 ACCF/AHA Guideline for the Management of ST-Elevation Myocardial Infarction |
 | Give nitroglycerin for pain | Nitroglycerin sublingual | 10 | 30 | It relieves ischemic pain while blood pressure is adequate. | 2021 AHA/ACC Guideline for the Evaluation and Diagnosis of Chest Pain |
 
+### What the patient says (every line)
+
+| Line | First seen |
+| --- | --- |
+| It feels like an elephant is sitting on my chest. | with no treatment, at the start |
+| The pressure is getting worse. I feel sick. | with no treatment, minute 22 |
+| I feel like I am going to pass out. | with no treatment, minute 50 |
+| The pain is much better. Thank you. | after every key action, minute 30 |
+
+### Echocardiogram (every state the case can show)
+
+Size values are multiples of normal (1 is normal). Ejection fraction is the fraction of blood ejected per beat. Effusion runs from 0 (none) to 1 (large).
+
+| Ejection fraction | LV size | LA size | Wall thickness | Effusion | RV collapse | Mitral regurgitation | Weak wall | Caption | First seen |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 0.4 | 1 | 1 | 1 | 0 | false | false | anterior-apex | Anterior wall and apex barely move. Estimated ejection fraction about 40%. No pericardial effusion. | with no treatment, at the start |
+| 0.4 | 1 | 1 | 1 | 0 | false | false | anterior-apex | Anterior wall and apex still move poorly after reperfusion. Estimated ejection fraction about 40%. No pericardial effusion. | after every key action, minute 30 |
+
+### What the patient looks like (every feature the case can show)
+
+Skin also turns paler as the patient worsens, and breathing speed follows the breathing rate.
+
+| Feature | First seen |
+| --- | --- |
+| sweating: yes | with no treatment, at the start |
+| blue lips: no | with no treatment, at the start |
+| neck veins distended: no | with no treatment, at the start |
+| leg swelling: no | with no treatment, at the start |
+| labored breathing: no | with no treatment, at the start |
+| distressed face: no | with no treatment, at the start |
+| oxygen mask: none | with no treatment, at the start |
+| IV line: no | with no treatment, at the start |
+| defibrillator pads: no | with no treatment, at the start |
+| pericardial drain: no | with no treatment, at the start |
+| died: no | with no treatment, at the start |
+| distressed face: yes | with no treatment, minute 22 |
+| labored breathing: yes | with no treatment, minute 50 |
+| sweating: no | with no treatment, when the case ended (dead) |
+| died: yes | with no treatment, when the case ended (dead) |
+| IV line: yes | after every key action, at the start |
+| oxygen mask: o2 | after Oxygen by mask, at the start |
+| oxygen mask: niv | after Non-invasive ventilation (BiPAP), at the start |
+| defibrillator pads: yes | after Synchronized cardioversion, at the start |
+
+### 12-lead ECG patterns this case shows
+
+| Pattern | First seen |
+| --- | --- |
+| anterior-stemi | with no treatment, at the start |
+| anterior-stemi-reperfused | after every key action, minute 30 |
+
 ### Sounds
 
 These are synthesized approximations. Every combination the case can play:
@@ -200,6 +380,16 @@ These are synthesized approximations. Every combination the case can play:
 **Categories:** Arrhythmia. **Chief complaints:** Palpitations.
 
 **Patient:** 68-year-old woman with 6 hours of a racing, uneven heartbeat and mild light-headedness. She has high blood pressure. She is awake, talking and comfortable at rest.
+
+### Probandus and handover
+
+| Item | Value |
+| --- | --- |
+| Age and sex | 68-year-old woman |
+| Bay | 3 |
+| Triage | level 3: Urgent |
+| Posture | reclined |
+| Handover | Paramedic handover: 68-year-old woman with 6 hours of a fast, uneven heartbeat and mild light-headedness. No chest pain. She has high blood pressure (ramipril) and takes no blood thinners. No known allergies. She walked to the ambulance. |
 
 ### Starting state
 
@@ -313,6 +503,54 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 | Check heart function with an echocardiogram | Bedside echocardiogram | 15 | 30 | It confirms a rate-control drug is safe. | 2023 ACC/AHA/ACCP/HRS Guideline for the Diagnosis and Management of Atrial Fibrillation |
 | Assess perfusion and the pulse | Check pulses and perfusion | 10 | 15 | It shows whether she is stable. | 2023 ACC/AHA/ACCP/HRS Guideline for the Diagnosis and Management of Atrial Fibrillation |
 
+### What the patient says (every line)
+
+| Line | First seen |
+| --- | --- |
+| My heart is racing and fluttering. I feel a bit dizzy. | with no treatment, at the start |
+| I feel faint. Everything is going grey. | with no treatment, minute 67 |
+| My right arm will not move, and the words will not come out. | after Synchronized cardioversion, at the start |
+| My heart feels normal again. | after Heparin then Synchronized cardioversion, at the start |
+
+### Echocardiogram (every state the case can show)
+
+Size values are multiples of normal (1 is normal). Ejection fraction is the fraction of blood ejected per beat. Effusion runs from 0 (none) to 1 (large).
+
+| Ejection fraction | LV size | LA size | Wall thickness | Effusion | RV collapse | Mitral regurgitation | Weak wall | Caption | First seen |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 0.55 | 1 | 1.35 | 1 | 0 | false | false | none | Ejection fraction about 55%. Mildly enlarged left atrium. No pericardial effusion. Bedside views cannot rule out a clot in the left atrial appendage. | with no treatment, at the start |
+
+### What the patient looks like (every feature the case can show)
+
+Skin also turns paler as the patient worsens, and breathing speed follows the breathing rate.
+
+| Feature | First seen |
+| --- | --- |
+| sweating: no | with no treatment, at the start |
+| blue lips: no | with no treatment, at the start |
+| neck veins distended: no | with no treatment, at the start |
+| leg swelling: no | with no treatment, at the start |
+| labored breathing: no | with no treatment, at the start |
+| distressed face: no | with no treatment, at the start |
+| oxygen mask: none | with no treatment, at the start |
+| IV line: no | with no treatment, at the start |
+| defibrillator pads: no | with no treatment, at the start |
+| pericardial drain: no | with no treatment, at the start |
+| died: no | with no treatment, at the start |
+| distressed face: yes | with no treatment, minute 34 |
+| labored breathing: yes | with no treatment, minute 67 |
+| died: yes | with no treatment, when the case ended (dead) |
+| IV line: yes | after every key action, at the start |
+| oxygen mask: o2 | after Oxygen by mask, at the start |
+| oxygen mask: niv | after Non-invasive ventilation (BiPAP), at the start |
+| defibrillator pads: yes | after Synchronized cardioversion, at the start |
+
+### 12-lead ECG patterns this case shows
+
+| Pattern | First seen |
+| --- | --- |
+| normal | with no treatment, at the start |
+
 ### Sounds
 
 These are synthesized approximations. Every combination the case can play:
@@ -332,6 +570,16 @@ These are synthesized approximations. Every combination the case can play:
 **Categories:** Heart Failure. **Chief complaints:** Shortness of breath, Leg swelling.
 
 **Patient:** 72-year-old man with known heart failure (ejection fraction about 30%). For 3 days he has had worsening breathlessness, needs to sleep sitting up, and his legs are swollen. He ran out of his water pill a week ago.
+
+### Probandus and handover
+
+| Item | Value |
+| --- | --- |
+| Age and sex | 72-year-old man |
+| Bay | 2 |
+| Triage | level 2: Emergent |
+| Posture | upright |
+| Handover | Paramedic handover: 72-year-old man with known heart failure. Three days of worsening breathlessness, sleeping on three pillows, swollen legs. He ran out of his water pill (furosemide) a week ago. Oxygen saturation 84% on air. No known allergies. |
 
 ### Starting state
 
@@ -456,6 +704,54 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 | Check electrolytes and kidney function | Electrolytes and creatinine | 10 | 30 | It guides diuretic dosing. | 2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure |
 | Confirm with a chest X-ray, BNP or echocardiogram | Chest X-ray or BNP or Bedside echocardiogram | 10 | 30 | It confirms the diagnosis. | 2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure |
 
+### What the patient says (every line)
+
+| Line | First seen |
+| --- | --- |
+| I cannot catch my breath. I cannot lie down. | with no treatment, at the start |
+| Cannot... breathe... | with no treatment, minute 19 |
+| That is better. I can talk properly now. | after every key action, minute 13 |
+
+### Echocardiogram (every state the case can show)
+
+Size values are multiples of normal (1 is normal). Ejection fraction is the fraction of blood ejected per beat. Effusion runs from 0 (none) to 1 (large).
+
+| Ejection fraction | LV size | LA size | Wall thickness | Effusion | RV collapse | Mitral regurgitation | Weak wall | Caption | First seen |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 0.25 | 1.3 | 1.4 | 0.7 | 0 | false | true | none | Dilated left ventricle with ejection fraction about 25%. Moderate functional mitral regurgitation. No pericardial effusion. | with no treatment, at the start |
+
+### What the patient looks like (every feature the case can show)
+
+Skin also turns paler as the patient worsens, and breathing speed follows the breathing rate.
+
+| Feature | First seen |
+| --- | --- |
+| sweating: no | with no treatment, at the start |
+| blue lips: yes | with no treatment, at the start |
+| neck veins distended: yes | with no treatment, at the start |
+| leg swelling: yes | with no treatment, at the start |
+| labored breathing: yes | with no treatment, at the start |
+| distressed face: yes | with no treatment, at the start |
+| oxygen mask: none | with no treatment, at the start |
+| IV line: no | with no treatment, at the start |
+| defibrillator pads: no | with no treatment, at the start |
+| pericardial drain: no | with no treatment, at the start |
+| died: no | with no treatment, at the start |
+| blue lips: no | with no treatment, when the case ended (dead) |
+| labored breathing: no | with no treatment, when the case ended (dead) |
+| distressed face: no | with no treatment, when the case ended (dead) |
+| died: yes | with no treatment, when the case ended (dead) |
+| oxygen mask: niv | after every key action, at the start |
+| IV line: yes | after every key action, at the start |
+| oxygen mask: o2 | after Oxygen by mask, at the start |
+| defibrillator pads: yes | after Synchronized cardioversion, at the start |
+
+### 12-lead ECG patterns this case shows
+
+| Pattern | First seen |
+| --- | --- |
+| lbbb | with no treatment, at the start |
+
 ### Sounds
 
 These are synthesized approximations. Every combination the case can play:
@@ -475,6 +771,16 @@ These are synthesized approximations. Every combination the case can play:
 **Categories:** Pericardial Disease. **Chief complaints:** Chest pain, Shortness of breath.
 
 **Patient:** 45-year-old man with 3 days of worsening shortness of breath and chest discomfort that is easier when he leans forward. He recently had a viral illness. He is pale, sitting upright and very anxious.
+
+### Probandus and handover
+
+| Item | Value |
+| --- | --- |
+| Age and sex | 45-year-old man |
+| Bay | 1 |
+| Triage | level 1: Resuscitation |
+| Posture | upright |
+| Handover | Paramedic handover: 45-year-old man with 3 days of worsening breathlessness and chest discomfort that is easier when he leans forward. He had a viral illness last week. No regular medicines, no known allergies. He has become paler and sleepier on the way in. |
 
 ### Starting state
 
@@ -586,6 +892,59 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 | Examine for muffled sounds, raised neck veins or pulsus paradoxus | Listen to the heart or Check neck veins (JVP) or Check pulses and perfusion | 10 | 10 | The bedside signs point to the diagnosis. | 2015 ESC Guidelines for the Diagnosis and Management of Pericardial Diseases |
 | Give a fluid bolus to buy time | IV fluid bolus 500 mL | 10 | 20 | Temporizing fluid can help until the fluid is drained. | 2015 ESC Guidelines for the Diagnosis and Management of Pericardial Diseases |
 | Get a 12-lead ECG | 12-lead ECG | 10 | 15 | It shows low voltage and alternans. | 2015 ESC Guidelines for the Diagnosis and Management of Pericardial Diseases |
+
+### What the patient says (every line)
+
+| Line | First seen |
+| --- | --- |
+| It hurts when I breathe in, and I cannot lie flat. | with no treatment, at the start |
+| I cannot breathe. I am so tired. | with no treatment, minute 25 |
+| I can breathe again. | after every key action, at the start |
+
+### Echocardiogram (every state the case can show)
+
+Size values are multiples of normal (1 is normal). Ejection fraction is the fraction of blood ejected per beat. Effusion runs from 0 (none) to 1 (large).
+
+| Ejection fraction | LV size | LA size | Wall thickness | Effusion | RV collapse | Mitral regurgitation | Weak wall | Caption | First seen |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 0.65 | 0.9 | 1 | 1 | 1 | true | false | none | Large circumferential pericardial effusion with the right ventricle collapsing in diastole. Tamponade physiology. | with no treatment, at the start |
+| 0.65 | 0.9 | 1 | 1 | 0.15 | false | false | none | Effusion reduced to a small rim. Right heart chambers fill normally. | after every key action, at the start |
+
+### What the patient looks like (every feature the case can show)
+
+Skin also turns paler as the patient worsens, and breathing speed follows the breathing rate.
+
+| Feature | First seen |
+| --- | --- |
+| sweating: yes | with no treatment, at the start |
+| blue lips: no | with no treatment, at the start |
+| neck veins distended: yes | with no treatment, at the start |
+| leg swelling: no | with no treatment, at the start |
+| labored breathing: yes | with no treatment, at the start |
+| distressed face: no | with no treatment, at the start |
+| oxygen mask: none | with no treatment, at the start |
+| IV line: no | with no treatment, at the start |
+| defibrillator pads: no | with no treatment, at the start |
+| pericardial drain: no | with no treatment, at the start |
+| died: no | with no treatment, at the start |
+| distressed face: yes | with no treatment, minute 6 |
+| blue lips: yes | with no treatment, minute 37 |
+| sweating: no | with no treatment, when the case ended (dead) |
+| labored breathing: no | with no treatment, when the case ended (dead) |
+| died: yes | with no treatment, when the case ended (dead) |
+| neck veins distended: no | after every key action, at the start |
+| IV line: yes | after every key action, at the start |
+| pericardial drain: yes | after every key action, at the start |
+| oxygen mask: o2 | after Oxygen by mask, at the start |
+| oxygen mask: niv | after Non-invasive ventilation (BiPAP), at the start |
+| defibrillator pads: yes | after Synchronized cardioversion, at the start |
+
+### 12-lead ECG patterns this case shows
+
+| Pattern | First seen |
+| --- | --- |
+| low-voltage | with no treatment, at the start |
+| pericarditis | after every key action, minute 1 |
 
 ### Sounds
 

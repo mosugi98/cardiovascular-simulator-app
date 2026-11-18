@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildReviewMarkdown, collectVariants } from '../scripts/clinicalReview.js';
+import { buildReviewMarkdown, collectVariants, echoLabel, lookFeatures } from '../scripts/clinicalReview.js';
+import { sceneModel } from '../src/ui/patientScene.js';
 import { CASES } from '../src/cases/index.js';
 import { CATALOG } from '../src/engine/catalog.js';
 import { createSim, perform, advance, MODES } from '../src/engine/sim.js';
@@ -64,10 +65,28 @@ test('every exam finding, test result and sound that random play can produce is 
         for (const [id, fn] of Object.entries(def.tests)) if (!v.tests.get(id)?.has(norm(fn(s)))) missing.push(`${def.id} test ${id}: ${fn(s)}`);
         const snd = def.sounds(s);
         if (!v.sounds.has(`heart: ${snd.heart}, lungs: ${snd.lungs}`)) missing.push(`${def.id} sounds ${snd.heart}/${snd.lungs}`);
+        if (!v.speech.has(norm(def.speech(s)))) missing.push(`${def.id} speech: ${def.speech(s)}`);
+        if (!v.echo.has(echoLabel(def.echo(s)))) missing.push(`${def.id} echo: ${echoLabel(def.echo(s))}`);
+        for (const f of lookFeatures(sceneModel(def, s))) if (!v.looks.has(f)) missing.push(`${def.id} look: ${f}`);
+        if (s.ecg.pattern && !v.patterns.has(s.ecg.pattern)) missing.push(`${def.id} ecg pattern ${s.ecg.pattern}`);
       }
     }
   }
   assert.deepEqual([...new Set(missing)].slice(0, 10), []);
+});
+
+test('the review file lists the handover, echo, ECG morphology, alarms and patient appearance', () => {
+  const md = buildReviewMarkdown();
+  for (const def of CASES) {
+    assert.ok(md.includes(def.handover), `${def.id} handover`);
+    assert.ok(md.includes(`level ${def.triage.level}: ${def.triage.label}`), `${def.id} triage`);
+    for (const d of [def.speech(createSim(def, MODES.CHALLENGE))]) assert.ok(md.includes(d), `${def.id} speech`);
+    assert.ok(md.includes(def.echo(createSim(def, MODES.CHALLENGE)).caption), `${def.id} echo caption`);
+  }
+  for (const needle of ['### ECG pattern: anterior-stemi', '### ECG pattern: lbbb', '### ECG pattern: pericarditis', 'Monitor alarms and nurse call-outs',
+    'Sats are down to', 'Normal values for each lead', 'blue lips: yes', 'neck veins distended: yes', 'leg swelling: yes', 'pericardial drain: yes']) {
+    assert.ok(md.includes(needle), `missing: ${needle}`);
+  }
 });
 
 test('every treatment and key action has a guideline source (or is explicitly sourceless by design)', () => {
