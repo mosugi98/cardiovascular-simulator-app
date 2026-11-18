@@ -33,13 +33,13 @@ A browser-based cardiovascular emergency simulator for medical students, residen
 
 ### Actions and patient response
 17. The learner can order tests and give treatments from a menu. Each test returns a result consistent with the case and the current patient state.
-18. Each action has a time cost (used in learning mode) and an effect on the patient's state.
+18. Each action has a time cost (used in learning mode). Treatments that are indicated, and treatments that are harmful, change the patient's state. A treatment that is not indicated for the case may have no effect on the patient, and is shown as "no effect" in the debrief.
 19. Harmful or contraindicated actions are allowed and really worsen the patient: vitals and rhythm deteriorate and the patient can die. The simulator does not block them. Examples: a nitrate in cardiac tamponade, or a beta-blocker in acutely decompensated heart failure.
 20. A case ends when the patient stabilizes, when the patient dies, or when the learner chooses to finish.
 
 ### Debrief and scoring
 21. When a case ends, the learner sees the outcome, a numeric score, and a timeline of every action they took.
-22. Each action in the timeline is marked helpful, harmful or missed (for key actions never taken), with a short explanation and the guideline it is based on.
+22. Each action in the timeline is marked helpful, harmful or "no effect" (for an action that neither helps nor harms), with a short explanation. A key action the learner never took is listed as missed. Where an action's rating rests on a guideline, the guideline is shown with the explanation. An action rated "no effect" may have no guideline.
 
 ### Progress and storage
 23. The app saves, in the browser only, the completed cases, best scores and favorite cases.
@@ -53,6 +53,7 @@ A browser-based cardiovascular emergency simulator for medical students, residen
 - **Refresh, close or switch away mid-case:** the case restarts from the beginning when the learner returns. Nothing from the interrupted run is saved or scored.
 - **Challenge mode, patient dies before the learner acts:** the case ends with a loss and the debrief marks the missed key actions.
 - **Harmful action:** the action is carried out, the patient worsens, and the debrief marks the action as harmful with an explanation.
+- **Leaving a case right after the patient dies (Leave case or the browser Back button):** the learner goes where they chose. No debrief appears and no result is recorded for that run.
 - **Repeating an action:** a repeated action is allowed and takes effect again, with its time cost. Anything that should not be repeated (for example a maximum drug dose) is handled by the content rules in requirement 26.
 - **No saved progress yet:** the case list works and shows no completed cases or scores.
 - **Browser storage unavailable or cleared:** the app still plays all cases. Progress is simply not remembered, and the learner is told so.
@@ -68,12 +69,12 @@ A browser-based cardiovascular emergency simulator for medical students, residen
 - [ ] Each case has been played to a winning end and to a losing end, and both reach the debrief.
 - [ ] Vitals, the ECG waveform, exam findings and simulated sounds all change when the patient's state changes.
 - [ ] A harmful action in each case visibly worsens the patient and appears as "harmful" in the debrief.
-- [ ] The debrief shows an outcome, a numeric score, and a timeline where each action is marked helpful, harmful or missed with an explanation and guideline.
+- [ ] The debrief shows an outcome, a numeric score, and a timeline where each action is marked helpful, harmful or "no effect" with an explanation, and key actions never taken are listed as missed. Helpful and harmful actions show their guideline.
 - [ ] Refreshing mid-case restarts the case.
 - [ ] Progress (completed cases, best scores, favorites) is remembered in the browser. Export then import on a clean browser restores it. An invalid file is rejected without changing existing progress.
 - [ ] Case search works as previously built, including the clear button, Escape, and the "No search results" state.
 - [ ] `npm test` passes, with automated tests covering the simulation engine, scoring, search, and progress save/export/import.
-- [ ] The clinical content review file exists and lists every clinical value and rule with its guideline source. Every case shows the "not clinically reviewed" notice.
+- [ ] The clinical content review file exists and lists every clinical value and rule with its guideline source, including every different exam finding, test result and sound a case can produce as the patient's state changes. Every case shows the "not clinically reviewed" notice.
 - [ ] Keyboard-only play works for a full case, and the layout works at 360 px width with no horizontal scroll. I have checked and reported both.
 - [ ] No Full Code Medical Simulation content, code or audio is present in the repository.
 - [ ] The site is deployed from `main` and the live URL serves the finished version.

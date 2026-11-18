@@ -108,7 +108,7 @@ function renderList() {
     }, fav ? '★' : '☆');
     return h('li', { class: 'card' },
       h('div', { class: 'info' },
-        h('h3', {}, c.name),
+        h('h2', { class: 'card-title' }, c.name),
         h('p', { class: 'muted small' }, `${c.prefix}-${c.caseNumber} · ${c.categories.join(', ')} · ${c.chiefComplaints.join(', ')}`),
         h('p', { class: 'small' }, progress)),
       h('div', { class: 'actions' }, star,
@@ -226,7 +226,8 @@ function renderPlay(def, mode, { notice } = {}) {
   const rhythmText = h('span', {});
   const deadBanner = h('div', { class: 'dead-banner', role: 'status', hidden: true }, 'The patient has died.');
   const clock = h('span', { class: 'clock', 'aria-label': 'Case time' });
-  const logEl = h('ol', { class: 'log', role: 'log', 'aria-live': 'polite', 'aria-label': 'Case log' });
+  const logEl = h('ol', { class: 'log' });
+  const logRegion = h('div', { role: 'log', 'aria-live': 'polite', 'aria-label': 'Case log' }, logEl);
   const audioStatus = h('p', { class: 'small muted', role: 'status' });
   const pauseBtn = h('button', { type: 'button', 'aria-pressed': 'false' }, 'Pause');
   const actionButtons = [];
@@ -282,11 +283,13 @@ function renderPlay(def, mode, { notice } = {}) {
   }
 
   let ended = false;
+  let debriefTimer = null;
   function endCase() {
     if (ended) return;
     ended = true;
     stopAll();
-    setTimeout(() => renderDebrief(def, mode, s), s.status === 'finished' ? 0 : 900);
+    // Short pause so the learner sees the final monitor state. Leaving the case cancels it.
+    debriefTimer = setTimeout(() => { debriefTimer = null; renderDebrief(def, mode, s); }, s.status === 'finished' ? 0 : 900);
   }
 
   const ecg = startEcgRenderer(canvas, () => ({ rhythm: s.rhythm, hr: s.vitals.hr, ecg: s.ecg }));
@@ -303,6 +306,7 @@ function renderPlay(def, mode, { notice } = {}) {
   function stopAll() {
     ecg.stop();
     if (timer) clearInterval(timer);
+    if (debriefTimer) { clearTimeout(debriefTimer); debriefTimer = null; }
     audio.stop();
     document.removeEventListener('visibilitychange', onVisibility);
   }
@@ -366,7 +370,7 @@ function renderPlay(def, mode, { notice } = {}) {
     h('div', { class: 'layout' },
       h('section', { class: 'panel', 'aria-label': 'Actions' }, h('h2', { style: 'margin-top:0' }, 'What do you do?'), groups, audioStatus,
         h('p', { class: 'small muted' }, 'Heart and lung sounds are simulated in your browser. They are approximations, not recordings.')),
-      h('section', { class: 'panel findings', 'aria-label': 'Findings' }, h('h2', { style: 'margin-top:0' }, 'Findings'), logEl)));
+      h('section', { class: 'panel findings', 'aria-label': 'Findings' }, h('h2', { style: 'margin-top:0' }, 'Findings'), logRegion)));
 
   cleanup = () => { stopAll(); };
   update();

@@ -133,26 +133,33 @@ This file is generated from the case data by `npm run review:gen`. Do not edit i
 
 Treatments not listed above are rated "no effect": "This treatment is not indicated here and has no major effect on this patient."
 
-### Examination findings at the start
+### Examination findings (every different finding the case can produce)
 
-| Exam | Finding |
-| --- | --- |
-| General inspection | Anxious, pale and sweaty, clutching his chest. |
-| Listen to the heart | Regular rhythm at about 90/min. Normal first and second sounds, a soft fourth sound, no murmur. |
-| Listen to the lungs | Clear on both sides. |
-| Check neck veins (JVP) | Neck veins are not raised. |
-| Check pulses and perfusion | Pulses strong and equal in both arms. Warm hands. |
+Numbers in a finding are examples, because vital signs change every minute. "First seen" is the first situation, in the routes played for this review, that produced the finding.
 
-### Test results at the start
+| Exam | Finding | First seen |
+| --- | --- | --- |
+| General inspection | Anxious, pale and sweaty, clutching his chest. | with no treatment, at the start |
+| General inspection | Grey, drenched in sweat, drowsy and in severe distress. | with no treatment, minute 50 |
+| General inspection | Comfortable, pain-free, no longer sweating. | after every key action, minute 30 |
+| Listen to the heart | Regular rhythm at about 90/min. Normal first and second sounds, a soft fourth sound, no murmur. | with no treatment, at the start |
+| Listen to the lungs | Clear on both sides. | with no treatment, at the start |
+| Listen to the lungs | Crackles at both lung bases. | with no treatment, minute 50 |
+| Check neck veins (JVP) | Neck veins are not raised. | with no treatment, at the start |
+| Check pulses and perfusion | Pulses strong and equal in both arms. Warm hands. | with no treatment, at the start |
+| Check pulses and perfusion | Weak, fast pulses. Cold, clammy hands and feet. | with no treatment, minute 50 |
 
-| Test | Result |
-| --- | --- |
-| 12-lead ECG | Sinus rhythm 90/min. ST elevation of 3 to 4 mm in V1 to V4 with reciprocal ST depression in II, III and aVF. Anterior STEMI. |
-| Troponin | Troponin I 0.12 ng/mL (normal below 0.04), and rising. |
-| BNP | BNP 210 pg/mL, mildly raised. |
-| Electrolytes and creatinine | Potassium 4.1, sodium 139, creatinine 1.0 mg/dL, glucose 128 mg/dL. |
-| Chest X-ray | Normal heart size. Clear lung fields. |
-| Bedside echocardiogram | Hypokinesis of the anterior wall and apex. Estimated ejection fraction 40%. No pericardial effusion. |
+### Test results (every different result the case can produce)
+
+| Test | Result | First seen |
+| --- | --- | --- |
+| 12-lead ECG | Sinus rhythm 90/min. ST elevation of 3 to 4 mm in V1 to V4 with reciprocal ST depression in II, III and aVF. Anterior STEMI. | with no treatment, at the start |
+| 12-lead ECG | Sinus rhythm 99/min. ST elevation in V1 to V4 is falling, with new T wave inversion. Reperfusion pattern. | after every key action, minute 30 |
+| Troponin | Troponin I 0.12 ng/mL (normal below 0.04), and rising. | with no treatment, at the start |
+| BNP | BNP 210 pg/mL, mildly raised. | with no treatment, at the start |
+| Electrolytes and creatinine | Potassium 4.1, sodium 139, creatinine 1.0 mg/dL, glucose 128 mg/dL. | with no treatment, at the start |
+| Chest X-ray | Normal heart size. Clear lung fields. | with no treatment, at the start |
+| Bedside echocardiogram | Hypokinesis of the anterior wall and apex. Estimated ejection fraction 40%. No pericardial effusion. | with no treatment, at the start |
 
 ### Exams and tests rated helpful
 
@@ -176,7 +183,12 @@ Treatments not listed above are rated "no effect": "This treatment is not indica
 
 ### Sounds
 
-At the start the simulated heart sound is "normal" and the lung sound is "clear". These are synthesized approximations.
+These are synthesized approximations. Every combination the case can play:
+
+| Sounds | First seen |
+| --- | --- |
+| heart: normal, lungs: clear | with no treatment, at the start |
+| heart: normal, lungs: crackles | with no treatment, minute 50 |
 
 ### Review decision
 
@@ -255,26 +267,31 @@ At the start the simulated heart sound is "normal" and the lung sound is "clear"
 
 Treatments not listed above are rated "no effect": "This treatment is not indicated here and has no major effect on this patient."
 
-### Examination findings at the start
+### Examination findings (every different finding the case can produce)
 
-| Exam | Finding |
-| --- | --- |
-| General inspection | Anxious and a little short of breath, but comfortable at rest and speaking in full sentences. |
-| Listen to the heart | Irregularly irregular and fast, about 147/min. No murmur. |
-| Listen to the lungs | Clear on both sides. |
-| Check neck veins (JVP) | Neck veins are not raised. |
-| Check pulses and perfusion | Irregular pulse. The radial pulse is slower than the heartbeat heard at the chest (pulse deficit). |
+Numbers in a finding are examples, because vital signs change every minute. "First seen" is the first situation, in the routes played for this review, that produced the finding.
 
-### Test results at the start
+| Exam | Finding | First seen |
+| --- | --- | --- |
+| General inspection | Anxious and a little short of breath, but comfortable at rest and speaking in full sentences. | with no treatment, at the start |
+| Listen to the heart | Irregularly irregular and fast, about 147/min. No murmur. | with no treatment, at the start |
+| Listen to the heart | Regular rhythm at about 147/min. No murmur. | after Synchronized cardioversion, at the start |
+| Listen to the lungs | Clear on both sides. | with no treatment, at the start |
+| Check neck veins (JVP) | Neck veins are not raised. | with no treatment, at the start |
+| Check pulses and perfusion | Irregular pulse. The radial pulse is slower than the heartbeat heard at the chest (pulse deficit). | with no treatment, at the start |
+| Check pulses and perfusion | Regular pulse, equal in both arms. | after Synchronized cardioversion, at the start |
 
-| Test | Result |
-| --- | --- |
-| 12-lead ECG | Irregularly irregular rhythm with no P waves. Ventricular rate 147/min, narrow QRS. Atrial fibrillation with rapid ventricular response. |
-| Troponin | Troponin I below 0.04 ng/mL (normal). |
-| BNP | BNP 140 pg/mL, slightly raised for her age. |
-| Electrolytes and creatinine | Potassium 3.6, magnesium 1.7 (low-normal), creatinine 0.9 mg/dL. |
-| Chest X-ray | Normal heart size. Clear lung fields. |
-| Bedside echocardiogram | Ejection fraction 55%. Mildly enlarged left atrium. No pericardial effusion. Bedside views cannot rule out a clot in the left atrial appendage. |
+### Test results (every different result the case can produce)
+
+| Test | Result | First seen |
+| --- | --- | --- |
+| 12-lead ECG | Irregularly irregular rhythm with no P waves. Ventricular rate 147/min, narrow QRS. Atrial fibrillation with rapid ventricular response. | with no treatment, at the start |
+| 12-lead ECG | Sinus rhythm 147/min. Narrow QRS. No acute ST changes. | after Synchronized cardioversion, at the start |
+| Troponin | Troponin I below 0.04 ng/mL (normal). | with no treatment, at the start |
+| BNP | BNP 140 pg/mL, slightly raised for her age. | with no treatment, at the start |
+| Electrolytes and creatinine | Potassium 3.6, magnesium 1.7 (low-normal), creatinine 0.9 mg/dL. | with no treatment, at the start |
+| Chest X-ray | Normal heart size. Clear lung fields. | with no treatment, at the start |
+| Bedside echocardiogram | Ejection fraction 55%. Mildly enlarged left atrium. No pericardial effusion. Bedside views cannot rule out a clot in the left atrial appendage. | with no treatment, at the start |
 
 ### Exams and tests rated helpful
 
@@ -298,7 +315,12 @@ Treatments not listed above are rated "no effect": "This treatment is not indica
 
 ### Sounds
 
-At the start the simulated heart sound is "afib" and the lung sound is "clear". These are synthesized approximations.
+These are synthesized approximations. Every combination the case can play:
+
+| Sounds | First seen |
+| --- | --- |
+| heart: afib, lungs: clear | with no treatment, at the start |
+| heart: normal, lungs: clear | after Synchronized cardioversion, at the start |
 
 ### Review decision
 
@@ -385,26 +407,31 @@ At the start the simulated heart sound is "afib" and the lung sound is "clear". 
 
 Treatments not listed above are rated "no effect": "This treatment is not indicated here and has no major effect on this patient."
 
-### Examination findings at the start
+### Examination findings (every different finding the case can produce)
 
-| Exam | Finding |
-| --- | --- |
-| General inspection | Sitting bolt upright, using his neck muscles to breathe and speaking in short phrases. |
-| Listen to the heart | Regular and fast at about 108/min. A third heart sound (gallop) and a soft murmur at the apex. |
-| Listen to the lungs | Crackles up to the middle of both lungs. No wheeze. |
-| Check neck veins (JVP) | Neck veins are raised, about 12 cm, and pressing on the liver raises them further. |
-| Check pulses and perfusion | Warm hands and feet. Pitting swelling up to both knees. |
+Numbers in a finding are examples, because vital signs change every minute. "First seen" is the first situation, in the routes played for this review, that produced the finding.
 
-### Test results at the start
+| Exam | Finding | First seen |
+| --- | --- | --- |
+| General inspection | Sitting bolt upright, using his neck muscles to breathe and speaking in short phrases. | with no treatment, at the start |
+| General inspection | Sitting up, breathing comfortably and speaking in full sentences. | after every key action, minute 13 |
+| Listen to the heart | Regular and fast at about 108/min. A third heart sound (gallop) and a soft murmur at the apex. | with no treatment, at the start |
+| Listen to the lungs | Crackles up to the middle of both lungs. No wheeze. | with no treatment, at the start |
+| Listen to the lungs | Fine crackles at the bases only. | after every key action, minute 13 |
+| Check neck veins (JVP) | Neck veins are raised, about 12 cm, and pressing on the liver raises them further. | with no treatment, at the start |
+| Check pulses and perfusion | Warm hands and feet. Pitting swelling up to both knees. | with no treatment, at the start |
 
-| Test | Result |
-| --- | --- |
-| 12-lead ECG | Sinus tachycardia 108/min with an old left bundle branch block. No new ST elevation. |
-| Troponin | Troponin I 0.06 ng/mL, mildly raised, in a pattern of long-standing heart strain. |
-| BNP | BNP 1,850 pg/mL, markedly raised. |
-| Electrolytes and creatinine | Potassium 4.8, sodium 133, creatinine 1.6 mg/dL (his usual is 1.4). |
-| Chest X-ray | Enlarged heart, haziness around both lung hila and Kerley B lines: pulmonary edema. |
-| Bedside echocardiogram | Dilated left ventricle, ejection fraction about 25%, moderate functional mitral regurgitation, dilated IVC. No pericardial effusion. |
+### Test results (every different result the case can produce)
+
+| Test | Result | First seen |
+| --- | --- | --- |
+| 12-lead ECG | Sinus tachycardia 108/min with an old left bundle branch block. No new ST elevation. | with no treatment, at the start |
+| Troponin | Troponin I 0.06 ng/mL, mildly raised, in a pattern of long-standing heart strain. | with no treatment, at the start |
+| BNP | BNP 1,850 pg/mL, markedly raised. | with no treatment, at the start |
+| Electrolytes and creatinine | Potassium 4.8, sodium 133, creatinine 1.6 mg/dL (his usual is 1.4). | with no treatment, at the start |
+| Chest X-ray | Enlarged heart, haziness around both lung hila and Kerley B lines: pulmonary edema. | with no treatment, at the start |
+| Chest X-ray | Enlarged heart. Pulmonary edema is clearing. | after every key action, minute 13 |
+| Bedside echocardiogram | Dilated left ventricle, ejection fraction about 25%, moderate functional mitral regurgitation, dilated IVC. No pericardial effusion. | with no treatment, at the start |
 
 ### Exams and tests rated helpful
 
@@ -431,7 +458,12 @@ Treatments not listed above are rated "no effect": "This treatment is not indica
 
 ### Sounds
 
-At the start the simulated heart sound is "s3" and the lung sound is "crackles". These are synthesized approximations.
+These are synthesized approximations. Every combination the case can play:
+
+| Sounds | First seen |
+| --- | --- |
+| heart: s3, lungs: crackles | with no treatment, at the start |
+| heart: s3, lungs: clear | after every key action, minute 13 |
 
 ### Review decision
 
@@ -506,26 +538,34 @@ At the start the simulated heart sound is "s3" and the lung sound is "crackles".
 
 Treatments not listed above are rated "no effect": "This treatment is not indicated here and has no major effect on this patient."
 
-### Examination findings at the start
+### Examination findings (every different finding the case can produce)
 
-| Exam | Finding |
-| --- | --- |
-| General inspection | Pale, sweaty and anxious, sitting upright and breathing fast. |
-| Listen to the heart | Distant, muffled heart sounds, fast at about 130/min. |
-| Listen to the lungs | Clear on both sides. |
-| Check neck veins (JVP) | Neck veins are markedly raised, about 14 cm, and do not fall when he breathes in. |
-| Check pulses and perfusion | Fast, thin pulses. The systolic pressure falls by about 15 mmHg when he breathes in (pulsus paradoxus). |
+Numbers in a finding are examples, because vital signs change every minute. "First seen" is the first situation, in the routes played for this review, that produced the finding.
 
-### Test results at the start
+| Exam | Finding | First seen |
+| --- | --- | --- |
+| General inspection | Pale, sweaty and anxious, sitting upright and breathing fast. | with no treatment, at the start |
+| General inspection | Calmer, color returning, breathing easier. | after every key action, at the start |
+| Listen to the heart | Distant, muffled heart sounds, fast at about 130/min. | with no treatment, at the start |
+| Listen to the heart | Regular, normal heart sounds at about 130/min. | after every key action, at the start |
+| Listen to the lungs | Clear on both sides. | with no treatment, at the start |
+| Check neck veins (JVP) | Neck veins are markedly raised, about 14 cm, and do not fall when he breathes in. | with no treatment, at the start |
+| Check neck veins (JVP) | Neck veins are back to a normal height. | after every key action, at the start |
+| Check pulses and perfusion | Fast, thin pulses. The systolic pressure falls by about 15 mmHg when he breathes in (pulsus paradoxus). | with no treatment, at the start |
+| Check pulses and perfusion | Strong, regular pulses. | after every key action, at the start |
 
-| Test | Result |
-| --- | --- |
-| 12-lead ECG | Sinus tachycardia 130/min. Low voltage QRS complexes with electrical alternans (the QRS height alternates beat to beat). |
-| Troponin | Troponin I below 0.04 ng/mL (normal). |
-| BNP | BNP 80 pg/mL, normal. |
-| Electrolytes and creatinine | Potassium 4.4, creatinine 1.3 mg/dL, slightly high from poor perfusion. |
-| Chest X-ray | Enlarged, globe-shaped heart outline. Clear lung fields. |
-| Bedside echocardiogram | Large circumferential pericardial effusion (about 2.5 cm) with the right atrium and right ventricle collapsing in diastole. Dilated IVC that does not collapse. Tamponade physiology. |
+### Test results (every different result the case can produce)
+
+| Test | Result | First seen |
+| --- | --- | --- |
+| 12-lead ECG | Sinus tachycardia 130/min. Low voltage QRS complexes with electrical alternans (the QRS height alternates beat to beat). | with no treatment, at the start |
+| 12-lead ECG | Sinus rhythm 130/min. Normal voltage. Diffuse mild ST elevation with PR depression (pericarditis). | after every key action, at the start |
+| Troponin | Troponin I below 0.04 ng/mL (normal). | with no treatment, at the start |
+| BNP | BNP 80 pg/mL, normal. | with no treatment, at the start |
+| Electrolytes and creatinine | Potassium 4.4, creatinine 1.3 mg/dL, slightly high from poor perfusion. | with no treatment, at the start |
+| Chest X-ray | Enlarged, globe-shaped heart outline. Clear lung fields. | with no treatment, at the start |
+| Bedside echocardiogram | Large circumferential pericardial effusion (about 2.5 cm) with the right atrium and right ventricle collapsing in diastole. Dilated IVC that does not collapse. Tamponade physiology. | with no treatment, at the start |
+| Bedside echocardiogram | Effusion reduced to a small rim. Right heart chambers fill normally. IVC collapses with breathing. | after every key action, at the start |
 
 ### Exams and tests rated helpful
 
@@ -549,7 +589,12 @@ Treatments not listed above are rated "no effect": "This treatment is not indica
 
 ### Sounds
 
-At the start the simulated heart sound is "muffled" and the lung sound is "clear". These are synthesized approximations.
+These are synthesized approximations. Every combination the case can play:
+
+| Sounds | First seen |
+| --- | --- |
+| heart: muffled, lungs: clear | with no treatment, at the start |
+| heart: normal, lungs: clear | after every key action, at the start |
 
 ### Review decision
 

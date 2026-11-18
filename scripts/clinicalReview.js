@@ -1,6 +1,6 @@
 import { CASES } from '../src/cases/index.js';
 import { CATALOG } from '../src/engine/catalog.js';
-import { createSim, MODES } from '../src/engine/sim.js';
+import { createSim, perform, advance, MODES } from '../src/engine/sim.js';
 import { SCORING } from '../src/engine/score.js';
 import { CHALLENGE_SIM_MIN_PER_SEC } from '../src/engine/sim.js';
 
@@ -20,6 +20,49 @@ const table = (head, rows) => [
   `| ${head.map(() => '---').join(' | ')} |`,
   ...rows.map((r) => `| ${r.map(cell).join(' | ')} |`),
 ].join('\n');
+
+/**
+ * Plays a case along many routes and records every different exam finding, test
+ * result and sound it can produce, with the first situation that produced it.
+ * Numbers are ignored when deciding whether two texts are the same, because vital
+ * signs drift every minute.
+ */
+export function collectVariants(def) {
+  const norm = (t) => String(t).replace(/\d+(\.\d+)?/g, '#');
+  const exam = new Map();
+  const tests = new Map();
+  const sounds = new Map();
+  const note = (store, id, key, text, when) => {
+    if (!store.has(id)) store.set(id, new Map());
+    if (!store.get(id).has(key)) store.get(id).set(key, { text, when });
+  };
+
+  const sample = (s, when) => {
+    for (const [id, fn] of Object.entries(def.exam)) { const t = fn(s); note(exam, id, norm(t), t, when); }
+    for (const [id, fn] of Object.entries(def.tests)) { const t = fn(s); note(tests, id, norm(t), t, when); }
+    const snd = def.sounds(s);
+    const label = `heart: ${snd.heart}, lungs: ${snd.lungs}`;
+    if (!sounds.has(label)) sounds.set(label, when);
+  };
+
+  const route = (name, actions) => {
+    const s = createSim(def, MODES.CHALLENGE);
+    for (const id of actions) perform(def, s, id);
+    for (let m = 0; m <= 200 && s.status === 'active'; m++) {
+      sample(s, m === 0 ? `${name}, at the start` : `${name}, minute ${m}`);
+      advance(def, s, 1);
+    }
+    sample(s, `${name}, when the case ended (${s.status})`);
+  };
+
+  route('with no treatment', []);
+  route('after every key action', def.key.map((k) => k.ids[0]));
+  for (const id of Object.keys(def.treat)) {
+    route(`after ${CATALOG[id].label}`, [id]);
+    if (id !== 'heparin') route(`after Heparin then ${CATALOG[id].label}`, ['heparin', id]);
+  }
+  return { exam, tests, sounds };
+}
 
 /** Builds docs/clinical-content-review.md from the case data, so it cannot drift from the code. */
 export function buildReviewMarkdown() {
@@ -90,13 +133,17 @@ export function buildReviewMarkdown() {
     out.push('');
     out.push('Treatments not listed above are rated "no effect": "This treatment is not indicated here and has no major effect on this patient."');
     out.push('');
-    out.push('### Examination findings at the start');
+    const variants = collectVariants(def);
+    const variantRows = (store) => [...store.entries()].flatMap(([id, byKey]) => [...byKey.values()].map((v) => [CATALOG[id].label, v.text, v.when]));
+    out.push('### Examination findings (every different finding the case can produce)');
     out.push('');
-    out.push(table(['Exam', 'Finding'], Object.entries(def.exam).map(([id, fn]) => [CATALOG[id].label, fn(start)])));
+    out.push('Numbers in a finding are examples, because vital signs change every minute. "First seen" is the first situation, in the routes played for this review, that produced the finding.');
     out.push('');
-    out.push('### Test results at the start');
+    out.push(table(['Exam', 'Finding', 'First seen'], variantRows(variants.exam)));
     out.push('');
-    out.push(table(['Test', 'Result'], Object.entries(def.tests).map(([id, fn]) => [CATALOG[id].label, fn(start)])));
+    out.push('### Test results (every different result the case can produce)');
+    out.push('');
+    out.push(table(['Test', 'Result', 'First seen'], variantRows(variants.tests)));
     out.push('');
     out.push('### Exams and tests rated helpful');
     out.push('');
@@ -110,7 +157,9 @@ export function buildReviewMarkdown() {
     out.push('');
     out.push('### Sounds');
     out.push('');
-    out.push(`At the start the simulated heart sound is "${def.sounds(start).heart}" and the lung sound is "${def.sounds(start).lungs}". These are synthesized approximations.`);
+    out.push('These are synthesized approximations. Every combination the case can play:');
+    out.push('');
+    out.push(table(['Sounds', 'First seen'], [...variants.sounds.entries()]));
     out.push('');
     out.push('### Review decision');
     out.push('');
