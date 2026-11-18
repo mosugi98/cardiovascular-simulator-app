@@ -3,107 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cardiovascular Simulator: Case Search</title>
-  <style>
-    body { font: 16px system-ui, sans-serif; margin: 0; background: #f5f6f8; color: #1b1f24; }
-    main { max-width: 640px; margin: 0 auto; padding: 16px; }
-    .bar { display: flex; gap: 8px; margin-bottom: 8px; }
-    .field { position: relative; flex: 1; }
-    input[type=search] { width: 100%; box-sizing: border-box; padding: 10px 40px 10px 14px; border: 1px solid #c9ced6; border-radius: 8px; font: inherit; }
-    /* Use our own clear button, not the browser's built-in one. */
-    input[type=search]::-webkit-search-cancel-button { -webkit-appearance: none; }
-    .clear { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); width: 28px; height: 28px; border: 0; border-radius: 50%; background: transparent; color: #5b6470; font-size: 18px; line-height: 1; cursor: pointer; }
-    .clear:hover, .clear:focus-visible { background: #e6e9ee; }
-    select { padding: 10px; border: 1px solid #c9ced6; border-radius: 8px; font: inherit; background: #fff; }
-    .opt { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #5b6470; margin-bottom: 12px; }
-    ul { list-style: none; padding: 0; margin: 0; }
-    li { background: #fff; border: 1px solid #e0e3e8; border-radius: 8px; padding: 10px 14px; margin-bottom: 8px; }
-    .meta { color: #5b6470; font-size: 13px; margin-top: 2px; }
-    .empty { text-align: center; color: #5b6470; padding: 32px 0; }
-    .empty strong { display: block; color: #1b1f24; font-size: 17px; margin-bottom: 4px; }
-  </style>
+  <title>Cardiovascular Simulator</title>
+  <meta name="description" content="Practise four cardiovascular emergencies: read the monitor, order tests, give treatments and review a scored debrief. Educational demo." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 28S4 20 4 11a6 6 0 0 1 12-2 6 6 0 0 1 12 2c0 9-12 17-12 17z' fill='%23a4161a'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main>
-    <h1>Cases</h1>
-    <div class="bar">
-      <div class="field">
-        <input id="q" type="search" placeholder="Search cases" autocomplete="off" aria-label="Search cases" />
-        <button id="clear" class="clear" type="button" aria-label="Clear search" hidden>&times;</button>
-      </div>
-      <select id="sort" aria-label="Sort">
-        <option value="caseNumber">Case number</option>
-        <option value="recentlyPlayed">Recently played</option>
-        <option value="name">Name</option>
-      </select>
-    </div>
-    <label class="opt">
-      <input id="restricted" type="checkbox" />
-      Restricted mode: hide the list until a search of 3+ characters
-    </label>
-
-    <ul id="list"></ul>
-    <div id="empty" class="empty" role="status" aria-live="polite" hidden>
-      <strong id="emptyTitle"></strong>
-      <span id="emptyText"></span>
-    </div>
-  </main>
-
-  <script type="module">
-    import { searchCases, DEFAULT_MIN_QUERY_LENGTH } from './src/search/caseSearch.js';
-    import { sampleCases } from './src/data/sampleCases.js';
-
-    const $ = (id) => document.getElementById(id);
-    const q = $('q'), clearBtn = $('clear'), sort = $('sort'), restricted = $('restricted');
-    const list = $('list'), empty = $('empty'), emptyTitle = $('emptyTitle'), emptyText = $('emptyText');
-
-    function showEmpty(title, text) {
-      emptyTitle.textContent = title;
-      emptyText.textContent = text;
-      empty.hidden = false;
-    }
-
-    function render() {
-      const { results, needsMoreInput } = searchCases(sampleCases, {
-        query: q.value,
-        sort: sort.value,
-        minQueryLength: restricted.checked ? DEFAULT_MIN_QUERY_LENGTH : 0,
-      });
-
-      clearBtn.hidden = q.value.length === 0;
-
-      list.replaceChildren(...results.map((c) => {
-        const li = document.createElement('li');
-        const title = document.createElement('strong');
-        title.textContent = c.name; // textContent: never inject case data as HTML
-        const meta = document.createElement('div');
-        meta.className = 'meta';
-        meta.textContent = `${c.prefix}-${c.caseNumber} · ${(c.categories ?? []).join(', ')}`;
-        li.append(title, meta);
-        return li;
-      }));
-
-      if (needsMoreInput) {
-        showEmpty('Enter at least 3 characters', 'Restricted mode is on. Use the search bar above to find a case.');
-      } else if (results.length === 0) {
-        showEmpty('No search results', 'Try another term.');
-      } else {
-        empty.hidden = true;
-      }
-    }
-
-    function clearSearch() {
-      q.value = '';
-      render();
-      q.focus();
-    }
-
-    q.addEventListener('input', render);
-    q.addEventListener('keydown', (e) => { if (e.key === 'Escape') clearSearch(); });
-    clearBtn.addEventListener('click', clearSearch);
-    sort.addEventListener('change', render);
-    restricted.addEventListener('change', render);
-    render();
-  </script>
+  <div id="app"></div>
+  <noscript><p class="noscript">This simulator needs JavaScript. Please turn it on and reload the page.</p></noscript>
+  <script type="module" src="src/ui/app.js"></script>
 </body>
 </html>

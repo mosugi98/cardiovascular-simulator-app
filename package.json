@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
+    "review:gen": "node scripts/generate-review.js",
     "start": "npx --yes serve ."
   }
 }
