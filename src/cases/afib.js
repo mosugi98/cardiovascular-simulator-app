@@ -1,5 +1,6 @@
-﻿import { lin, round, addEvent } from '../engine/util.js';
+import { lin, round, addEvent } from '../engine/util.js';
 import { SRC } from './sources.js';
+import * as R from './results/afib.js';
 import { unindicated } from './shared.js';
 
 export const P = {
@@ -87,15 +88,7 @@ export default {
       lastmeal: 'Tea and toast this morning.',
     },
   },
-  auscultation: {
-    heart: {
-      aortic: () => 'Fast and irregular. No murmur at the aortic area.',
-      pulmonic: () => 'Fast and irregular. No murmur at the pulmonic area.',
-      tricuspid: () => 'Fast and irregular. No murmur at the lower left sternal edge.',
-      mitral: (s) => (s.flags.sinus ? 'Regular rhythm. No murmur at the apex.' : 'Irregularly irregular and fast at the apex. The first sound changes in loudness from beat to beat. No murmur.'),
-    },
-    lungs: { upper: () => 'Clear in the upper zones.', lower: () => 'Clear at the bases.' },
-  },
+  auscultation: R.auscultation,
 
   setup: () => ({ severity: P.startSeverity, flags: {} }),
 
@@ -182,28 +175,9 @@ export default {
     aspirin: { rating: 'neutral', why: 'Aspirin does not replace anticoagulation for stroke prevention in AF.', source: SRC.AF, text: 'Aspirin is given.' },
   },
 
-  exam: {
-    inspect: () => 'Anxious and a little short of breath, but comfortable at rest and speaking in full sentences.',
-    heartSounds: (s) => (s.flags.sinus
-      ? `Regular rhythm at about ${round(s.vitals.hr)}/min. No murmur.`
-      : `Irregularly irregular and fast, about ${round(s.vitals.hr)}/min. No murmur.`),
-    lungs: () => 'Clear on both sides.',
-    jvp: () => 'Neck veins are not raised.',
-    pulses: (s) => (s.flags.sinus
-      ? 'Regular pulse, equal in both arms.'
-      : 'Irregular pulse. The radial pulse is slower than the heartbeat heard at the chest (pulse deficit).'),
-  },
-
-  tests: {
-    ecg12: (s) => (s.flags.sinus
-      ? `Sinus rhythm ${round(s.vitals.hr)}/min. Narrow QRS. No acute ST changes.`
-      : `Irregularly irregular rhythm with no P waves. Ventricular rate ${round(s.vitals.hr)}/min, narrow QRS. Atrial fibrillation with rapid ventricular response.`),
-    troponin: () => 'Troponin I below 0.04 ng/mL (normal).',
-    bnp: () => 'BNP 140 pg/mL, slightly raised for her age.',
-    bmp: () => 'Potassium 3.6, magnesium 1.7 (low-normal), creatinine 0.9 mg/dL.',
-    cxr: () => 'Normal heart size. Clear lung fields.',
-    echo: () => 'Ejection fraction 55%. Mildly enlarged left atrium. No pericardial effusion. Bedside views cannot rule out a clot in the left atrial appendage.',
-  },
+  exam: R.exam,
+  tests: R.tests,
+  unchanged: R.unchanged,
 
   useful: {
     ecg12: { why: 'The ECG confirms atrial fibrillation and excludes other rhythms and ischemia.', source: SRC.AF },

@@ -84,6 +84,21 @@ export function collectVariants(def) {
     sample(s, `${name}, when the case ended (${s.status})`);
   };
 
+  // Findings depend on what has been given, so the fixed routes below are joined by seeded random
+  // combinations of treatments that reach states the fixed routes do not.
+  let seed = 987654321;
+  const rand = () => { seed = (seed * 1664525 + 1013904223) % 4294967296; return seed / 4294967296; };
+  const everyAction = Object.keys(CATALOG).filter((id) => id !== 'wait');
+  for (let i = 0; i < 400; i++) {
+    const s = createSim(def, MODES.CHALLENGE);
+    const steps = 1 + Math.floor(rand() * 6);
+    for (let k = 0; k < steps && s.status === 'active'; k++) {
+      perform(def, s, everyAction[Math.floor(rand() * everyAction.length)]);
+      advance(def, s, Math.floor(rand() * 30));
+      sample(s, `after a combination of treatments, minute ${Math.round(s.t)}`);
+    }
+  }
+
   route('with no treatment', []);
   route('after every key action', def.key.map((k) => k.ids[0]));
   // A learner can give any treatment on the menu, whether or not the case lists it.
@@ -247,6 +262,18 @@ export function buildReviewMarkdown() {
     out.push('### Test results (every different result the case can produce)');
     out.push('');
     out.push(table(['Test', 'Result', 'First seen'], variantRows(variants.tests)));
+    out.push('');
+    out.push('### Results that stay the same after correct treatment, and why');
+    out.push('');
+    out.push('Every other examination finding, test result and listening site changes as the patient responds to treatment. These stay the same because physiology says they should.');
+    out.push('');
+    const label = (key) => {
+      const [kind, a, b] = key.split('.');
+      if (kind === 'exam') return `Examination: ${CATALOG[a].label}`;
+      if (kind === 'test') return `Test: ${CATALOG[a].label}`;
+      return `Listening site: ${a} ${b}`;
+    };
+    out.push(table(['Result', 'Why it does not change'], Object.entries(def.unchanged ?? {}).map(([k, why]) => [label(k), why])));
     out.push('');
     out.push('### Exams and tests rated helpful');
     out.push('');

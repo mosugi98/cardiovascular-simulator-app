@@ -1,5 +1,6 @@
-﻿import { lin, round, addEvent } from '../engine/util.js';
+import { lin, round, addEvent } from '../engine/util.js';
 import { SRC } from './sources.js';
+import * as R from './results/tamponade.js';
 import { unindicated } from './shared.js';
 
 export const P = {
@@ -77,15 +78,7 @@ export default {
       lastmeal: 'Yesterday evening. I have no appetite.',
     },
   },
-  auscultation: {
-    heart: {
-      aortic: () => 'Distant, muffled heart sounds, even over the aortic area.',
-      pulmonic: () => 'Distant, muffled heart sounds, even over the pulmonic area.',
-      tricuspid: () => 'Distant, muffled heart sounds. No rub is heard.',
-      mitral: () => 'Distant, muffled heart sounds, fast. No murmur.',
-    },
-    lungs: { upper: () => 'Clear in the upper zones.', lower: () => 'Clear at the bases. Breath sounds are quiet because he is breathing shallowly.' },
-  },
+  auscultation: R.auscultation,
 
   setup: () => ({ severity: P.startSeverity, flags: {} }),
 
@@ -150,34 +143,9 @@ export default {
     cathLab: { rating: 'neutral', why: 'There is no coronary occlusion, so PCI does not help.', source: SRC.PERICARDIAL, text: 'The cath lab team stands by.' },
   },
 
-  exam: {
-    inspect: (s) => (s.flags.drained
-      ? 'Calmer, color returning, breathing easier.'
-      : 'Pale, sweaty and anxious, sitting upright and breathing fast.'),
-    heartSounds: (s) => (s.flags.drained
-      ? `Regular, normal heart sounds at about ${round(s.vitals.hr)}/min.`
-      : `Distant, muffled heart sounds, fast at about ${round(s.vitals.hr)}/min.`),
-    lungs: () => 'Clear on both sides.',
-    jvp: (s) => (s.flags.drained
-      ? 'Neck veins are back to a normal height.'
-      : 'Neck veins are markedly raised, about 14 cm, and do not fall when he breathes in.'),
-    pulses: (s) => (s.flags.drained
-      ? 'Strong, regular pulses.'
-      : 'Fast, thin pulses. The systolic pressure falls by about 15 mmHg when he breathes in (pulsus paradoxus).'),
-  },
-
-  tests: {
-    ecg12: (s) => (s.flags.drained
-      ? `Sinus rhythm ${round(s.vitals.hr)}/min. Normal voltage. Diffuse mild ST elevation with PR depression (pericarditis).`
-      : `Sinus tachycardia ${round(s.vitals.hr)}/min. Low voltage QRS complexes with electrical alternans (the QRS height alternates beat to beat).`),
-    troponin: () => 'Troponin I below 0.04 ng/mL (normal).',
-    bnp: () => 'BNP 80 pg/mL, normal.',
-    bmp: () => 'Potassium 4.4, creatinine 1.3 mg/dL, slightly high from poor perfusion.',
-    cxr: () => 'Enlarged, globe-shaped heart outline. Clear lung fields.',
-    echo: (s) => (s.flags.drained
-      ? 'Effusion reduced to a small rim. Right heart chambers fill normally. IVC collapses with breathing.'
-      : 'Large circumferential pericardial effusion (about 2.5 cm) with the right atrium and right ventricle collapsing in diastole. Dilated IVC that does not collapse. Tamponade physiology.'),
-  },
+  exam: R.exam,
+  tests: R.tests,
+  unchanged: R.unchanged,
 
   useful: {
     echo: { why: 'Bedside echocardiography confirms the effusion and tamponade physiology.', source: SRC.PERICARDIAL },

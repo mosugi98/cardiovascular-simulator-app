@@ -1,5 +1,6 @@
-﻿import { lin, round } from '../engine/util.js';
+import { lin, round } from '../engine/util.js';
 import { SRC } from './sources.js';
+import * as R from './results/heartFailure.js';
 import { unindicated } from './shared.js';
 
 export const P = {
@@ -51,8 +52,12 @@ export default {
     return 'I cannot catch my breath. I cannot lie down.';
   },
   echo: (s) => ({
-    ef: 0.25, lv: 1.3, la: 1.4, wall: 0.7, effusion: 0, rvCollapse: false, mr: true, hypokinesis: null,
-    caption: 'Dilated left ventricle with ejection fraction about 25%. Moderate functional mitral regurgitation. No pericardial effusion.',
+    ef: 0.25, lv: s.severity <= P.improvingSeverity ? 1.2 : 1.3, la: 1.4, wall: 0.7, effusion: 0, rvCollapse: false, mr: s.severity > P.improvingSeverity, hypokinesis: null,
+    caption: s.severity <= P.improvingSeverity
+      ? 'Dilated left ventricle with ejection fraction about 25%. The mitral regurgitation is now mild and the inferior vena cava collapses with breathing. No pericardial effusion.'
+      : s.flags.furosemide
+        ? 'Dilated left ventricle with ejection fraction about 25%. The mitral regurgitation is lessening and the inferior vena cava is less dilated. No pericardial effusion.'
+        : 'Dilated left ventricle with ejection fraction about 25%. Moderate functional mitral regurgitation. No pericardial effusion.',
   }),
 
   history: {
@@ -76,18 +81,7 @@ export default {
       infection: 'No cough or fever.',
     },
   },
-  auscultation: {
-    heart: {
-      aortic: () => 'Fast and regular. Nothing abnormal is heard at this site.',
-      pulmonic: () => 'Fast and regular. Nothing abnormal is heard at this site.',
-      tricuspid: () => 'Fast and regular. Nothing abnormal is heard at this site.',
-      mitral: () => 'A third heart sound (gallop) and a soft holosystolic murmur at the apex.',
-    },
-    lungs: {
-      upper: (s) => (s.severity > 0.3 ? 'Crackles reach the upper zones.' : 'Clear in the upper zones.'),
-      lower: (s) => (s.severity > 0.3 ? 'Coarse crackles at both bases.' : 'Fine crackles at the bases only.'),
-    },
-  },
+  auscultation: R.auscultation,
 
   setup: () => ({ severity: P.startSeverity, flags: {} }),
 
@@ -155,28 +149,9 @@ export default {
     cathLab: { rating: 'neutral', why: 'There is no ST elevation or coronary occlusion.', source: SRC.HF, text: 'The cath lab team stands by.' },
   },
 
-  exam: {
-    inspect: (s) => (s.severity <= P.improvingSeverity
-      ? 'Sitting up, breathing comfortably and speaking in full sentences.'
-      : 'Sitting bolt upright, using his neck muscles to breathe and speaking in short phrases.'),
-    heartSounds: (s) => `Regular and fast at about ${round(s.vitals.hr)}/min. A third heart sound (gallop) and a soft murmur at the apex.`,
-    lungs: (s) => (s.severity <= P.improvingSeverity
-      ? 'Fine crackles at the bases only.'
-      : 'Crackles up to the middle of both lungs. No wheeze.'),
-    jvp: () => 'Neck veins are raised, about 12 cm, and pressing on the liver raises them further.',
-    pulses: () => 'Warm hands and feet. Pitting swelling up to both knees.',
-  },
-
-  tests: {
-    ecg12: (s) => `Sinus tachycardia ${round(s.vitals.hr)}/min with an old left bundle branch block. No new ST elevation.`,
-    troponin: () => 'Troponin I 0.06 ng/mL, mildly raised, in a pattern of long-standing heart strain.',
-    bnp: () => 'BNP 1,850 pg/mL, markedly raised.',
-    bmp: () => 'Potassium 4.8, sodium 133, creatinine 1.6 mg/dL (his usual is 1.4).',
-    cxr: (s) => (s.severity <= P.improvingSeverity
-      ? 'Enlarged heart. Pulmonary edema is clearing.'
-      : 'Enlarged heart, haziness around both lung hila and Kerley B lines: pulmonary edema.'),
-    echo: () => 'Dilated left ventricle, ejection fraction about 25%, moderate functional mitral regurgitation, dilated IVC. No pericardial effusion.',
-  },
+  exam: R.exam,
+  tests: R.tests,
+  unchanged: R.unchanged,
 
   useful: {
     ecg12: { why: 'The ECG excludes an acute heart attack as the trigger.', source: SRC.HF },

@@ -1,5 +1,6 @@
 import { lin, round, addEvent } from '../engine/util.js';
 import { SRC } from './sources.js';
+import * as R from './results/htn.js';
 import { unindicated } from './shared.js';
 
 export const P = {
@@ -81,18 +82,7 @@ export default {
       lastmeal: 'Breakfast.',
     },
   },
-  auscultation: {
-    heart: {
-      aortic: () => 'A loud second heart sound at the aortic area. No murmur.',
-      pulmonic: () => 'Normal sounds. No murmur.',
-      tricuspid: () => 'Normal sounds. No murmur.',
-      mitral: () => 'A fourth heart sound at the apex. No murmur.',
-    },
-    lungs: {
-      upper: () => 'Clear in the upper zones.',
-      lower: (s) => (s.severity > 0.4 ? 'Fine crackles at both bases.' : 'Clear at the bases.'),
-    },
-  },
+  auscultation: R.auscultation,
   echo: () => ({
     ef: 0.6, lv: 1, la: 1.2, wall: 1.5, effusion: 0, rvCollapse: false, mr: false, hypokinesis: null,
     caption: 'Thickened left ventricular walls with good pumping, ejection fraction about 60%. Mildly enlarged left atrium. No pericardial effusion.',
@@ -145,24 +135,9 @@ export default {
     oxygen: { rating: 'neutral', why: 'His oxygen saturation is 94%, so oxygen is not needed.', source: SRC.HTN, text: 'Oxygen is started.' },
   },
 
-  exam: {
-    inspect: (s) => (s.severity <= 0.3 ? 'Calmer. The headache is easing and he is alert.'
-      : s.severity > 0.7 ? 'Drowsy and confused, sweaty, with a severe headache. He does not follow commands reliably.'
-        : 'Anxious and restless with a severe headache, a little confused, sweaty. No facial droop and he moves all four limbs.'),
-    heartSounds: () => 'Fast, regular. A loud second heart sound and a fourth heart sound. No murmur.',
-    lungs: (s) => (s.severity > 0.4 ? 'Fine crackles at both bases.' : 'Clear on both sides.'),
-    jvp: () => 'Neck veins are not raised.',
-    pulses: () => 'Strong, bounding pulses, equal in both arms and both legs.',
-  },
-
-  tests: {
-    ecg12: (s) => `Sinus rhythm ${round(s.vitals.hr)}/min. Left ventricular hypertrophy with a strain pattern.`,
-    troponin: () => 'Troponin I 0.09 ng/mL (normal below 0.04), a small leak from the strained heart.',
-    bnp: () => 'BNP 380 pg/mL, raised.',
-    bmp: () => 'Potassium 3.9, sodium 140, creatinine 2.1 mg/dL. The kidneys are injured.',
-    cxr: () => 'Mild cardiomegaly and early pulmonary edema. The aortic outline is normal.',
-    echo: () => 'Thickened left ventricular walls with good pumping, ejection fraction about 60%. Normal aortic root. No pericardial effusion.',
-  },
+  exam: R.exam,
+  tests: R.tests,
+  unchanged: R.unchanged,
 
   useful: {
     ecg12: { why: 'The ECG shows the strain on the heart and excludes a heart attack as the cause.', source: SRC.HTN },

@@ -123,7 +123,9 @@ legend { font-weight: 700; padding: 0 6px; }
 }
 
 /* A compact strip of vitals stays at the top while the monitor is out of view. */
-.vitals-strip { position: sticky; top: 0; z-index: 6; display: none; gap: 6px 16px; flex-wrap: wrap; justify-content: center; background: var(--monitor); color: #dfeaf1; padding: 6px 12px; margin: 0 -16px 10px; font-variant-numeric: tabular-nums; }
+/* The anchor has no height, so showing the strip never pushes the page down. */
+.strip-anchor { position: sticky; top: 0; height: 0; z-index: 6; }
+.vitals-strip { position: absolute; top: 0; left: -16px; right: -16px; display: none; gap: 6px 16px; flex-wrap: wrap; justify-content: center; background: var(--monitor); color: #dfeaf1; padding: 6px 12px; font-variant-numeric: tabular-nums; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
 .vitals-strip.show { display: flex; }
 .vitals-strip b { font-weight: 800; }
 .vitals-strip span:nth-child(1) b { color: var(--ecg); } .vitals-strip span:nth-child(2) b { color: var(--bp); }
@@ -274,6 +276,15 @@ canvas.pleth { height: 56px; }
 /* Orders and findings */
 .panel { background: var(--sheet); border: 1px solid var(--line); border-radius: 10px; padding: 12px; min-width: 0; }
 .panel > h2:first-child { margin-top: 0; }
+/* The orders panel is a disclosure: closed until the learner opens it. */
+.orders { padding: 0; }
+.orders > summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; min-height: 52px; border-radius: 10px; }
+.orders > summary::-webkit-details-marker { display: none; }
+.orders > summary h2 { margin: 0; }
+.orders > summary::after { content: ""; width: 10px; height: 10px; border-right: 3px solid var(--scrub); border-bottom: 3px solid var(--scrub); transform: rotate(45deg); transition: transform 0.15s; margin-right: 4px; flex: none; }
+.orders[open] > summary::after { transform: rotate(-135deg); }
+.orders > summary:hover { background: var(--scrub-soft); }
+.orders-body { padding: 0 12px 10px; }
 details { border-top: 1px solid var(--line); padding: 4px 0; }
 details:first-of-type { border-top: 0; }
 summary { cursor: pointer; font-weight: 700; padding: 8px 0; min-height: 44px; display: flex; align-items: center; }

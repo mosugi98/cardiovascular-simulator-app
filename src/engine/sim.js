@@ -25,6 +25,7 @@ export function createSim(def, mode) {
     caseId: def.id,
     mode,
     t: 0,
+    given: {}, // how many times each treatment has been given, so findings can reflect the response
     severity: init.severity,
     flags: { ...init.flags },
     vitals: {},
@@ -37,6 +38,7 @@ export function createSim(def, mode) {
   };
   const tg = def.targets(state);
   state.vitals = { ...tg.vitals };
+  limitPressures(state.vitals);
   state.rhythm = tg.rhythm;
   state.ecg = { ...tg.ecg };
   return state;
@@ -59,6 +61,7 @@ export function advance(def, state, minutes) {
       const target = clamp(tg.vitals[key], lo, hi);
       state.vitals[key] += (target - state.vitals[key]) * k;
     }
+    limitPressures(state.vitals);
     state.rhythm = tg.rhythm;
     state.ecg = { ...tg.ecg };
 
@@ -82,6 +85,14 @@ function endCase(def, state, status, reason) {
 export function finish(def, state) {
   if (state.status !== 'active') return;
   endCase(def, state, 'finished', 'You ended the case.');
+}
+
+/**
+ * Diastolic pressure can never be above systolic. The linear models for some cases cross over
+ * near the end of a steep decline, so the engine keeps them apart.
+ */
+function limitPressures(v) {
+  v.dbp = Math.min(v.dbp, v.sbp * 0.8);
 }
 
 /** Show a new rhythm and ECG at once, instead of waiting for the next clock tick. */
@@ -128,6 +139,7 @@ export function perform(def, state, id, opts = {}) {
     }
     Object.assign(entry, r);
     state.log.push(entry);
+    state.given[id] = (state.given[id] ?? 0) + 1;
     def.treat[id]?.apply?.(state);
     entry.text = def.treat[id]?.text ?? 'Done.';
   } else if (action.kind === 'exam') {

@@ -372,27 +372,59 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 
 | Exam | Finding | First seen |
 | --- | --- | --- |
-| General inspection | Anxious, pale and sweaty, clutching his chest. | with no treatment, at the start |
-| General inspection | Grey, drenched in sweat, drowsy and in severe distress. | with no treatment, minute 50 |
-| General inspection | Comfortable, pain-free, no longer sweating. | after every key action, minute 30 |
-| Listen to the heart | Regular rhythm at about 90/min. Normal first and second sounds, a soft fourth sound, no murmur. | with no treatment, at the start |
-| Listen to the lungs | Clear on both sides. | with no treatment, at the start |
-| Listen to the lungs | Crackles at both lung bases. | with no treatment, minute 50 |
-| Check neck veins (JVP) | Neck veins are not raised. | with no treatment, at the start |
-| Check pulses and perfusion | Pulses strong and equal in both arms. Warm hands. | with no treatment, at the start |
-| Check pulses and perfusion | Weak, fast pulses. Cold, clammy hands and feet. | with no treatment, minute 50 |
+| General inspection | Anxious, pale and sweaty, clutching his chest. | after a combination of treatments, minute 18 |
+| General inspection | Grey, drenched in sweat, drowsy and in severe distress. | after a combination of treatments, minute 35 |
+| General inspection | Still pale and sweaty, but less restless. The pain has eased a little since the nitroglycerin. | after a combination of treatments, minute 9 |
+| General inspection | Comfortable, pain-free, no longer sweating. He is talking easily. | after a combination of treatments, minute 69 |
+| Listen to the heart | Regular rhythm at about 98/min. Normal first and second sounds, a soft fourth sound, no murmur. | after a combination of treatments, minute 18 |
+| Listen to the heart | Fast at about 127/min. A third heart sound (gallop) has appeared on top of the fourth sound. | after a combination of treatments, minute 35 |
+| Listen to the heart | Regular at about 118/min. The fourth sound is fainter and there is no murmur. | after a combination of treatments, minute 69 |
+| Listen to the lungs | Clear on both sides. | after a combination of treatments, minute 18 |
+| Listen to the lungs | Crackles at both lung bases. | after a combination of treatments, minute 35 |
+| Listen to the lungs | Fine crackles at both bases after the fluid bolus. | after a combination of treatments, minute 32 |
+| Check neck veins (JVP) | Neck veins are not raised. | after a combination of treatments, minute 18 |
+| Check neck veins (JVP) | Neck veins are raised, about 8 cm. | after a combination of treatments, minute 35 |
+| Check pulses and perfusion | Pulses strong and equal in both arms. Warm hands. | after a combination of treatments, minute 18 |
+| Check pulses and perfusion | Weak, fast pulses. Cold, clammy hands and feet. | after a combination of treatments, minute 35 |
+| Check pulses and perfusion | Pulses strong and equal. His blood pressure is lower since the nitroglycerin. | after a combination of treatments, minute 9 |
+| Check pulses and perfusion | Strong, regular pulses. Warm hands and feet. | after a combination of treatments, minute 69 |
 
 ### Test results (every different result the case can produce)
 
 | Test | Result | First seen |
 | --- | --- | --- |
-| 12-lead ECG | Sinus rhythm 90/min. ST elevation of 3 to 4 mm in V1 to V4 with reciprocal ST depression in II, III and aVF. Anterior STEMI. | with no treatment, at the start |
-| 12-lead ECG | Sinus rhythm 99/min. ST elevation in V1 to V4 is falling, with new T wave inversion. Reperfusion pattern. | after every key action, minute 30 |
-| Troponin | Troponin I 0.12 ng/mL (normal below 0.04), and rising. | with no treatment, at the start |
-| BNP | BNP 210 pg/mL, mildly raised. | with no treatment, at the start |
-| Electrolytes and creatinine | Potassium 4.1, sodium 139, creatinine 1.0 mg/dL, glucose 128 mg/dL. | with no treatment, at the start |
-| Chest X-ray | Normal heart size. Clear lung fields. | with no treatment, at the start |
-| Bedside echocardiogram | Hypokinesis of the anterior wall and apex. Estimated ejection fraction 40%. No pericardial effusion. | with no treatment, at the start |
+| 12-lead ECG | Sinus rhythm 98/min. ST elevation of 3 to 4 mm in V1 to V4 with reciprocal ST depression in II, III and aVF. Anterior STEMI. | after a combination of treatments, minute 18 |
+| 12-lead ECG | Sinus rhythm 127/min. ST elevation of 3 to 4 mm in V1 to V4 with reciprocal ST depression in II, III and aVF. Q waves are starting to form in V1 to V3. Anterior STEMI. | after a combination of treatments, minute 35 |
+| 12-lead ECG | Sinus rhythm 118/min. ST elevation in V1 to V4 is falling, with new T wave inversion. Reperfusion pattern. | after a combination of treatments, minute 69 |
+| Troponin | Troponin I 1.02 ng/mL (normal below 0.04), rising with the time since the pain began. | after a combination of treatments, minute 18 |
+| Troponin | Troponin I 1.8 ng/mL (normal below 0.04). Still rising after reperfusion, and it should peak within hours. | after a combination of treatments, minute 69 |
+| BNP | BNP 210 pg/mL, mildly raised. | after a combination of treatments, minute 18 |
+| BNP | BNP 640 pg/mL, rising: the left ventricle is struggling. | after a combination of treatments, minute 35 |
+| BNP | BNP 420 pg/mL, higher after the fluid bolus. | after a combination of treatments, minute 32 |
+| BNP | BNP 230 pg/mL, mildly raised. It falls over days, not minutes. | after a combination of treatments, minute 69 |
+| Electrolytes and creatinine | Potassium 4.1, sodium 139, creatinine 1.0 mg/dL, glucose 128 mg/dL. | after a combination of treatments, minute 18 |
+| Electrolytes and creatinine | Potassium 4.4, bicarbonate 19 (low), creatinine 1.3 mg/dL. Lactate 3.1 mmol/L (raised). | after a combination of treatments, minute 35 |
+| Electrolytes and creatinine | Potassium 4.0, sodium 139, creatinine 1.0 mg/dL. Creatinine will be repeated in 24 hours because of the contrast dye. | after a combination of treatments, minute 69 |
+| Chest X-ray | Normal heart size. Clear lung fields. | after a combination of treatments, minute 18 |
+| Chest X-ray | Normal heart size. Pulmonary edema is developing. | after a combination of treatments, minute 35 |
+| Chest X-ray | Normal heart size. Early vascular congestion after the fluid bolus. | after a combination of treatments, minute 32 |
+| Bedside echocardiogram | Anterior wall and apex barely move. Estimated ejection fraction about 40%. No pericardial effusion. | after a combination of treatments, minute 18 |
+| Bedside echocardiogram | Anterior wall and apex still move poorly after reperfusion. Estimated ejection fraction about 40%. No pericardial effusion. | after a combination of treatments, minute 69 |
+
+### Results that stay the same after correct treatment, and why
+
+Every other examination finding, test result and listening site changes as the patient responds to treatment. These stay the same because physiology says they should.
+
+| Result | Why it does not change |
+| --- | --- |
+| Examination: Listen to the lungs | The lungs are clear at the start and stay clear when he is treated correctly. They change only if fluid harms him or he gets much worse. |
+| Examination: Check neck veins (JVP) | The neck veins are not raised at the start and stay flat when he is treated correctly. They rise only if fluid harms him or he gets much worse. |
+| Test: Chest X-ray | The chest X-ray is clear at the start and after correct treatment. It shows congestion only if fluid harms him or he gets much worse. |
+| Listening site: heart aortic | Nothing is heard at the aortic area in any state of this case: the murmur of a ruptured papillary muscle is heard at the apex. |
+| Listening site: heart pulmonic | Nothing is heard at the pulmonic area in any state of this case: the abnormal sounds are heard at the apex. |
+| Listening site: heart tricuspid | Nothing is heard at the lower left sternal edge in any state of this case: the abnormal sounds are heard at the apex. |
+| Listening site: lungs upper | The lungs are clear at the start and stay clear when he is treated correctly. They change only if fluid harms him or he gets much worse. |
+| Listening site: lungs lower | The lungs are clear at the start and stay clear when he is treated correctly. They change only if fluid harms him or he gets much worse. |
 
 ### Exams and tests rated helpful
 
@@ -418,26 +450,26 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 
 | Topic | Answer | First seen |
 | --- | --- | --- |
-| complaint | I have a crushing pain in the middle of my chest. | with no treatment, at the start |
-| onset | About 45 minutes ago. I was carrying shopping up the stairs. | with no treatment, at the start |
-| severity | 8 out of 10. | with no treatment, at the start |
-| severity | It is down to a 2 out of 10 now. | after every key action, minute 30 |
-| location | Right in the middle of my chest, behind the breastbone. | with no treatment, at the start |
-| quality | Like a heavy weight, or a tight band squeezing me. | with no treatment, at the start |
-| radiation | It goes into my left arm and my jaw. | with no treatment, at the start |
-| provoking | It came on with the stairs. It has not eased with rest. | with no treatment, at the start |
-| sweating | Yes, I am drenched. | with no treatment, at the start |
-| nausea | I feel sick, but I have not vomited. | with no treatment, at the start |
-| breathless | A little. I cannot take a deep breath. | with no treatment, at the start |
-| syncope | No, but I feel faint. | with no treatment, at the start |
-| prior | I get a tightness on stairs sometimes, but never like this. | with no treatment, at the start |
-| pmh | High blood pressure and high cholesterol. No heart problems that I know of. | with no treatment, at the start |
-| meds | Amlodipine for my blood pressure. Nothing else. | with no treatment, at the start |
-| adherence | I take them most days. | with no treatment, at the start |
-| allergies | None that I know of. | with no treatment, at the start |
-| family | My father had a heart attack at 55. | with no treatment, at the start |
-| social | I smoke 20 a day. A few beers at the weekend. No drugs. | with no treatment, at the start |
-| lastmeal | Breakfast, about four hours ago. | with no treatment, at the start |
+| complaint | I have a crushing pain in the middle of my chest. | after a combination of treatments, minute 18 |
+| onset | About 45 minutes ago. I was carrying shopping up the stairs. | after a combination of treatments, minute 18 |
+| severity | 8 out of 10. | after a combination of treatments, minute 18 |
+| severity | It is down to a 2 out of 10 now. | after a combination of treatments, minute 69 |
+| location | Right in the middle of my chest, behind the breastbone. | after a combination of treatments, minute 18 |
+| quality | Like a heavy weight, or a tight band squeezing me. | after a combination of treatments, minute 18 |
+| radiation | It goes into my left arm and my jaw. | after a combination of treatments, minute 18 |
+| provoking | It came on with the stairs. It has not eased with rest. | after a combination of treatments, minute 18 |
+| sweating | Yes, I am drenched. | after a combination of treatments, minute 18 |
+| nausea | I feel sick, but I have not vomited. | after a combination of treatments, minute 18 |
+| breathless | A little. I cannot take a deep breath. | after a combination of treatments, minute 18 |
+| syncope | No, but I feel faint. | after a combination of treatments, minute 18 |
+| prior | I get a tightness on stairs sometimes, but never like this. | after a combination of treatments, minute 18 |
+| pmh | High blood pressure and high cholesterol. No heart problems that I know of. | after a combination of treatments, minute 18 |
+| meds | Amlodipine for my blood pressure. Nothing else. | after a combination of treatments, minute 18 |
+| adherence | I take them most days. | after a combination of treatments, minute 18 |
+| allergies | None that I know of. | after a combination of treatments, minute 18 |
+| family | My father had a heart attack at 55. | after a combination of treatments, minute 18 |
+| social | I smoke 20 a day. A few beers at the weekend. No drugs. | after a combination of treatments, minute 18 |
+| lastmeal | Breakfast, about four hours ago. | after a combination of treatments, minute 18 |
 
 ### What you hear at each listening site
 
@@ -445,22 +477,25 @@ The learner presses a site with the stethoscope. A site with no finding of its o
 
 | Site | Finding | First seen |
 | --- | --- | --- |
-| heart: aortic | Normal first and second sounds. No murmur at the aortic area. | with no treatment, at the start |
-| heart: pulmonic | Normal first and second sounds. No murmur at the pulmonic area. | with no treatment, at the start |
-| heart: tricuspid | Normal sounds. No murmur at the lower left sternal edge. | with no treatment, at the start |
-| heart: mitral | At the apex there is a soft fourth sound. No murmur. | with no treatment, at the start |
-| lungs: upper | Clear in the upper zones. | with no treatment, at the start |
-| lungs: lower | Clear at the bases. | with no treatment, at the start |
-| lungs: lower | Crackles at the bases. | with no treatment, minute 50 |
+| heart: aortic | Normal first and second sounds. No murmur at the aortic area. | after a combination of treatments, minute 18 |
+| heart: pulmonic | Normal first and second sounds. No murmur at the pulmonic area. | after a combination of treatments, minute 18 |
+| heart: tricuspid | Normal sounds. No murmur at the lower left sternal edge. | after a combination of treatments, minute 18 |
+| heart: mitral | At the apex there is a soft fourth sound. No murmur. | after a combination of treatments, minute 18 |
+| heart: mitral | A third heart sound and a new holosystolic murmur at the apex: the papillary muscle is ischemic. | after a combination of treatments, minute 35 |
+| heart: mitral | At the apex there is a faint fourth sound. No murmur. | after a combination of treatments, minute 69 |
+| lungs: upper | Clear in the upper zones. | after a combination of treatments, minute 18 |
+| lungs: upper | Fine crackles are heard in the upper zones. | after a combination of treatments, minute 35 |
+| lungs: lower | Clear at the bases. | after a combination of treatments, minute 18 |
+| lungs: lower | Crackles at the bases. | after a combination of treatments, minute 35 |
 
 ### What the patient says (every line)
 
 | Line | First seen |
 | --- | --- |
-| It feels like an elephant is sitting on my chest. | with no treatment, at the start |
-| The pressure is getting worse. I feel sick. | with no treatment, minute 22 |
-| I feel like I am going to pass out. | with no treatment, minute 50 |
-| The pain is much better. Thank you. | after every key action, minute 30 |
+| It feels like an elephant is sitting on my chest. | after a combination of treatments, minute 18 |
+| The pressure is getting worse. I feel sick. | after a combination of treatments, minute 25 |
+| I feel like I am going to pass out. | after a combination of treatments, minute 35 |
+| The pain is much better. Thank you. | after a combination of treatments, minute 69 |
 
 ### Echocardiogram (every state the case can show)
 
@@ -468,8 +503,8 @@ Size values are multiples of normal (1 is normal). Ejection fraction is the frac
 
 | Ejection fraction | LV size | LA size | Wall thickness | Effusion | RV collapse | Mitral regurgitation | Weak wall | Caption | First seen |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 0.4 | 1 | 1 | 1 | 0 | false | false | anterior-apex | Anterior wall and apex barely move. Estimated ejection fraction about 40%. No pericardial effusion. | with no treatment, at the start |
-| 0.4 | 1 | 1 | 1 | 0 | false | false | anterior-apex | Anterior wall and apex still move poorly after reperfusion. Estimated ejection fraction about 40%. No pericardial effusion. | after every key action, minute 30 |
+| 0.4 | 1 | 1 | 1 | 0 | false | false | anterior-apex | Anterior wall and apex barely move. Estimated ejection fraction about 40%. No pericardial effusion. | after a combination of treatments, minute 18 |
+| 0.4 | 1 | 1 | 1 | 0 | false | false | anterior-apex | Anterior wall and apex still move poorly after reperfusion. Estimated ejection fraction about 40%. No pericardial effusion. | after a combination of treatments, minute 69 |
 
 ### What the patient looks like (every feature the case can show)
 
@@ -477,32 +512,32 @@ Skin also turns paler as the patient worsens, and breathing speed follows the br
 
 | Feature | First seen |
 | --- | --- |
-| sweating: yes | with no treatment, at the start |
-| blue lips: no | with no treatment, at the start |
-| neck veins distended: no | with no treatment, at the start |
-| leg swelling: no | with no treatment, at the start |
-| labored breathing: no | with no treatment, at the start |
-| distressed face: no | with no treatment, at the start |
-| oxygen mask: none | with no treatment, at the start |
-| IV line: no | with no treatment, at the start |
-| defibrillator pads: no | with no treatment, at the start |
-| pericardial drain: no | with no treatment, at the start |
-| died: no | with no treatment, at the start |
-| distressed face: yes | with no treatment, minute 22 |
-| labored breathing: yes | with no treatment, minute 50 |
-| sweating: no | with no treatment, when the case ended (dead) |
-| died: yes | with no treatment, when the case ended (dead) |
-| IV line: yes | after every key action, at the start |
-| oxygen mask: o2 | after Oxygen by mask, at the start |
-| oxygen mask: niv | after Non-invasive ventilation (BiPAP), at the start |
-| defibrillator pads: yes | after Synchronized cardioversion, at the start |
+| sweating: yes | after a combination of treatments, minute 18 |
+| blue lips: no | after a combination of treatments, minute 18 |
+| neck veins distended: no | after a combination of treatments, minute 18 |
+| leg swelling: no | after a combination of treatments, minute 18 |
+| labored breathing: no | after a combination of treatments, minute 18 |
+| distressed face: no | after a combination of treatments, minute 18 |
+| oxygen mask: none | after a combination of treatments, minute 18 |
+| IV line: no | after a combination of treatments, minute 18 |
+| defibrillator pads: no | after a combination of treatments, minute 18 |
+| pericardial drain: no | after a combination of treatments, minute 18 |
+| died: no | after a combination of treatments, minute 18 |
+| IV line: yes | after a combination of treatments, minute 11 |
+| distressed face: yes | after a combination of treatments, minute 25 |
+| defibrillator pads: yes | after a combination of treatments, minute 26 |
+| labored breathing: yes | after a combination of treatments, minute 35 |
+| sweating: no | after a combination of treatments, minute 59 |
+| oxygen mask: o2 | after a combination of treatments, minute 59 |
+| died: yes | after a combination of treatments, minute 59 |
+| oxygen mask: niv | after a combination of treatments, minute 63 |
 
 ### 12-lead ECG patterns this case shows
 
 | Pattern | First seen |
 | --- | --- |
-| anterior-stemi | with no treatment, at the start |
-| anterior-stemi-reperfused | after every key action, minute 30 |
+| anterior-stemi | after a combination of treatments, minute 18 |
+| anterior-stemi-reperfused | after a combination of treatments, minute 69 |
 
 ### Sounds
 
@@ -510,20 +545,20 @@ These are synthesized approximations. Every combination the case can play:
 
 | Sounds | First seen |
 | --- | --- |
-| heart: normal, lungs: clear | with no treatment, at the start |
-| at the aortic site: heart: normal, lungs: clear | with no treatment, at the start |
-| at the pulmonic site: heart: normal, lungs: clear | with no treatment, at the start |
-| at the tricuspid site: heart: normal, lungs: clear | with no treatment, at the start |
-| at the mitral site: heart: normal, lungs: clear | with no treatment, at the start |
-| at the upper site: heart: normal, lungs: clear | with no treatment, at the start |
-| at the lower site: heart: normal, lungs: clear | with no treatment, at the start |
-| heart: normal, lungs: crackles | with no treatment, minute 50 |
-| at the aortic site: heart: normal, lungs: crackles | with no treatment, minute 50 |
-| at the pulmonic site: heart: normal, lungs: crackles | with no treatment, minute 50 |
-| at the tricuspid site: heart: normal, lungs: crackles | with no treatment, minute 50 |
-| at the mitral site: heart: normal, lungs: crackles | with no treatment, minute 50 |
-| at the upper site: heart: normal, lungs: crackles | with no treatment, minute 50 |
-| at the lower site: heart: normal, lungs: crackles | with no treatment, minute 50 |
+| heart: normal, lungs: clear | after a combination of treatments, minute 18 |
+| at the aortic site: heart: normal, lungs: clear | after a combination of treatments, minute 18 |
+| at the pulmonic site: heart: normal, lungs: clear | after a combination of treatments, minute 18 |
+| at the tricuspid site: heart: normal, lungs: clear | after a combination of treatments, minute 18 |
+| at the mitral site: heart: normal, lungs: clear | after a combination of treatments, minute 18 |
+| at the upper site: heart: normal, lungs: clear | after a combination of treatments, minute 18 |
+| at the lower site: heart: normal, lungs: clear | after a combination of treatments, minute 18 |
+| heart: normal, lungs: crackles | after a combination of treatments, minute 35 |
+| at the aortic site: heart: normal, lungs: crackles | after a combination of treatments, minute 35 |
+| at the pulmonic site: heart: normal, lungs: crackles | after a combination of treatments, minute 35 |
+| at the tricuspid site: heart: normal, lungs: crackles | after a combination of treatments, minute 35 |
+| at the mitral site: heart: normal, lungs: crackles | after a combination of treatments, minute 35 |
+| at the upper site: heart: normal, lungs: crackles | after a combination of treatments, minute 35 |
+| at the lower site: heart: normal, lungs: crackles | after a combination of treatments, minute 35 |
 
 ### Review decision
 
@@ -624,25 +659,52 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 
 | Exam | Finding | First seen |
 | --- | --- | --- |
-| General inspection | Anxious and a little short of breath, but comfortable at rest and speaking in full sentences. | with no treatment, at the start |
-| Listen to the heart | Irregularly irregular and fast, about 147/min. No murmur. | with no treatment, at the start |
-| Listen to the heart | Regular rhythm at about 147/min. No murmur. | after Synchronized cardioversion, at the start |
-| Listen to the lungs | Clear on both sides. | with no treatment, at the start |
-| Check neck veins (JVP) | Neck veins are not raised. | with no treatment, at the start |
-| Check pulses and perfusion | Irregular pulse. The radial pulse is slower than the heartbeat heard at the chest (pulse deficit). | with no treatment, at the start |
-| Check pulses and perfusion | Regular pulse, equal in both arms. | after Synchronized cardioversion, at the start |
+| General inspection | Anxious and a little short of breath, but comfortable at rest and speaking in full sentences. | after a combination of treatments, minute 18 |
+| General inspection | Pale, sweaty and drowsy. She is short of breath and cannot finish a sentence. | after a combination of treatments, minute 35 |
+| General inspection | Calmer, with the racing eased. She is comfortable at rest. | after a combination of treatments, minute 9 |
+| General inspection | Awake, but with a right facial droop, a weak right arm and slurred speech. | after a combination of treatments, minute 17 |
+| General inspection | Calm and comfortable. She says her heart feels normal again. | after a combination of treatments, minute 86 |
+| Listen to the heart | Irregularly irregular and fast, about 160/min. No murmur. | after a combination of treatments, minute 18 |
+| Listen to the heart | Still irregularly irregular, but slower, about 101/min. No murmur. | after a combination of treatments, minute 9 |
+| Listen to the heart | Regular rhythm at about 88/min. No murmur. | after a combination of treatments, minute 17 |
+| Listen to the lungs | Clear on both sides. | after a combination of treatments, minute 18 |
+| Listen to the lungs | Fine crackles at both bases from the strain of the fast rate. | after a combination of treatments, minute 35 |
+| Check neck veins (JVP) | Neck veins are not raised. | after a combination of treatments, minute 18 |
+| Check neck veins (JVP) | Neck veins are mildly raised. | after a combination of treatments, minute 35 |
+| Check pulses and perfusion | Irregular pulse. The radial pulse is slower than the heartbeat heard at the chest (pulse deficit). | after a combination of treatments, minute 18 |
+| Check pulses and perfusion | Irregular, but slower. The pulse deficit is smaller. | after a combination of treatments, minute 9 |
+| Check pulses and perfusion | Regular pulse, equal in both arms. | after a combination of treatments, minute 17 |
 
 ### Test results (every different result the case can produce)
 
 | Test | Result | First seen |
 | --- | --- | --- |
-| 12-lead ECG | Irregularly irregular rhythm with no P waves. Ventricular rate 147/min, narrow QRS. Atrial fibrillation with rapid ventricular response. | with no treatment, at the start |
-| 12-lead ECG | Sinus rhythm 147/min. Narrow QRS. No acute ST changes. | after Synchronized cardioversion, at the start |
-| Troponin | Troponin I below 0.04 ng/mL (normal). | with no treatment, at the start |
-| BNP | BNP 140 pg/mL, slightly raised for her age. | with no treatment, at the start |
-| Electrolytes and creatinine | Potassium 3.6, magnesium 1.7 (low-normal), creatinine 0.9 mg/dL. | with no treatment, at the start |
-| Chest X-ray | Normal heart size. Clear lung fields. | with no treatment, at the start |
-| Bedside echocardiogram | Ejection fraction 55%. Mildly enlarged left atrium. No pericardial effusion. Bedside views cannot rule out a clot in the left atrial appendage. | with no treatment, at the start |
+| 12-lead ECG | Irregularly irregular rhythm with no P waves. Ventricular rate 160/min, narrow QRS. Atrial fibrillation with rapid ventricular response. | after a combination of treatments, minute 18 |
+| 12-lead ECG | Atrial fibrillation with a controlled ventricular rate of 101/min. Narrow QRS. | after a combination of treatments, minute 9 |
+| 12-lead ECG | Sinus rhythm 88/min. Narrow QRS. No acute ST changes. | after a combination of treatments, minute 17 |
+| Troponin | Troponin I below 0.04 ng/mL (normal). | after a combination of treatments, minute 18 |
+| BNP | BNP 140 pg/mL, slightly raised for her age. | after a combination of treatments, minute 18 |
+| BNP | BNP 420 pg/mL, raised by the strain of the fast rate. | after a combination of treatments, minute 35 |
+| Electrolytes and creatinine | Potassium 3.6, magnesium 1.7 (low-normal), creatinine 0.9 mg/dL. | after a combination of treatments, minute 18 |
+| Chest X-ray | Normal heart size. Clear lung fields. | after a combination of treatments, minute 18 |
+| Chest X-ray | Normal heart size. Early congestion at the lung bases. | after a combination of treatments, minute 35 |
+| Bedside echocardiogram | Ejection fraction about 55%. Mildly enlarged left atrium. No pericardial effusion. Bedside views cannot rule out a clot in the left atrial appendage. | after a combination of treatments, minute 18 |
+
+### Results that stay the same after correct treatment, and why
+
+Every other examination finding, test result and listening site changes as the patient responds to treatment. These stay the same because physiology says they should.
+
+| Result | Why it does not change |
+| --- | --- |
+| Examination: Listen to the lungs | The lungs are clear at the start and after correct treatment. This stays the same when she is treated correctly. It changes only if she gets much worse. |
+| Examination: Check neck veins (JVP) | The neck veins are not raised at the start and after correct treatment. This stays the same when she is treated correctly. It changes only if she gets much worse. |
+| Test: Troponin | Troponin is normal at the start and stays normal: this is a rhythm problem, not a heart attack. |
+| Test: BNP | BNP is only slightly raised and does not move in minutes. It rises only if the fast rate pushes her into heart failure. |
+| Test: Electrolytes and creatinine | Nothing the learner can give replaces potassium or magnesium, so the electrolytes stay as they were. |
+| Test: Chest X-ray | The chest X-ray is normal at the start and after correct treatment. This stays the same when she is treated correctly. It changes only if she gets much worse. |
+| Test: Bedside echocardiogram | The heart muscle and valves are normal and do not change in minutes. Only the rhythm changes. |
+| Listening site: lungs upper | The upper lungs are clear at the start and after correct treatment. This stays the same when she is treated correctly. It changes only if she gets much worse. |
+| Listening site: lungs lower | The lung bases are clear at the start and after correct treatment. This stays the same when she is treated correctly. It changes only if she gets much worse. |
 
 ### Exams and tests rated helpful
 
@@ -668,23 +730,23 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 
 | Topic | Answer | First seen |
 | --- | --- | --- |
-| complaint | My heart is racing and it feels uneven. | with no treatment, at the start |
-| onset | About six hours ago, while I was making breakfast. | with no treatment, at the start |
-| severity | It is not painful. It is just uncomfortable, and I feel dizzy. | with no treatment, at the start |
-| location | It is in my chest. A fluttering feeling. | with no treatment, at the start |
-| palpitations | Yes, it is racing and skipping. | with no treatment, at the start |
-| syncope | I feel light-headed, but I have not fainted. | with no treatment, at the start |
-| breathless | A little, when I walk. | with no treatment, at the start |
-| prior | It has never happened before. | with no treatment, at the start |
-| neuro | No weakness or numbness. | with no treatment, at the start |
-| neuro | My right arm will not move and I cannot find the words. | after Synchronized cardioversion, at the start |
-| pmh | High blood pressure. | with no treatment, at the start |
-| meds | Ramipril. No blood thinners. | with no treatment, at the start |
-| adherence | I take it every morning. | with no treatment, at the start |
-| allergies | None that I know of. | with no treatment, at the start |
-| family | My sister has an irregular heartbeat. | with no treatment, at the start |
-| social | A glass of wine most evenings, and about four coffees a day. I do not smoke. | with no treatment, at the start |
-| lastmeal | Tea and toast this morning. | with no treatment, at the start |
+| complaint | My heart is racing and it feels uneven. | after a combination of treatments, minute 18 |
+| onset | About six hours ago, while I was making breakfast. | after a combination of treatments, minute 18 |
+| severity | It is not painful. It is just uncomfortable, and I feel dizzy. | after a combination of treatments, minute 18 |
+| location | It is in my chest. A fluttering feeling. | after a combination of treatments, minute 18 |
+| palpitations | Yes, it is racing and skipping. | after a combination of treatments, minute 18 |
+| syncope | I feel light-headed, but I have not fainted. | after a combination of treatments, minute 18 |
+| breathless | A little, when I walk. | after a combination of treatments, minute 18 |
+| prior | It has never happened before. | after a combination of treatments, minute 18 |
+| neuro | No weakness or numbness. | after a combination of treatments, minute 18 |
+| neuro | My right arm will not move and I cannot find the words. | after a combination of treatments, minute 17 |
+| pmh | High blood pressure. | after a combination of treatments, minute 18 |
+| meds | Ramipril. No blood thinners. | after a combination of treatments, minute 18 |
+| adherence | I take it every morning. | after a combination of treatments, minute 18 |
+| allergies | None that I know of. | after a combination of treatments, minute 18 |
+| family | My sister has an irregular heartbeat. | after a combination of treatments, minute 18 |
+| social | A glass of wine most evenings, and about four coffees a day. I do not smoke. | after a combination of treatments, minute 18 |
+| lastmeal | Tea and toast this morning. | after a combination of treatments, minute 18 |
 
 ### What you hear at each listening site
 
@@ -692,22 +754,31 @@ The learner presses a site with the stethoscope. A site with no finding of its o
 
 | Site | Finding | First seen |
 | --- | --- | --- |
-| heart: aortic | Fast and irregular. No murmur at the aortic area. | with no treatment, at the start |
-| heart: pulmonic | Fast and irregular. No murmur at the pulmonic area. | with no treatment, at the start |
-| heart: tricuspid | Fast and irregular. No murmur at the lower left sternal edge. | with no treatment, at the start |
-| heart: mitral | Irregularly irregular and fast at the apex. The first sound changes in loudness from beat to beat. No murmur. | with no treatment, at the start |
-| heart: mitral | Regular rhythm. No murmur at the apex. | after Synchronized cardioversion, at the start |
-| lungs: upper | Clear in the upper zones. | with no treatment, at the start |
-| lungs: lower | Clear at the bases. | with no treatment, at the start |
+| heart: aortic | Fast and irregular. No murmur at the aortic area. | after a combination of treatments, minute 18 |
+| heart: aortic | Irregular, but slower. No murmur at the aortic area. | after a combination of treatments, minute 9 |
+| heart: aortic | Regular. No murmur at the aortic area. | after a combination of treatments, minute 17 |
+| heart: pulmonic | Fast and irregular. No murmur at the pulmonic area. | after a combination of treatments, minute 18 |
+| heart: pulmonic | Irregular, but slower. No murmur at the pulmonic area. | after a combination of treatments, minute 9 |
+| heart: pulmonic | Regular. No murmur at the pulmonic area. | after a combination of treatments, minute 17 |
+| heart: tricuspid | Fast and irregular. No murmur at the lower left sternal edge. | after a combination of treatments, minute 18 |
+| heart: tricuspid | Irregular, but slower. No murmur at the lower left sternal edge. | after a combination of treatments, minute 9 |
+| heart: tricuspid | Regular. No murmur at the lower left sternal edge. | after a combination of treatments, minute 17 |
+| heart: mitral | Irregularly irregular and fast at the apex. The first sound changes in loudness from beat to beat. No murmur. | after a combination of treatments, minute 18 |
+| heart: mitral | Irregularly irregular, but slower, at the apex. The first sound still changes in loudness. No murmur. | after a combination of treatments, minute 9 |
+| heart: mitral | Regular rhythm. No murmur at the apex. | after a combination of treatments, minute 17 |
+| lungs: upper | Clear in the upper zones. | after a combination of treatments, minute 18 |
+| lungs: upper | Fine crackles in the upper zones. | after a combination of treatments, minute 35 |
+| lungs: lower | Clear at the bases. | after a combination of treatments, minute 18 |
+| lungs: lower | Crackles at the bases. | after a combination of treatments, minute 35 |
 
 ### What the patient says (every line)
 
 | Line | First seen |
 | --- | --- |
-| My heart is racing and fluttering. I feel a bit dizzy. | with no treatment, at the start |
-| I feel faint. Everything is going grey. | with no treatment, minute 67 |
-| My right arm will not move, and the words will not come out. | after Synchronized cardioversion, at the start |
-| My heart feels normal again. | after Heparin then Synchronized cardioversion, at the start |
+| My heart is racing and fluttering. I feel a bit dizzy. | after a combination of treatments, minute 18 |
+| I feel faint. Everything is going grey. | after a combination of treatments, minute 35 |
+| My right arm will not move, and the words will not come out. | after a combination of treatments, minute 17 |
+| My heart feels normal again. | after a combination of treatments, minute 86 |
 
 ### Echocardiogram (every state the case can show)
 
@@ -715,7 +786,7 @@ Size values are multiples of normal (1 is normal). Ejection fraction is the frac
 
 | Ejection fraction | LV size | LA size | Wall thickness | Effusion | RV collapse | Mitral regurgitation | Weak wall | Caption | First seen |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 0.55 | 1 | 1.35 | 1 | 0 | false | false | none | Ejection fraction about 55%. Mildly enlarged left atrium. No pericardial effusion. Bedside views cannot rule out a clot in the left atrial appendage. | with no treatment, at the start |
+| 0.55 | 1 | 1.35 | 1 | 0 | false | false | none | Ejection fraction about 55%. Mildly enlarged left atrium. No pericardial effusion. Bedside views cannot rule out a clot in the left atrial appendage. | after a combination of treatments, minute 18 |
 
 ### What the patient looks like (every feature the case can show)
 
@@ -723,30 +794,30 @@ Skin also turns paler as the patient worsens, and breathing speed follows the br
 
 | Feature | First seen |
 | --- | --- |
-| sweating: no | with no treatment, at the start |
-| blue lips: no | with no treatment, at the start |
-| neck veins distended: no | with no treatment, at the start |
-| leg swelling: no | with no treatment, at the start |
-| labored breathing: no | with no treatment, at the start |
-| distressed face: no | with no treatment, at the start |
-| oxygen mask: none | with no treatment, at the start |
-| IV line: no | with no treatment, at the start |
-| defibrillator pads: no | with no treatment, at the start |
-| pericardial drain: no | with no treatment, at the start |
-| died: no | with no treatment, at the start |
-| distressed face: yes | with no treatment, minute 34 |
-| labored breathing: yes | with no treatment, minute 67 |
-| died: yes | with no treatment, when the case ended (dead) |
-| IV line: yes | after every key action, at the start |
-| oxygen mask: o2 | after Oxygen by mask, at the start |
-| oxygen mask: niv | after Non-invasive ventilation (BiPAP), at the start |
-| defibrillator pads: yes | after Synchronized cardioversion, at the start |
+| sweating: no | after a combination of treatments, minute 18 |
+| blue lips: no | after a combination of treatments, minute 18 |
+| neck veins distended: no | after a combination of treatments, minute 18 |
+| leg swelling: no | after a combination of treatments, minute 18 |
+| labored breathing: no | after a combination of treatments, minute 18 |
+| distressed face: no | after a combination of treatments, minute 18 |
+| oxygen mask: none | after a combination of treatments, minute 18 |
+| IV line: no | after a combination of treatments, minute 18 |
+| defibrillator pads: no | after a combination of treatments, minute 18 |
+| pericardial drain: no | after a combination of treatments, minute 18 |
+| died: no | after a combination of treatments, minute 18 |
+| IV line: yes | after a combination of treatments, minute 11 |
+| distressed face: yes | after a combination of treatments, minute 19 |
+| defibrillator pads: yes | after a combination of treatments, minute 26 |
+| labored breathing: yes | after a combination of treatments, minute 35 |
+| oxygen mask: o2 | after a combination of treatments, minute 62 |
+| died: yes | after a combination of treatments, minute 69 |
+| oxygen mask: niv | after a combination of treatments, minute 63 |
 
 ### 12-lead ECG patterns this case shows
 
 | Pattern | First seen |
 | --- | --- |
-| normal | with no treatment, at the start |
+| normal | after a combination of treatments, minute 18 |
 
 ### Sounds
 
@@ -754,20 +825,20 @@ These are synthesized approximations. Every combination the case can play:
 
 | Sounds | First seen |
 | --- | --- |
-| heart: afib, lungs: clear | with no treatment, at the start |
-| at the aortic site: heart: afib, lungs: clear | with no treatment, at the start |
-| at the pulmonic site: heart: afib, lungs: clear | with no treatment, at the start |
-| at the tricuspid site: heart: afib, lungs: clear | with no treatment, at the start |
-| at the mitral site: heart: afib, lungs: clear | with no treatment, at the start |
-| at the upper site: heart: afib, lungs: clear | with no treatment, at the start |
-| at the lower site: heart: afib, lungs: clear | with no treatment, at the start |
-| heart: normal, lungs: clear | after Synchronized cardioversion, at the start |
-| at the aortic site: heart: normal, lungs: clear | after Synchronized cardioversion, at the start |
-| at the pulmonic site: heart: normal, lungs: clear | after Synchronized cardioversion, at the start |
-| at the tricuspid site: heart: normal, lungs: clear | after Synchronized cardioversion, at the start |
-| at the mitral site: heart: normal, lungs: clear | after Synchronized cardioversion, at the start |
-| at the upper site: heart: normal, lungs: clear | after Synchronized cardioversion, at the start |
-| at the lower site: heart: normal, lungs: clear | after Synchronized cardioversion, at the start |
+| heart: afib, lungs: clear | after a combination of treatments, minute 18 |
+| at the aortic site: heart: afib, lungs: clear | after a combination of treatments, minute 18 |
+| at the pulmonic site: heart: afib, lungs: clear | after a combination of treatments, minute 18 |
+| at the tricuspid site: heart: afib, lungs: clear | after a combination of treatments, minute 18 |
+| at the mitral site: heart: afib, lungs: clear | after a combination of treatments, minute 18 |
+| at the upper site: heart: afib, lungs: clear | after a combination of treatments, minute 18 |
+| at the lower site: heart: afib, lungs: clear | after a combination of treatments, minute 18 |
+| heart: normal, lungs: clear | after a combination of treatments, minute 17 |
+| at the aortic site: heart: normal, lungs: clear | after a combination of treatments, minute 17 |
+| at the pulmonic site: heart: normal, lungs: clear | after a combination of treatments, minute 17 |
+| at the tricuspid site: heart: normal, lungs: clear | after a combination of treatments, minute 17 |
+| at the mitral site: heart: normal, lungs: clear | after a combination of treatments, minute 17 |
+| at the upper site: heart: normal, lungs: clear | after a combination of treatments, minute 17 |
+| at the lower site: heart: normal, lungs: clear | after a combination of treatments, minute 17 |
 
 ### Review decision
 
@@ -876,25 +947,57 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 
 | Exam | Finding | First seen |
 | --- | --- | --- |
-| General inspection | Sitting bolt upright, using his neck muscles to breathe and speaking in short phrases. | with no treatment, at the start |
-| General inspection | Sitting up, breathing comfortably and speaking in full sentences. | after every key action, minute 13 |
-| Listen to the heart | Regular and fast at about 108/min. A third heart sound (gallop) and a soft murmur at the apex. | with no treatment, at the start |
-| Listen to the lungs | Crackles up to the middle of both lungs. No wheeze. | with no treatment, at the start |
-| Listen to the lungs | Fine crackles at the bases only. | after every key action, minute 13 |
-| Check neck veins (JVP) | Neck veins are raised, about 12 cm, and pressing on the liver raises them further. | with no treatment, at the start |
-| Check pulses and perfusion | Warm hands and feet. Pitting swelling up to both knees. | with no treatment, at the start |
+| General inspection | Sitting bolt upright, using his neck muscles to breathe and speaking in short phrases. | after a combination of treatments, minute 18 |
+| General inspection | Exhausted and gasping, drowsy, with blue lips and pink frothy sputum. | after a combination of treatments, minute 25 |
+| General inspection | On oxygen, still using his neck muscles to breathe and speaking in short phrases. | after a combination of treatments, minute 47 |
+| General inspection | Sitting up, breathing comfortably and speaking in full sentences. | after a combination of treatments, minute 63 |
+| General inspection | On BiPAP, still sitting up but breathing more easily and speaking in short sentences. | after a combination of treatments, minute 2 |
+| General inspection | Gasping and using every neck muscle, with pink frothy sputum. The fluid has made the pulmonary edema worse. | after a combination of treatments, minute 48 |
+| Listen to the heart | Regular and fast at about 115/min. A third heart sound (gallop) and a soft murmur at the apex. | after a combination of treatments, minute 18 |
+| Listen to the heart | Very fast at about 121/min. A loud gallop and a louder murmur at the apex. | after a combination of treatments, minute 25 |
+| Listen to the heart | Regular at about 95/min. The third heart sound is softer and the murmur is quieter. | after a combination of treatments, minute 63 |
+| Listen to the lungs | Crackles up to the middle of both lungs. No wheeze. | after a combination of treatments, minute 18 |
+| Listen to the lungs | Crackles to the top of both lungs, with wheeze. | after a combination of treatments, minute 25 |
+| Listen to the lungs | The crackles are retreating: now heard in the lower two thirds of both lungs. | after a combination of treatments, minute 13 |
+| Listen to the lungs | Fine crackles at the bases only. | after a combination of treatments, minute 63 |
+| Listen to the lungs | Crackles in the mid-zones of both lungs, with better air entry on BiPAP. | after a combination of treatments, minute 2 |
+| Check neck veins (JVP) | Neck veins are raised, about 12 cm, and pressing on the liver raises them further. | after a combination of treatments, minute 18 |
+| Check neck veins (JVP) | Neck veins are very full, about 15 cm, and visibly pulsating. | after a combination of treatments, minute 25 |
+| Check neck veins (JVP) | Neck veins are lower, about 9 cm, and pressing on the liver raises them less. | after a combination of treatments, minute 13 |
+| Check neck veins (JVP) | Neck veins are only slightly raised, about 6 cm. | after a combination of treatments, minute 63 |
+| Check pulses and perfusion | Warm hands and feet. Pitting swelling up to both knees. | after a combination of treatments, minute 18 |
+| Check pulses and perfusion | Fast, thready pulses. The hands and feet are cool now. Pitting swelling up to both knees. | after a combination of treatments, minute 25 |
+| Check pulses and perfusion | Warm hands and feet. The swelling is a little less, pitting up to the shins. | after a combination of treatments, minute 13 |
+| Check pulses and perfusion | Warm hands and feet. The swelling has gone down to the ankles. | after a combination of treatments, minute 63 |
 
 ### Test results (every different result the case can produce)
 
 | Test | Result | First seen |
 | --- | --- | --- |
-| 12-lead ECG | Sinus tachycardia 108/min with an old left bundle branch block. No new ST elevation. | with no treatment, at the start |
-| Troponin | Troponin I 0.06 ng/mL, mildly raised, in a pattern of long-standing heart strain. | with no treatment, at the start |
-| BNP | BNP 1,850 pg/mL, markedly raised. | with no treatment, at the start |
-| Electrolytes and creatinine | Potassium 4.8, sodium 133, creatinine 1.6 mg/dL (his usual is 1.4). | with no treatment, at the start |
-| Chest X-ray | Enlarged heart, haziness around both lung hila and Kerley B lines: pulmonary edema. | with no treatment, at the start |
-| Chest X-ray | Enlarged heart. Pulmonary edema is clearing. | after every key action, minute 13 |
-| Bedside echocardiogram | Dilated left ventricle, ejection fraction about 25%, moderate functional mitral regurgitation, dilated IVC. No pericardial effusion. | with no treatment, at the start |
+| 12-lead ECG | Sinus tachycardia 115/min with an old left bundle branch block. No new ST elevation. | after a combination of treatments, minute 18 |
+| 12-lead ECG | Sinus rhythm 95/min with an old left bundle branch block. No new ST elevation. | after a combination of treatments, minute 63 |
+| Troponin | Troponin I 0.06 ng/mL, mildly raised, in a pattern of long-standing heart strain. | after a combination of treatments, minute 18 |
+| BNP | BNP 1,850 pg/mL, markedly raised. | after a combination of treatments, minute 18 |
+| BNP | BNP 2,600 pg/mL, rising. | after a combination of treatments, minute 25 |
+| BNP | BNP 1,850 pg/mL, still markedly raised. It falls over days, not minutes. | after a combination of treatments, minute 13 |
+| Electrolytes and creatinine | Potassium 4.8, sodium 133, creatinine 1.6 mg/dL (his usual is 1.4). | after a combination of treatments, minute 18 |
+| Electrolytes and creatinine | Potassium 3.9 (falling after the diuretic), sodium 134, creatinine 1.7 mg/dL (his usual is 1.4). | after a combination of treatments, minute 13 |
+| Chest X-ray | Enlarged heart, haziness around both lung hila and Kerley B lines: pulmonary edema. | after a combination of treatments, minute 18 |
+| Chest X-ray | Enlarged heart with florid pulmonary edema: both lungs are white, in a bat-wing pattern. | after a combination of treatments, minute 25 |
+| Chest X-ray | Enlarged heart. The edema is still present but the haziness is lessening. | after a combination of treatments, minute 13 |
+| Chest X-ray | Enlarged heart. Pulmonary edema is clearing. | after a combination of treatments, minute 63 |
+| Chest X-ray | Enlarged heart with worse pulmonary edema: new haziness since the fluid bolus. | after a combination of treatments, minute 48 |
+| Bedside echocardiogram | Dilated left ventricle with ejection fraction about 25%. Moderate functional mitral regurgitation. No pericardial effusion. | after a combination of treatments, minute 18 |
+| Bedside echocardiogram | Dilated left ventricle with ejection fraction about 25%. The mitral regurgitation is lessening and the inferior vena cava is less dilated. No pericardial effusion. | after a combination of treatments, minute 13 |
+| Bedside echocardiogram | Dilated left ventricle with ejection fraction about 25%. The mitral regurgitation is now mild and the inferior vena cava collapses with breathing. No pericardial effusion. | after a combination of treatments, minute 63 |
+
+### Results that stay the same after correct treatment, and why
+
+Every other examination finding, test result and listening site changes as the patient responds to treatment. These stay the same because physiology says they should.
+
+| Result | Why it does not change |
+| --- | --- |
+| Test: Troponin | The troponin leak is long-standing heart strain, not a new injury, so it does not change as the lungs clear. |
 
 ### Exams and tests rated helpful
 
@@ -923,22 +1026,22 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 
 | Topic | Answer | First seen |
 | --- | --- | --- |
-| complaint | I cannot breathe properly, and my legs are swollen. | with no treatment, at the start |
-| onset | It has crept up over three days. | with no treatment, at the start |
-| severity | The breathlessness is a 9 out of 10. | with no treatment, at the start |
-| severity | The breathlessness is a 3 out of 10 now. | after every key action, minute 13 |
-| breathless | Yes. I cannot lie flat. I sleep on three pillows and wake up gasping. | with no treatment, at the start |
-| swelling | Yes, up to my knees. | with no treatment, at the start |
-| palpitations | My heart is going fast, but it is regular. | with no treatment, at the start |
-| prior | Yes. I was in hospital with this last winter. | with no treatment, at the start |
-| pmh | Heart failure for four years, and a heart attack ten years ago. | with no treatment, at the start |
-| meds | Furosemide, ramipril and bisoprolol. | with no treatment, at the start |
-| adherence | I ran out of my water tablet a week ago. I could not get to the pharmacy. | with no treatment, at the start |
-| allergies | None that I know of. | with no treatment, at the start |
-| family | My brother had heart failure. | with no treatment, at the start |
-| social | I stopped smoking ten years ago. No alcohol. | with no treatment, at the start |
-| lastmeal | Soup at lunchtime. I could not eat much. | with no treatment, at the start |
-| infection | No cough or fever. | with no treatment, at the start |
+| complaint | I cannot breathe properly, and my legs are swollen. | after a combination of treatments, minute 18 |
+| onset | It has crept up over three days. | after a combination of treatments, minute 18 |
+| severity | The breathlessness is a 9 out of 10. | after a combination of treatments, minute 18 |
+| severity | The breathlessness is a 3 out of 10 now. | after a combination of treatments, minute 63 |
+| breathless | Yes. I cannot lie flat. I sleep on three pillows and wake up gasping. | after a combination of treatments, minute 18 |
+| swelling | Yes, up to my knees. | after a combination of treatments, minute 18 |
+| palpitations | My heart is going fast, but it is regular. | after a combination of treatments, minute 18 |
+| prior | Yes. I was in hospital with this last winter. | after a combination of treatments, minute 18 |
+| pmh | Heart failure for four years, and a heart attack ten years ago. | after a combination of treatments, minute 18 |
+| meds | Furosemide, ramipril and bisoprolol. | after a combination of treatments, minute 18 |
+| adherence | I ran out of my water tablet a week ago. I could not get to the pharmacy. | after a combination of treatments, minute 18 |
+| allergies | None that I know of. | after a combination of treatments, minute 18 |
+| family | My brother had heart failure. | after a combination of treatments, minute 18 |
+| social | I stopped smoking ten years ago. No alcohol. | after a combination of treatments, minute 18 |
+| lastmeal | Soup at lunchtime. I could not eat much. | after a combination of treatments, minute 18 |
+| infection | No cough or fever. | after a combination of treatments, minute 18 |
 
 ### What you hear at each listening site
 
@@ -946,22 +1049,28 @@ The learner presses a site with the stethoscope. A site with no finding of its o
 
 | Site | Finding | First seen |
 | --- | --- | --- |
-| heart: aortic | Fast and regular. Nothing abnormal is heard at this site. | with no treatment, at the start |
-| heart: pulmonic | Fast and regular. Nothing abnormal is heard at this site. | with no treatment, at the start |
-| heart: tricuspid | Fast and regular. Nothing abnormal is heard at this site. | with no treatment, at the start |
-| heart: mitral | A third heart sound (gallop) and a soft holosystolic murmur at the apex. | with no treatment, at the start |
-| lungs: upper | Crackles reach the upper zones. | with no treatment, at the start |
-| lungs: upper | Clear in the upper zones. | after every key action, minute 13 |
-| lungs: lower | Coarse crackles at both bases. | with no treatment, at the start |
-| lungs: lower | Fine crackles at the bases only. | after every key action, minute 13 |
+| heart: aortic | Fast and regular. Nothing abnormal is heard at this site. | after a combination of treatments, minute 18 |
+| heart: aortic | Regular. Nothing abnormal is heard at this site. | after a combination of treatments, minute 63 |
+| heart: pulmonic | Fast and regular. Nothing abnormal is heard at this site. | after a combination of treatments, minute 18 |
+| heart: pulmonic | Regular. Nothing abnormal is heard at this site. | after a combination of treatments, minute 63 |
+| heart: tricuspid | Fast and regular. Nothing abnormal is heard at this site. | after a combination of treatments, minute 18 |
+| heart: tricuspid | Regular. Nothing abnormal is heard at this site. | after a combination of treatments, minute 63 |
+| heart: mitral | A third heart sound (gallop) and a soft holosystolic murmur at the apex. | after a combination of treatments, minute 18 |
+| heart: mitral | A softer third heart sound and a quieter murmur at the apex. | after a combination of treatments, minute 63 |
+| lungs: upper | Crackles reach the upper zones. | after a combination of treatments, minute 18 |
+| lungs: upper | The crackles in the upper zones have mostly cleared. | after a combination of treatments, minute 13 |
+| lungs: upper | Clear in the upper zones. | after a combination of treatments, minute 63 |
+| lungs: lower | Coarse crackles at both bases. | after a combination of treatments, minute 18 |
+| lungs: lower | Coarse crackles at the bases, fewer than before. | after a combination of treatments, minute 13 |
+| lungs: lower | Fine crackles at the bases only. | after a combination of treatments, minute 63 |
 
 ### What the patient says (every line)
 
 | Line | First seen |
 | --- | --- |
-| I cannot catch my breath. I cannot lie down. | with no treatment, at the start |
-| Cannot... breathe... | with no treatment, minute 19 |
-| That is better. I can talk properly now. | after every key action, minute 13 |
+| I cannot catch my breath. I cannot lie down. | after a combination of treatments, minute 18 |
+| Cannot... breathe... | after a combination of treatments, minute 25 |
+| That is better. I can talk properly now. | after a combination of treatments, minute 63 |
 
 ### Echocardiogram (every state the case can show)
 
@@ -969,7 +1078,9 @@ Size values are multiples of normal (1 is normal). Ejection fraction is the frac
 
 | Ejection fraction | LV size | LA size | Wall thickness | Effusion | RV collapse | Mitral regurgitation | Weak wall | Caption | First seen |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 0.25 | 1.3 | 1.4 | 0.7 | 0 | false | true | none | Dilated left ventricle with ejection fraction about 25%. Moderate functional mitral regurgitation. No pericardial effusion. | with no treatment, at the start |
+| 0.25 | 1.3 | 1.4 | 0.7 | 0 | false | true | none | Dilated left ventricle with ejection fraction about 25%. Moderate functional mitral regurgitation. No pericardial effusion. | after a combination of treatments, minute 18 |
+| 0.25 | 1.3 | 1.4 | 0.7 | 0 | false | true | none | Dilated left ventricle with ejection fraction about 25%. The mitral regurgitation is lessening and the inferior vena cava is less dilated. No pericardial effusion. | after a combination of treatments, minute 13 |
+| 0.25 | 1.2 | 1.4 | 0.7 | 0 | false | false | none | Dilated left ventricle with ejection fraction about 25%. The mitral regurgitation is now mild and the inferior vena cava collapses with breathing. No pericardial effusion. | after a combination of treatments, minute 63 |
 
 ### What the patient looks like (every feature the case can show)
 
@@ -977,31 +1088,31 @@ Skin also turns paler as the patient worsens, and breathing speed follows the br
 
 | Feature | First seen |
 | --- | --- |
-| sweating: no | with no treatment, at the start |
-| blue lips: yes | with no treatment, at the start |
-| neck veins distended: yes | with no treatment, at the start |
-| leg swelling: yes | with no treatment, at the start |
-| labored breathing: yes | with no treatment, at the start |
-| distressed face: yes | with no treatment, at the start |
-| oxygen mask: none | with no treatment, at the start |
-| IV line: no | with no treatment, at the start |
-| defibrillator pads: no | with no treatment, at the start |
-| pericardial drain: no | with no treatment, at the start |
-| died: no | with no treatment, at the start |
-| blue lips: no | with no treatment, when the case ended (dead) |
-| labored breathing: no | with no treatment, when the case ended (dead) |
-| distressed face: no | with no treatment, when the case ended (dead) |
-| died: yes | with no treatment, when the case ended (dead) |
-| oxygen mask: niv | after every key action, at the start |
-| IV line: yes | after every key action, at the start |
-| oxygen mask: o2 | after Oxygen by mask, at the start |
-| defibrillator pads: yes | after Synchronized cardioversion, at the start |
+| sweating: no | after a combination of treatments, minute 18 |
+| blue lips: yes | after a combination of treatments, minute 18 |
+| neck veins distended: yes | after a combination of treatments, minute 18 |
+| leg swelling: yes | after a combination of treatments, minute 18 |
+| labored breathing: yes | after a combination of treatments, minute 18 |
+| distressed face: yes | after a combination of treatments, minute 18 |
+| oxygen mask: none | after a combination of treatments, minute 18 |
+| IV line: no | after a combination of treatments, minute 18 |
+| defibrillator pads: no | after a combination of treatments, minute 18 |
+| pericardial drain: no | after a combination of treatments, minute 18 |
+| died: no | after a combination of treatments, minute 18 |
+| IV line: yes | after a combination of treatments, minute 11 |
+| defibrillator pads: yes | after a combination of treatments, minute 26 |
+| blue lips: no | after a combination of treatments, minute 32 |
+| labored breathing: no | after a combination of treatments, minute 32 |
+| distressed face: no | after a combination of treatments, minute 32 |
+| died: yes | after a combination of treatments, minute 32 |
+| oxygen mask: o2 | after a combination of treatments, minute 47 |
+| oxygen mask: niv | after a combination of treatments, minute 63 |
 
 ### 12-lead ECG patterns this case shows
 
 | Pattern | First seen |
 | --- | --- |
-| lbbb | with no treatment, at the start |
+| lbbb | after a combination of treatments, minute 18 |
 
 ### Sounds
 
@@ -1009,14 +1120,14 @@ These are synthesized approximations. Every combination the case can play:
 
 | Sounds | First seen |
 | --- | --- |
-| heart: s3, lungs: crackles | with no treatment, at the start |
-| at the aortic site: heart: normal, lungs: crackles | with no treatment, at the start |
-| at the pulmonic site: heart: normal, lungs: crackles | with no treatment, at the start |
-| at the tricuspid site: heart: normal, lungs: crackles | with no treatment, at the start |
-| at the mitral site: heart: s3, lungs: crackles | with no treatment, at the start |
-| at the upper site: heart: normal, lungs: crackles | with no treatment, at the start |
-| at the lower site: heart: normal, lungs: crackles | with no treatment, at the start |
-| at the upper site: heart: normal, lungs: clear | after every key action, minute 13 |
+| heart: s3, lungs: crackles | after a combination of treatments, minute 18 |
+| at the aortic site: heart: normal, lungs: crackles | after a combination of treatments, minute 18 |
+| at the pulmonic site: heart: normal, lungs: crackles | after a combination of treatments, minute 18 |
+| at the tricuspid site: heart: normal, lungs: crackles | after a combination of treatments, minute 18 |
+| at the mitral site: heart: s3, lungs: crackles | after a combination of treatments, minute 18 |
+| at the upper site: heart: normal, lungs: crackles | after a combination of treatments, minute 18 |
+| at the lower site: heart: normal, lungs: crackles | after a combination of treatments, minute 18 |
+| at the upper site: heart: normal, lungs: clear | after a combination of treatments, minute 63 |
 
 ### Review decision
 
@@ -1113,28 +1224,46 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 
 | Exam | Finding | First seen |
 | --- | --- | --- |
-| General inspection | Pale, sweaty and anxious, sitting upright and breathing fast. | with no treatment, at the start |
-| General inspection | Calmer, color returning, breathing easier. | after every key action, at the start |
-| Listen to the heart | Distant, muffled heart sounds, fast at about 130/min. | with no treatment, at the start |
-| Listen to the heart | Regular, normal heart sounds at about 130/min. | after every key action, at the start |
-| Listen to the lungs | Clear on both sides. | with no treatment, at the start |
-| Check neck veins (JVP) | Neck veins are markedly raised, about 14 cm, and do not fall when he breathes in. | with no treatment, at the start |
-| Check neck veins (JVP) | Neck veins are back to a normal height. | after every key action, at the start |
-| Check pulses and perfusion | Fast, thin pulses. The systolic pressure falls by about 15 mmHg when he breathes in (pulsus paradoxus). | with no treatment, at the start |
-| Check pulses and perfusion | Strong, regular pulses. | after every key action, at the start |
+| General inspection | Grey, drenched in sweat and drowsy, barely able to talk. He is breathing fast and shallowly. | after a combination of treatments, minute 18 |
+| General inspection | Pale, sweaty and anxious, sitting upright and breathing fast. | after a combination of treatments, minute 10 |
+| General inspection | Calmer, color returning, breathing easier. | after a combination of treatments, minute 8 |
+| General inspection | Pale, sweaty and anxious, but a little less drowsy since the fluid bolus. | after a combination of treatments, minute 7 |
+| Listen to the heart | Distant, muffled heart sounds, fast at about 145/min. | after a combination of treatments, minute 18 |
+| Listen to the heart | Regular, normal heart sounds at about 116/min. | after a combination of treatments, minute 8 |
+| Listen to the lungs | Clear on both sides, but the breaths are fast and shallow. | after a combination of treatments, minute 18 |
+| Listen to the lungs | Clear on both sides, with deeper breaths now. | after a combination of treatments, minute 8 |
+| Check neck veins (JVP) | Neck veins are markedly raised, about 14 cm, and do not fall when he breathes in. | after a combination of treatments, minute 18 |
+| Check neck veins (JVP) | Neck veins are back to a normal height. | after a combination of treatments, minute 8 |
+| Check pulses and perfusion | The pulses are barely palpable, very fast and thready. The pulse disappears altogether when he breathes in. | after a combination of treatments, minute 18 |
+| Check pulses and perfusion | Fast, thin pulses. The systolic pressure falls by about 15 mmHg when he breathes in (pulsus paradoxus). | after a combination of treatments, minute 10 |
+| Check pulses and perfusion | Strong, regular pulses. | after a combination of treatments, minute 8 |
+| Check pulses and perfusion | Fast, thin pulses, a little fuller since the fluid bolus. The systolic pressure still falls about 15 mmHg when he breathes in. | after a combination of treatments, minute 7 |
 
 ### Test results (every different result the case can produce)
 
 | Test | Result | First seen |
 | --- | --- | --- |
-| 12-lead ECG | Sinus tachycardia 130/min. Low voltage QRS complexes with electrical alternans (the QRS height alternates beat to beat). | with no treatment, at the start |
-| 12-lead ECG | Sinus rhythm 130/min. Normal voltage. Diffuse mild ST elevation with PR depression (pericarditis). | after every key action, at the start |
-| Troponin | Troponin I below 0.04 ng/mL (normal). | with no treatment, at the start |
-| BNP | BNP 80 pg/mL, normal. | with no treatment, at the start |
-| Electrolytes and creatinine | Potassium 4.4, creatinine 1.3 mg/dL, slightly high from poor perfusion. | with no treatment, at the start |
-| Chest X-ray | Enlarged, globe-shaped heart outline. Clear lung fields. | with no treatment, at the start |
-| Bedside echocardiogram | Large circumferential pericardial effusion (about 2.5 cm) with the right atrium and right ventricle collapsing in diastole. Dilated IVC that does not collapse. Tamponade physiology. | with no treatment, at the start |
-| Bedside echocardiogram | Effusion reduced to a small rim. Right heart chambers fill normally. IVC collapses with breathing. | after every key action, at the start |
+| 12-lead ECG | Sinus tachycardia 145/min. Very low voltage QRS complexes with marked electrical alternans. | after a combination of treatments, minute 18 |
+| 12-lead ECG | Sinus tachycardia 137/min. Low voltage QRS complexes with electrical alternans (the QRS height alternates beat to beat). | after a combination of treatments, minute 10 |
+| 12-lead ECG | Sinus rhythm 116/min. Normal voltage. Diffuse mild ST elevation with PR depression (pericarditis). | after a combination of treatments, minute 8 |
+| Troponin | Troponin I below 0.04 ng/mL (normal). | after a combination of treatments, minute 18 |
+| BNP | BNP 80 pg/mL, normal. | after a combination of treatments, minute 18 |
+| Electrolytes and creatinine | Potassium 5.0, bicarbonate 16 (low), creatinine 1.9 mg/dL (rising). The organs are starved of blood. | after a combination of treatments, minute 18 |
+| Electrolytes and creatinine | Potassium 4.4, creatinine 1.3 mg/dL, slightly high from poor perfusion. | after a combination of treatments, minute 10 |
+| Electrolytes and creatinine | Potassium 4.2, creatinine 1.1 mg/dL, improving as the circulation recovers. | after a combination of treatments, minute 8 |
+| Chest X-ray | Enlarged, globe-shaped heart outline. Clear lung fields. | after a combination of treatments, minute 18 |
+| Chest X-ray | The heart outline is smaller after drainage. Clear lung fields. | after a combination of treatments, minute 8 |
+| Bedside echocardiogram | Large circumferential pericardial effusion with the right ventricle collapsing in diastole. Tamponade physiology. | after a combination of treatments, minute 18 |
+| Bedside echocardiogram | Effusion reduced to a small rim. Right heart chambers fill normally. | after a combination of treatments, minute 8 |
+
+### Results that stay the same after correct treatment, and why
+
+Every other examination finding, test result and listening site changes as the patient responds to treatment. These stay the same because physiology says they should.
+
+| Result | Why it does not change |
+| --- | --- |
+| Test: Troponin | Troponin is normal at the start and after drainage: the heart muscle is not injured, the fluid around it is the problem. |
+| Test: BNP | BNP is normal at the start and stays normal: the heart is not failing, it is being squeezed from outside. |
 
 ### Exams and tests rated helpful
 
@@ -1160,24 +1289,24 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 
 | Topic | Answer | First seen |
 | --- | --- | --- |
-| complaint | I cannot get my breath, and my chest hurts. | with no treatment, at the start |
-| complaint | I feel so much better now. | after every key action, at the start |
-| onset | It has been getting worse for three days. | with no treatment, at the start |
-| severity | 6 out of 10 when I breathe in. | with no treatment, at the start |
-| location | In the middle of my chest. | with no treatment, at the start |
-| quality | Sharp, and it catches when I breathe in. | with no treatment, at the start |
-| radiation | It goes into my left shoulder. | with no treatment, at the start |
-| provoking | It is better when I lean forward. Lying flat is terrible. | with no treatment, at the start |
-| breathless | Yes. I cannot lie flat. | with no treatment, at the start |
-| syncope | I feel faint when I stand up. | with no treatment, at the start |
-| infection | I had a nasty cold and a fever last week. | with no treatment, at the start |
-| pmh | Nothing. I am usually healthy. | with no treatment, at the start |
-| meds | None. I took ibuprofen for the pain. | with no treatment, at the start |
-| adherence | I do not take any regular medicines. | with no treatment, at the start |
-| allergies | None. | with no treatment, at the start |
-| family | Nothing that I know of. | with no treatment, at the start |
-| social | I do not smoke. A couple of beers at the weekend. | with no treatment, at the start |
-| lastmeal | Yesterday evening. I have no appetite. | with no treatment, at the start |
+| complaint | I cannot get my breath, and my chest hurts. | after a combination of treatments, minute 18 |
+| complaint | I feel so much better now. | after a combination of treatments, minute 8 |
+| onset | It has been getting worse for three days. | after a combination of treatments, minute 18 |
+| severity | 6 out of 10 when I breathe in. | after a combination of treatments, minute 18 |
+| location | In the middle of my chest. | after a combination of treatments, minute 18 |
+| quality | Sharp, and it catches when I breathe in. | after a combination of treatments, minute 18 |
+| radiation | It goes into my left shoulder. | after a combination of treatments, minute 18 |
+| provoking | It is better when I lean forward. Lying flat is terrible. | after a combination of treatments, minute 18 |
+| breathless | Yes. I cannot lie flat. | after a combination of treatments, minute 18 |
+| syncope | I feel faint when I stand up. | after a combination of treatments, minute 18 |
+| infection | I had a nasty cold and a fever last week. | after a combination of treatments, minute 18 |
+| pmh | Nothing. I am usually healthy. | after a combination of treatments, minute 18 |
+| meds | None. I took ibuprofen for the pain. | after a combination of treatments, minute 18 |
+| adherence | I do not take any regular medicines. | after a combination of treatments, minute 18 |
+| allergies | None. | after a combination of treatments, minute 18 |
+| family | Nothing that I know of. | after a combination of treatments, minute 18 |
+| social | I do not smoke. A couple of beers at the weekend. | after a combination of treatments, minute 18 |
+| lastmeal | Yesterday evening. I have no appetite. | after a combination of treatments, minute 18 |
 
 ### What you hear at each listening site
 
@@ -1185,20 +1314,26 @@ The learner presses a site with the stethoscope. A site with no finding of its o
 
 | Site | Finding | First seen |
 | --- | --- | --- |
-| heart: aortic | Distant, muffled heart sounds, even over the aortic area. | with no treatment, at the start |
-| heart: pulmonic | Distant, muffled heart sounds, even over the pulmonic area. | with no treatment, at the start |
-| heart: tricuspid | Distant, muffled heart sounds. No rub is heard. | with no treatment, at the start |
-| heart: mitral | Distant, muffled heart sounds, fast. No murmur. | with no treatment, at the start |
-| lungs: upper | Clear in the upper zones. | with no treatment, at the start |
-| lungs: lower | Clear at the bases. Breath sounds are quiet because he is breathing shallowly. | with no treatment, at the start |
+| heart: aortic | Distant, muffled heart sounds, even at the aortic area. | after a combination of treatments, minute 18 |
+| heart: aortic | Normal heart sounds, heard clearly at the aortic area. | after a combination of treatments, minute 8 |
+| heart: pulmonic | Distant, muffled heart sounds, even at the pulmonic area. | after a combination of treatments, minute 18 |
+| heart: pulmonic | Normal heart sounds, heard clearly at the pulmonic area. | after a combination of treatments, minute 8 |
+| heart: tricuspid | Distant, muffled heart sounds. No rub is heard. | after a combination of treatments, minute 18 |
+| heart: tricuspid | Normal heart sounds. The pericardial rub of pericarditis is heard at the lower left sternal edge. | after a combination of treatments, minute 8 |
+| heart: mitral | Distant, muffled heart sounds, fast. No murmur. | after a combination of treatments, minute 18 |
+| heart: mitral | Normal heart sounds, regular at the apex. No murmur. | after a combination of treatments, minute 8 |
+| lungs: upper | Clear in the upper zones, but the breath sounds are quiet. | after a combination of treatments, minute 18 |
+| lungs: upper | Clear in the upper zones, with good air entry. | after a combination of treatments, minute 8 |
+| lungs: lower | Clear at the bases. Breath sounds are quiet because he is breathing shallowly. | after a combination of treatments, minute 18 |
+| lungs: lower | Clear at the bases, with good air entry. | after a combination of treatments, minute 8 |
 
 ### What the patient says (every line)
 
 | Line | First seen |
 | --- | --- |
-| It hurts when I breathe in, and I cannot lie flat. | with no treatment, at the start |
-| I cannot breathe. I am so tired. | with no treatment, minute 25 |
-| I can breathe again. | after every key action, at the start |
+| It hurts when I breathe in, and I cannot lie flat. | after a combination of treatments, minute 18 |
+| I cannot breathe. I am so tired. | after a combination of treatments, minute 25 |
+| I can breathe again. | after a combination of treatments, minute 8 |
 
 ### Echocardiogram (every state the case can show)
 
@@ -1206,8 +1341,8 @@ Size values are multiples of normal (1 is normal). Ejection fraction is the frac
 
 | Ejection fraction | LV size | LA size | Wall thickness | Effusion | RV collapse | Mitral regurgitation | Weak wall | Caption | First seen |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 0.65 | 0.9 | 1 | 1 | 1 | true | false | none | Large circumferential pericardial effusion with the right ventricle collapsing in diastole. Tamponade physiology. | with no treatment, at the start |
-| 0.65 | 0.9 | 1 | 1 | 0.15 | false | false | none | Effusion reduced to a small rim. Right heart chambers fill normally. | after every key action, at the start |
+| 0.65 | 0.9 | 1 | 1 | 1 | true | false | none | Large circumferential pericardial effusion with the right ventricle collapsing in diastole. Tamponade physiology. | after a combination of treatments, minute 18 |
+| 0.65 | 0.9 | 1 | 1 | 0.15 | false | false | none | Effusion reduced to a small rim. Right heart chambers fill normally. | after a combination of treatments, minute 8 |
 
 ### What the patient looks like (every feature the case can show)
 
@@ -1215,35 +1350,35 @@ Skin also turns paler as the patient worsens, and breathing speed follows the br
 
 | Feature | First seen |
 | --- | --- |
-| sweating: yes | with no treatment, at the start |
-| blue lips: no | with no treatment, at the start |
-| neck veins distended: yes | with no treatment, at the start |
-| leg swelling: no | with no treatment, at the start |
-| labored breathing: yes | with no treatment, at the start |
-| distressed face: no | with no treatment, at the start |
-| oxygen mask: none | with no treatment, at the start |
-| IV line: no | with no treatment, at the start |
-| defibrillator pads: no | with no treatment, at the start |
-| pericardial drain: no | with no treatment, at the start |
-| died: no | with no treatment, at the start |
-| distressed face: yes | with no treatment, minute 6 |
-| blue lips: yes | with no treatment, minute 37 |
-| sweating: no | with no treatment, when the case ended (dead) |
-| labored breathing: no | with no treatment, when the case ended (dead) |
-| died: yes | with no treatment, when the case ended (dead) |
-| neck veins distended: no | after every key action, at the start |
-| IV line: yes | after every key action, at the start |
-| pericardial drain: yes | after every key action, at the start |
-| oxygen mask: o2 | after Oxygen by mask, at the start |
-| oxygen mask: niv | after Non-invasive ventilation (BiPAP), at the start |
-| defibrillator pads: yes | after Synchronized cardioversion, at the start |
+| sweating: yes | after a combination of treatments, minute 18 |
+| blue lips: no | after a combination of treatments, minute 18 |
+| neck veins distended: yes | after a combination of treatments, minute 18 |
+| leg swelling: no | after a combination of treatments, minute 18 |
+| labored breathing: yes | after a combination of treatments, minute 18 |
+| distressed face: yes | after a combination of treatments, minute 18 |
+| oxygen mask: none | after a combination of treatments, minute 18 |
+| IV line: no | after a combination of treatments, minute 18 |
+| defibrillator pads: no | after a combination of treatments, minute 18 |
+| pericardial drain: no | after a combination of treatments, minute 18 |
+| died: no | after a combination of treatments, minute 18 |
+| IV line: yes | after a combination of treatments, minute 11 |
+| distressed face: no | after a combination of treatments, minute 3 |
+| sweating: no | after a combination of treatments, minute 8 |
+| neck veins distended: no | after a combination of treatments, minute 8 |
+| labored breathing: no | after a combination of treatments, minute 8 |
+| pericardial drain: yes | after a combination of treatments, minute 8 |
+| oxygen mask: o2 | after a combination of treatments, minute 29 |
+| blue lips: yes | after a combination of treatments, minute 46 |
+| defibrillator pads: yes | after a combination of treatments, minute 47 |
+| died: yes | after a combination of treatments, minute 47 |
+| oxygen mask: niv | after a combination of treatments, minute 40 |
 
 ### 12-lead ECG patterns this case shows
 
 | Pattern | First seen |
 | --- | --- |
-| low-voltage | with no treatment, at the start |
-| pericarditis | after every key action, at the start |
+| low-voltage | after a combination of treatments, minute 18 |
+| pericarditis | after a combination of treatments, minute 8 |
 
 ### Sounds
 
@@ -1251,20 +1386,20 @@ These are synthesized approximations. Every combination the case can play:
 
 | Sounds | First seen |
 | --- | --- |
-| heart: muffled, lungs: clear | with no treatment, at the start |
-| at the aortic site: heart: muffled, lungs: clear | with no treatment, at the start |
-| at the pulmonic site: heart: muffled, lungs: clear | with no treatment, at the start |
-| at the tricuspid site: heart: muffled, lungs: clear | with no treatment, at the start |
-| at the mitral site: heart: muffled, lungs: clear | with no treatment, at the start |
-| at the upper site: heart: muffled, lungs: clear | with no treatment, at the start |
-| at the lower site: heart: muffled, lungs: clear | with no treatment, at the start |
-| heart: normal, lungs: clear | after every key action, at the start |
-| at the aortic site: heart: normal, lungs: clear | after every key action, at the start |
-| at the pulmonic site: heart: normal, lungs: clear | after every key action, at the start |
-| at the tricuspid site: heart: normal, lungs: clear | after every key action, at the start |
-| at the mitral site: heart: normal, lungs: clear | after every key action, at the start |
-| at the upper site: heart: normal, lungs: clear | after every key action, at the start |
-| at the lower site: heart: normal, lungs: clear | after every key action, at the start |
+| heart: muffled, lungs: clear | after a combination of treatments, minute 18 |
+| at the aortic site: heart: muffled, lungs: clear | after a combination of treatments, minute 18 |
+| at the pulmonic site: heart: muffled, lungs: clear | after a combination of treatments, minute 18 |
+| at the tricuspid site: heart: muffled, lungs: clear | after a combination of treatments, minute 18 |
+| at the mitral site: heart: muffled, lungs: clear | after a combination of treatments, minute 18 |
+| at the upper site: heart: muffled, lungs: clear | after a combination of treatments, minute 18 |
+| at the lower site: heart: muffled, lungs: clear | after a combination of treatments, minute 18 |
+| heart: normal, lungs: clear | after a combination of treatments, minute 8 |
+| at the aortic site: heart: normal, lungs: clear | after a combination of treatments, minute 8 |
+| at the pulmonic site: heart: normal, lungs: clear | after a combination of treatments, minute 8 |
+| at the tricuspid site: heart: normal, lungs: clear | after a combination of treatments, minute 8 |
+| at the mitral site: heart: normal, lungs: clear | after a combination of treatments, minute 8 |
+| at the upper site: heart: normal, lungs: clear | after a combination of treatments, minute 8 |
+| at the lower site: heart: normal, lungs: clear | after a combination of treatments, minute 8 |
 
 ### Review decision
 
@@ -1352,27 +1487,44 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 
 | Exam | Finding | First seen |
 | --- | --- | --- |
-| General inspection | Anxious but comfortable, a little pale, talking in full sentences. | with no treatment, at the start |
-| General inspection | Calm and comfortable. | after every key action, at the start |
-| Listen to the heart | Very fast and perfectly regular, about 182/min. Normal sounds, no murmur. | with no treatment, at the start |
-| Listen to the heart | Regular at about 182/min. Normal sounds. | after every key action, at the start |
-| Listen to the lungs | Clear on both sides. | with no treatment, at the start |
-| Check neck veins (JVP) | Not raised. Rapid regular pulsations are visible in the neck. | with no treatment, at the start |
-| Check neck veins (JVP) | Not raised. | after every key action, at the start |
-| Check pulses and perfusion | Fast, regular, thready radial pulse, too fast to count exactly. Warm hands. | with no treatment, at the start |
-| Check pulses and perfusion | Regular pulse, equal in both arms. | after every key action, at the start |
+| General inspection | Anxious but comfortable. The vagal maneuver slowed her heart for a moment, then it raced again. | after a combination of treatments, minute 18 |
+| General inspection | Anxious but comfortable, a little pale, talking in full sentences. | after a combination of treatments, minute 10 |
+| General inspection | Calm and comfortable. | after a combination of treatments, minute 4 |
+| Listen to the heart | Very fast and perfectly regular, about 185/min. Normal sounds, no murmur. | after a combination of treatments, minute 18 |
+| Listen to the heart | Regular at about 108/min. Normal sounds. | after a combination of treatments, minute 4 |
+| Listen to the lungs | Clear on both sides. | after a combination of treatments, minute 18 |
+| Check neck veins (JVP) | Not raised. Rapid regular pulsations are visible in the neck. | after a combination of treatments, minute 18 |
+| Check neck veins (JVP) | Not raised. | after a combination of treatments, minute 4 |
+| Check pulses and perfusion | Fast, regular and thready. It slowed for a few beats during the vagal maneuver, then raced again. | after a combination of treatments, minute 18 |
+| Check pulses and perfusion | Fast, regular, thready radial pulse, too fast to count exactly. Warm hands. | after a combination of treatments, minute 10 |
+| Check pulses and perfusion | Regular pulse, equal in both arms. | after a combination of treatments, minute 4 |
 
 ### Test results (every different result the case can produce)
 
 | Test | Result | First seen |
 | --- | --- | --- |
-| 12-lead ECG | Regular narrow-complex tachycardia at 182/min with no visible P waves and mild ST depression. Supraventricular tachycardia. | with no treatment, at the start |
-| 12-lead ECG | Sinus rhythm 182/min. Normal. No delta wave. | after every key action, at the start |
-| Troponin | Troponin I below 0.04 ng/mL (normal). | with no treatment, at the start |
-| BNP | BNP 40 pg/mL, normal. | with no treatment, at the start |
-| Electrolytes and creatinine | Potassium 4.1, magnesium 2.0, creatinine 0.8 mg/dL. | with no treatment, at the start |
-| Chest X-ray | Normal heart size. Clear lung fields. | with no treatment, at the start |
-| Bedside echocardiogram | Normal pumping, ejection fraction about 60%. Normal valves. No pericardial effusion. | with no treatment, at the start |
+| 12-lead ECG | Regular narrow-complex tachycardia at 185/min with no visible P waves and mild ST depression. Supraventricular tachycardia. | after a combination of treatments, minute 18 |
+| 12-lead ECG | Sinus rhythm 108/min. Normal. No delta wave. | after a combination of treatments, minute 4 |
+| Troponin | Troponin I below 0.04 ng/mL (normal). | after a combination of treatments, minute 18 |
+| BNP | BNP 40 pg/mL, normal. | after a combination of treatments, minute 18 |
+| Electrolytes and creatinine | Potassium 4.1, magnesium 2.0, creatinine 0.8 mg/dL. | after a combination of treatments, minute 18 |
+| Chest X-ray | Normal heart size. Clear lung fields. | after a combination of treatments, minute 18 |
+| Bedside echocardiogram | Normal pumping, ejection fraction about 60%. Normal valves. No pericardial effusion. | after a combination of treatments, minute 18 |
+
+### Results that stay the same after correct treatment, and why
+
+Every other examination finding, test result and listening site changes as the patient responds to treatment. These stay the same because physiology says they should.
+
+| Result | Why it does not change |
+| --- | --- |
+| Examination: Listen to the lungs | This is normal at the start and stays normal: the problem is the rhythm, not the lungs or the heart muscle. |
+| Test: Troponin | This is normal at the start and stays normal: the problem is the rhythm, not the lungs or the heart muscle. |
+| Test: BNP | This is normal at the start and stays normal: the problem is the rhythm, not the lungs or the heart muscle. |
+| Test: Electrolytes and creatinine | Nothing the learner can give changes the electrolytes, and they were normal to begin with. |
+| Test: Chest X-ray | This is normal at the start and stays normal: the problem is the rhythm, not the lungs or the heart muscle. |
+| Test: Bedside echocardiogram | The heart is structurally normal, and its structure does not change in minutes. Only the rhythm changes. |
+| Listening site: lungs upper | This is normal at the start and stays normal: the problem is the rhythm, not the lungs or the heart muscle. |
+| Listening site: lungs lower | This is normal at the start and stays normal: the problem is the rhythm, not the lungs or the heart muscle. |
 
 ### Exams and tests rated helpful
 
@@ -1396,22 +1548,22 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 
 | Topic | Answer | First seen |
 | --- | --- | --- |
-| complaint | My heart suddenly started racing. | with no treatment, at the start |
-| complaint | My heart feels normal again. | after every key action, at the start |
-| onset | Forty minutes ago, at my desk. It came on all at once. | with no treatment, at the start |
-| severity | It is not painful, just very uncomfortable. | with no treatment, at the start |
-| location | In my chest, and I can feel it in my neck. | with no treatment, at the start |
-| palpitations | Yes. It is fast and perfectly regular, like a machine. | with no treatment, at the start |
-| syncope | A bit light-headed, but I have not fainted. | with no treatment, at the start |
-| breathless | A little. | with no treatment, at the start |
-| prior | Twice before. Short episodes that stopped by themselves. | with no treatment, at the start |
-| pmh | Nothing. I am healthy. | with no treatment, at the start |
-| meds | Only the contraceptive pill. | with no treatment, at the start |
-| adherence | I take it every day. | with no treatment, at the start |
-| allergies | Penicillin gives me a rash. | with no treatment, at the start |
-| family | No heart problems in my family. | with no treatment, at the start |
-| social | Three or four coffees a day, and an energy drink this morning. I do not smoke. | with no treatment, at the start |
-| lastmeal | A sandwich at lunch. | with no treatment, at the start |
+| complaint | My heart suddenly started racing. | after a combination of treatments, minute 18 |
+| complaint | My heart feels normal again. | after a combination of treatments, minute 4 |
+| onset | Forty minutes ago, at my desk. It came on all at once. | after a combination of treatments, minute 18 |
+| severity | It is not painful, just very uncomfortable. | after a combination of treatments, minute 18 |
+| location | In my chest, and I can feel it in my neck. | after a combination of treatments, minute 18 |
+| palpitations | Yes. It is fast and perfectly regular, like a machine. | after a combination of treatments, minute 18 |
+| syncope | A bit light-headed, but I have not fainted. | after a combination of treatments, minute 18 |
+| breathless | A little. | after a combination of treatments, minute 18 |
+| prior | Twice before. Short episodes that stopped by themselves. | after a combination of treatments, minute 18 |
+| pmh | Nothing. I am healthy. | after a combination of treatments, minute 18 |
+| meds | Only the contraceptive pill. | after a combination of treatments, minute 18 |
+| adherence | I take it every day. | after a combination of treatments, minute 18 |
+| allergies | Penicillin gives me a rash. | after a combination of treatments, minute 18 |
+| family | No heart problems in my family. | after a combination of treatments, minute 18 |
+| social | Three or four coffees a day, and an energy drink this morning. I do not smoke. | after a combination of treatments, minute 18 |
+| lastmeal | A sandwich at lunch. | after a combination of treatments, minute 18 |
 
 ### What you hear at each listening site
 
@@ -1419,23 +1571,23 @@ The learner presses a site with the stethoscope. A site with no finding of its o
 
 | Site | Finding | First seen |
 | --- | --- | --- |
-| heart: aortic | Very fast and regular. No murmur at the aortic area. | with no treatment, at the start |
-| heart: aortic | Regular. Normal sounds. | after every key action, at the start |
-| heart: pulmonic | Very fast and regular. No murmur at the pulmonic area. | with no treatment, at the start |
-| heart: pulmonic | Regular. Normal sounds. | after every key action, at the start |
-| heart: tricuspid | Very fast and regular. No murmur at the lower left sternal edge. | with no treatment, at the start |
-| heart: tricuspid | Regular. Normal sounds. | after every key action, at the start |
-| heart: mitral | Very fast and regular, too fast to separate the heart sounds. No murmur. | with no treatment, at the start |
-| heart: mitral | Regular. Normal sounds. | after every key action, at the start |
-| lungs: upper | Clear in the upper zones. | with no treatment, at the start |
-| lungs: lower | Clear at the bases. | with no treatment, at the start |
+| heart: aortic | Very fast and regular. No murmur at the aortic area. | after a combination of treatments, minute 18 |
+| heart: aortic | Regular. Normal sounds at the aortic area. | after a combination of treatments, minute 4 |
+| heart: pulmonic | Very fast and regular. No murmur at the pulmonic area. | after a combination of treatments, minute 18 |
+| heart: pulmonic | Regular. Normal sounds at the pulmonic area. | after a combination of treatments, minute 4 |
+| heart: tricuspid | Very fast and regular. No murmur at the lower left sternal edge. | after a combination of treatments, minute 18 |
+| heart: tricuspid | Regular. Normal sounds at the lower left sternal edge. | after a combination of treatments, minute 4 |
+| heart: mitral | Very fast and regular, too fast to separate the heart sounds. No murmur. | after a combination of treatments, minute 18 |
+| heart: mitral | Regular. Normal sounds at the apex. | after a combination of treatments, minute 4 |
+| lungs: upper | Clear in the upper zones. | after a combination of treatments, minute 18 |
+| lungs: lower | Clear at the bases. | after a combination of treatments, minute 18 |
 
 ### What the patient says (every line)
 
 | Line | First seen |
 | --- | --- |
-| It started all at once. My heart is pounding. | with no treatment, at the start |
-| Oh, that is much better. | after every key action, at the start |
+| It started all at once. My heart is pounding. | after a combination of treatments, minute 18 |
+| Oh, that is much better. | after a combination of treatments, minute 4 |
 
 ### Echocardiogram (every state the case can show)
 
@@ -1443,7 +1595,7 @@ Size values are multiples of normal (1 is normal). Ejection fraction is the frac
 
 | Ejection fraction | LV size | LA size | Wall thickness | Effusion | RV collapse | Mitral regurgitation | Weak wall | Caption | First seen |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 0.6 | 1 | 1 | 1 | 0 | false | false | none | Normal pumping, ejection fraction about 60%. Normal valves. No pericardial effusion. | with no treatment, at the start |
+| 0.6 | 1 | 1 | 1 | 0 | false | false | none | Normal pumping, ejection fraction about 60%. Normal valves. No pericardial effusion. | after a combination of treatments, minute 18 |
 
 ### What the patient looks like (every feature the case can show)
 
@@ -1451,30 +1603,30 @@ Skin also turns paler as the patient worsens, and breathing speed follows the br
 
 | Feature | First seen |
 | --- | --- |
-| sweating: no | with no treatment, at the start |
-| blue lips: no | with no treatment, at the start |
-| neck veins distended: no | with no treatment, at the start |
-| leg swelling: no | with no treatment, at the start |
-| labored breathing: no | with no treatment, at the start |
-| distressed face: no | with no treatment, at the start |
-| oxygen mask: none | with no treatment, at the start |
-| IV line: no | with no treatment, at the start |
-| defibrillator pads: no | with no treatment, at the start |
-| pericardial drain: no | with no treatment, at the start |
-| died: no | with no treatment, at the start |
-| distressed face: yes | with no treatment, minute 84 |
-| labored breathing: yes | with no treatment, minute 150 |
-| IV line: yes | after every key action, at the start |
-| oxygen mask: o2 | after Oxygen by mask, at the start |
-| oxygen mask: niv | after Non-invasive ventilation (BiPAP), at the start |
-| defibrillator pads: yes | after Synchronized cardioversion, at the start |
+| sweating: no | after a combination of treatments, minute 18 |
+| blue lips: no | after a combination of treatments, minute 18 |
+| neck veins distended: no | after a combination of treatments, minute 18 |
+| leg swelling: no | after a combination of treatments, minute 18 |
+| labored breathing: no | after a combination of treatments, minute 18 |
+| distressed face: no | after a combination of treatments, minute 18 |
+| oxygen mask: none | after a combination of treatments, minute 18 |
+| IV line: no | after a combination of treatments, minute 18 |
+| defibrillator pads: no | after a combination of treatments, minute 18 |
+| pericardial drain: no | after a combination of treatments, minute 18 |
+| died: no | after a combination of treatments, minute 18 |
+| IV line: yes | after a combination of treatments, minute 11 |
+| defibrillator pads: yes | after a combination of treatments, minute 26 |
+| oxygen mask: o2 | after a combination of treatments, minute 62 |
+| distressed face: yes | after a combination of treatments, minute 84 |
+| labored breathing: yes | after a combination of treatments, minute 91 |
+| oxygen mask: niv | after a combination of treatments, minute 62 |
 
 ### 12-lead ECG patterns this case shows
 
 | Pattern | First seen |
 | --- | --- |
-| svt | with no treatment, at the start |
-| normal | after every key action, at the start |
+| svt | after a combination of treatments, minute 18 |
+| normal | after a combination of treatments, minute 4 |
 
 ### Sounds
 
@@ -1482,13 +1634,13 @@ These are synthesized approximations. Every combination the case can play:
 
 | Sounds | First seen |
 | --- | --- |
-| heart: normal, lungs: clear | with no treatment, at the start |
-| at the aortic site: heart: normal, lungs: clear | with no treatment, at the start |
-| at the pulmonic site: heart: normal, lungs: clear | with no treatment, at the start |
-| at the tricuspid site: heart: normal, lungs: clear | with no treatment, at the start |
-| at the mitral site: heart: normal, lungs: clear | with no treatment, at the start |
-| at the upper site: heart: normal, lungs: clear | with no treatment, at the start |
-| at the lower site: heart: normal, lungs: clear | with no treatment, at the start |
+| heart: normal, lungs: clear | after a combination of treatments, minute 18 |
+| at the aortic site: heart: normal, lungs: clear | after a combination of treatments, minute 18 |
+| at the pulmonic site: heart: normal, lungs: clear | after a combination of treatments, minute 18 |
+| at the tricuspid site: heart: normal, lungs: clear | after a combination of treatments, minute 18 |
+| at the mitral site: heart: normal, lungs: clear | after a combination of treatments, minute 18 |
+| at the upper site: heart: normal, lungs: clear | after a combination of treatments, minute 18 |
+| at the lower site: heart: normal, lungs: clear | after a combination of treatments, minute 18 |
 
 ### Review decision
 
@@ -1582,27 +1734,44 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 
 | Exam | Finding | First seen |
 | --- | --- | --- |
-| General inspection | Pale, sweaty and drowsy, clutching his chest. | with no treatment, at the start |
-| General inspection | Calmer, color returning, no longer sweating. | after every key action, at the start |
-| Listen to the heart | Very fast and regular. The first heart sound varies in loudness. | with no treatment, at the start |
-| Listen to the heart | Regular at about 189/min. | after every key action, at the start |
-| Listen to the lungs | Clear on both sides. | with no treatment, at the start |
-| Check neck veins (JVP) | Neck veins show occasional large pulsations (cannon waves). | with no treatment, at the start |
-| Check neck veins (JVP) | Not raised. | after every key action, at the start |
-| Check pulses and perfusion | Fast, weak pulse. Cool hands. | with no treatment, at the start |
-| Check pulses and perfusion | Regular pulse. Warm hands. | after every key action, at the start |
+| General inspection | Pale, sweaty and drowsy, clutching his chest. | after a combination of treatments, minute 18 |
+| General inspection | Calmer, color returning, no longer sweating. | after a combination of treatments, minute 17 |
+| General inspection | Pale, sweaty and drowsy again, clutching his chest. The tachycardia has come back. | after a combination of treatments, minute 31 |
+| General inspection | Calmer, color returning, no longer sweating. An amiodarone infusion is running. | after a combination of treatments, minute 33 |
+| Listen to the heart | Very fast and regular. The first heart sound varies in loudness. | after a combination of treatments, minute 18 |
+| Listen to the heart | Regular at about 87/min. | after a combination of treatments, minute 17 |
+| Listen to the lungs | Clear on both sides. | after a combination of treatments, minute 18 |
+| Check neck veins (JVP) | Neck veins show occasional large pulsations (cannon waves). | after a combination of treatments, minute 18 |
+| Check neck veins (JVP) | Not raised. | after a combination of treatments, minute 17 |
+| Check pulses and perfusion | Fast, weak pulse. Cool hands. | after a combination of treatments, minute 18 |
+| Check pulses and perfusion | Regular pulse. Warm hands. | after a combination of treatments, minute 17 |
 
 ### Test results (every different result the case can produce)
 
 | Test | Result | First seen |
 | --- | --- | --- |
-| 12-lead ECG | Regular wide-complex tachycardia at 189/min, no P waves, QRS about 160 ms. Ventricular tachycardia. | with no treatment, at the start |
-| 12-lead ECG | Sinus rhythm with old anterior Q waves. | after every key action, at the start |
-| Troponin | Troponin I 0.08 ng/mL (normal below 0.04), mildly raised. | with no treatment, at the start |
-| BNP | BNP 540 pg/mL, raised. | with no treatment, at the start |
-| Electrolytes and creatinine | Potassium 3.4 (low), magnesium 1.5 (low), creatinine 1.2 mg/dL. | with no treatment, at the start |
-| Chest X-ray | Mild cardiomegaly. Clear lung fields. | with no treatment, at the start |
-| Bedside echocardiogram | Reduced pumping, ejection fraction about 30%. A thin, akinetic scar in the anterior wall and apex. No pericardial effusion. | with no treatment, at the start |
+| 12-lead ECG | Regular wide-complex tachycardia at 201/min, no P waves, QRS about 160 ms. Ventricular tachycardia. | after a combination of treatments, minute 18 |
+| 12-lead ECG | Sinus rhythm with old anterior Q waves. | after a combination of treatments, minute 17 |
+| Troponin | Troponin I 0.08 ng/mL (normal below 0.04), mildly raised. | after a combination of treatments, minute 18 |
+| BNP | BNP 540 pg/mL, raised. | after a combination of treatments, minute 18 |
+| Electrolytes and creatinine | Potassium 3.4 (low), magnesium 1.5 (low), creatinine 1.2 mg/dL. | after a combination of treatments, minute 18 |
+| Chest X-ray | Mild cardiomegaly. Clear lung fields. | after a combination of treatments, minute 18 |
+| Bedside echocardiogram | Reduced pumping, ejection fraction about 30%. A thin, akinetic scar in the anterior wall and apex. No pericardial effusion. | after a combination of treatments, minute 18 |
+
+### Results that stay the same after correct treatment, and why
+
+Every other examination finding, test result and listening site changes as the patient responds to treatment. These stay the same because physiology says they should.
+
+| Result | Why it does not change |
+| --- | --- |
+| Examination: Listen to the lungs | The lungs are clear throughout: this is a rhythm problem, and the rhythm does not flood the lungs in minutes. |
+| Test: Troponin | This reflects his old heart attack and scar, which a shock and a drug do not change in minutes. The small troponin leak is from the old scar. |
+| Test: BNP | This reflects his old heart attack and scar, which a shock and a drug do not change in minutes. BNP falls over days, not minutes. |
+| Test: Electrolytes and creatinine | Nothing the learner can give replaces potassium or magnesium, so they stay low, and low levels are part of why the tachycardia returns. |
+| Test: Chest X-ray | The chest X-ray is mildly abnormal from the old heart attack and does not change in minutes. |
+| Test: Bedside echocardiogram | This reflects his old heart attack and scar, which a shock and a drug do not change in minutes. |
+| Listening site: lungs upper | The lungs are clear throughout: this is a rhythm problem, not a lung problem. |
+| Listening site: lungs lower | The lungs are clear throughout: this is a rhythm problem, not a lung problem. |
 
 ### Exams and tests rated helpful
 
@@ -1629,20 +1798,20 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 
 | Topic | Answer | First seen |
 | --- | --- | --- |
-| complaint | My heart started pounding and my chest got tight. | with no treatment, at the start |
-| onset | About twenty minutes ago, while I was gardening. | with no treatment, at the start |
-| severity | The chest tightness is a 5 out of 10. | with no treatment, at the start |
-| palpitations | Yes. It is very fast and strong. | with no treatment, at the start |
-| syncope | I nearly passed out. I feel faint now. | with no treatment, at the start |
-| breathless | A little. | with no treatment, at the start |
-| prior | Never like this. | with no treatment, at the start |
-| pmh | A heart attack two years ago. I have a stent. | with no treatment, at the start |
-| meds | Aspirin, atorvastatin, ramipril and metoprolol. | with no treatment, at the start |
-| adherence | I take them every day. | with no treatment, at the start |
-| allergies | Contrast dye gave me a rash. | with no treatment, at the start |
-| family | My father died suddenly at 50. | with no treatment, at the start |
-| social | Occasional alcohol. I do not smoke. | with no treatment, at the start |
-| lastmeal | Lunch, two hours ago. | with no treatment, at the start |
+| complaint | My heart started pounding and my chest got tight. | after a combination of treatments, minute 18 |
+| onset | About twenty minutes ago, while I was gardening. | after a combination of treatments, minute 18 |
+| severity | The chest tightness is a 5 out of 10. | after a combination of treatments, minute 18 |
+| palpitations | Yes. It is very fast and strong. | after a combination of treatments, minute 18 |
+| syncope | I nearly passed out. I feel faint now. | after a combination of treatments, minute 18 |
+| breathless | A little. | after a combination of treatments, minute 18 |
+| prior | Never like this. | after a combination of treatments, minute 18 |
+| pmh | A heart attack two years ago. I have a stent. | after a combination of treatments, minute 18 |
+| meds | Aspirin, atorvastatin, ramipril and metoprolol. | after a combination of treatments, minute 18 |
+| adherence | I take them every day. | after a combination of treatments, minute 18 |
+| allergies | Contrast dye gave me a rash. | after a combination of treatments, minute 18 |
+| family | My father died suddenly at 50. | after a combination of treatments, minute 18 |
+| social | Occasional alcohol. I do not smoke. | after a combination of treatments, minute 18 |
+| lastmeal | Lunch, two hours ago. | after a combination of treatments, minute 18 |
 
 ### What you hear at each listening site
 
@@ -1650,24 +1819,24 @@ The learner presses a site with the stethoscope. A site with no finding of its o
 
 | Site | Finding | First seen |
 | --- | --- | --- |
-| heart: aortic | Very fast and regular. No murmur. | with no treatment, at the start |
-| heart: aortic | Regular. No murmur. | after every key action, at the start |
-| heart: pulmonic | Very fast and regular. No murmur. | with no treatment, at the start |
-| heart: pulmonic | Regular. No murmur. | after every key action, at the start |
-| heart: tricuspid | Very fast and regular. The first sound varies in loudness from beat to beat. | with no treatment, at the start |
-| heart: tricuspid | Regular. No murmur. | after every key action, at the start |
-| heart: mitral | Very fast and regular. The first sound varies in loudness from beat to beat. | with no treatment, at the start |
-| heart: mitral | Regular. A soft third heart sound. | after every key action, at the start |
-| lungs: upper | Clear in the upper zones. | with no treatment, at the start |
-| lungs: lower | Clear at the bases. | with no treatment, at the start |
+| heart: aortic | Very fast and regular. No murmur. | after a combination of treatments, minute 18 |
+| heart: aortic | Regular. No murmur. | after a combination of treatments, minute 17 |
+| heart: pulmonic | Very fast and regular. No murmur. | after a combination of treatments, minute 18 |
+| heart: pulmonic | Regular. No murmur. | after a combination of treatments, minute 17 |
+| heart: tricuspid | Very fast and regular. The first sound varies in loudness from beat to beat. | after a combination of treatments, minute 18 |
+| heart: tricuspid | Regular. No murmur. | after a combination of treatments, minute 17 |
+| heart: mitral | Very fast and regular. The first sound varies in loudness from beat to beat. | after a combination of treatments, minute 18 |
+| heart: mitral | Regular. A soft third heart sound. | after a combination of treatments, minute 17 |
+| lungs: upper | Clear in the upper zones. | after a combination of treatments, minute 18 |
+| lungs: lower | Clear at the bases. | after a combination of treatments, minute 18 |
 
 ### What the patient says (every line)
 
 | Line | First seen |
 | --- | --- |
-| My heart is pounding. I feel dizzy and my chest is tight. | with no treatment, at the start |
-| I am going to pass out... | with no treatment, minute 13 |
-| My heart has stopped racing. | after every key action, at the start |
+| I am going to pass out... | after a combination of treatments, minute 18 |
+| My heart is pounding. I feel dizzy and my chest is tight. | after a combination of treatments, minute 10 |
+| My heart has stopped racing. | after a combination of treatments, minute 17 |
 
 ### Echocardiogram (every state the case can show)
 
@@ -1675,7 +1844,7 @@ Size values are multiples of normal (1 is normal). Ejection fraction is the frac
 
 | Ejection fraction | LV size | LA size | Wall thickness | Effusion | RV collapse | Mitral regurgitation | Weak wall | Caption | First seen |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 0.3 | 1.15 | 1 | 0.8 | 0 | false | false | anterior-apex | Reduced pumping, ejection fraction about 30%. A thin, akinetic scar in the anterior wall and apex. No pericardial effusion. | with no treatment, at the start |
+| 0.3 | 1.15 | 1 | 0.8 | 0 | false | false | anterior-apex | Reduced pumping, ejection fraction about 30%. A thin, akinetic scar in the anterior wall and apex. No pericardial effusion. | after a combination of treatments, minute 18 |
 
 ### What the patient looks like (every feature the case can show)
 
@@ -1683,32 +1852,32 @@ Skin also turns paler as the patient worsens, and breathing speed follows the br
 
 | Feature | First seen |
 | --- | --- |
-| sweating: yes | with no treatment, at the start |
-| blue lips: no | with no treatment, at the start |
-| neck veins distended: no | with no treatment, at the start |
-| leg swelling: no | with no treatment, at the start |
-| labored breathing: no | with no treatment, at the start |
-| distressed face: yes | with no treatment, at the start |
-| oxygen mask: none | with no treatment, at the start |
-| IV line: no | with no treatment, at the start |
-| defibrillator pads: no | with no treatment, at the start |
-| pericardial drain: no | with no treatment, at the start |
-| died: no | with no treatment, at the start |
-| labored breathing: yes | with no treatment, minute 5 |
-| sweating: no | with no treatment, when the case ended (dead) |
-| distressed face: no | with no treatment, when the case ended (dead) |
-| died: yes | with no treatment, when the case ended (dead) |
-| oxygen mask: o2 | after every key action, at the start |
-| IV line: yes | after every key action, at the start |
-| defibrillator pads: yes | after every key action, at the start |
-| oxygen mask: niv | after Non-invasive ventilation (BiPAP), at the start |
+| sweating: yes | after a combination of treatments, minute 18 |
+| blue lips: no | after a combination of treatments, minute 18 |
+| neck veins distended: no | after a combination of treatments, minute 18 |
+| leg swelling: no | after a combination of treatments, minute 18 |
+| labored breathing: yes | after a combination of treatments, minute 18 |
+| distressed face: yes | after a combination of treatments, minute 18 |
+| oxygen mask: none | after a combination of treatments, minute 18 |
+| IV line: no | after a combination of treatments, minute 18 |
+| defibrillator pads: no | after a combination of treatments, minute 18 |
+| pericardial drain: no | after a combination of treatments, minute 18 |
+| died: no | after a combination of treatments, minute 18 |
+| IV line: yes | after a combination of treatments, minute 11 |
+| labored breathing: no | after a combination of treatments, minute 3 |
+| defibrillator pads: yes | after a combination of treatments, minute 26 |
+| sweating: no | after a combination of treatments, minute 30 |
+| distressed face: no | after a combination of treatments, minute 30 |
+| died: yes | after a combination of treatments, minute 30 |
+| oxygen mask: o2 | after a combination of treatments, minute 20 |
+| oxygen mask: niv | after a combination of treatments, minute 28 |
 
 ### 12-lead ECG patterns this case shows
 
 | Pattern | First seen |
 | --- | --- |
-| vt | with no treatment, at the start |
-| normal | after every key action, at the start |
+| vt | after a combination of treatments, minute 18 |
+| normal | after a combination of treatments, minute 17 |
 
 ### Sounds
 
@@ -1716,13 +1885,13 @@ These are synthesized approximations. Every combination the case can play:
 
 | Sounds | First seen |
 | --- | --- |
-| heart: normal, lungs: clear | with no treatment, at the start |
-| at the aortic site: heart: normal, lungs: clear | with no treatment, at the start |
-| at the pulmonic site: heart: normal, lungs: clear | with no treatment, at the start |
-| at the tricuspid site: heart: normal, lungs: clear | with no treatment, at the start |
-| at the mitral site: heart: normal, lungs: clear | with no treatment, at the start |
-| at the upper site: heart: normal, lungs: clear | with no treatment, at the start |
-| at the lower site: heart: normal, lungs: clear | with no treatment, at the start |
+| heart: normal, lungs: clear | after a combination of treatments, minute 18 |
+| at the aortic site: heart: normal, lungs: clear | after a combination of treatments, minute 18 |
+| at the pulmonic site: heart: normal, lungs: clear | after a combination of treatments, minute 18 |
+| at the tricuspid site: heart: normal, lungs: clear | after a combination of treatments, minute 18 |
+| at the mitral site: heart: normal, lungs: clear | after a combination of treatments, minute 18 |
+| at the upper site: heart: normal, lungs: clear | after a combination of treatments, minute 18 |
+| at the lower site: heart: normal, lungs: clear | after a combination of treatments, minute 18 |
 
 ### Review decision
 
@@ -1827,27 +1996,51 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 
 | Exam | Finding | First seen |
 | --- | --- | --- |
-| General inspection | Pale, cold and clammy, drowsy and short of breath. The skin is mottled at the knees. | with no treatment, at the start |
-| General inspection | Grey, mottled and barely responding. | with no treatment, minute 20 |
-| General inspection | Pale, but warmer and more alert. Breathing easier. | after every key action, minute 30 |
-| Listen to the heart | Fast and regular at about 120/min. A third heart sound (gallop). | with no treatment, at the start |
-| Listen to the lungs | Crackles up to the mid-zones on both sides. | with no treatment, at the start |
-| Listen to the lungs | Crackles at the bases only. | after every key action, minute 30 |
-| Check neck veins (JVP) | Neck veins are raised, about 12 cm. | with no treatment, at the start |
-| Check pulses and perfusion | Pulses are barely palpable and fast. Cold hands and feet. Capillary refill is slow. | with no treatment, at the start |
-| Check pulses and perfusion | Weak, thready pulses. Cool hands and feet. | after every key action, minute 2 |
+| General inspection | Pale, cold and clammy, drowsy and short of breath. The skin is mottled at the knees. | after a combination of treatments, minute 18 |
+| General inspection | Grey, mottled and barely responding. | after a combination of treatments, minute 25 |
+| General inspection | Gasping and even more drowsy since the fluid bolus. | after a combination of treatments, minute 13 |
+| General inspection | Still pale and clammy, but warmer at the hands and a little more alert since the pressor. | after a combination of treatments, minute 24 |
+| General inspection | Pale, but warmer and more alert. Breathing easier. | after a combination of treatments, minute 43 |
+| Listen to the heart | Fast and regular at about 134/min. A third heart sound (gallop). | after a combination of treatments, minute 18 |
+| Listen to the heart | Very fast at about 142/min with extra beats. The gallop and the murmur are louder. | after a combination of treatments, minute 25 |
+| Listen to the heart | Fast and regular at about 129/min. The third heart sound is softer. | after a combination of treatments, minute 43 |
+| Listen to the lungs | Crackles up to the mid-zones on both sides. | after a combination of treatments, minute 18 |
+| Listen to the lungs | Crackles to the top of both lungs after the fluid. | after a combination of treatments, minute 13 |
+| Listen to the lungs | Crackles up to the mid-zones, with better air entry on BiPAP. | after a combination of treatments, minute 8 |
+| Listen to the lungs | Crackles at the bases only. | after a combination of treatments, minute 43 |
+| Check neck veins (JVP) | Neck veins are raised, about 12 cm. | after a combination of treatments, minute 18 |
+| Check neck veins (JVP) | Neck veins are still raised but lower, about 9 cm. | after a combination of treatments, minute 43 |
+| Check pulses and perfusion | Pulses are barely palpable and fast. Cold hands and feet. Capillary refill is slow. | after a combination of treatments, minute 18 |
+| Check pulses and perfusion | Weak, thready pulses. Cool hands and feet. | after a combination of treatments, minute 14 |
+| Check pulses and perfusion | The pulses are stronger and the hands are warming up. | after a combination of treatments, minute 51 |
 
 ### Test results (every different result the case can produce)
 
 | Test | Result | First seen |
 | --- | --- | --- |
-| 12-lead ECG | Sinus tachycardia 120/min. ST elevation in V1 to V5 with Q waves, and reciprocal ST depression inferiorly. Extensive anterior STEMI. | with no treatment, at the start |
-| 12-lead ECG | Sinus tachycardia 118/min. ST elevation in V1 to V4 is falling, with T wave inversion. Reperfusion pattern. | after every key action, minute 30 |
-| Troponin | Troponin I 8.4 ng/mL (normal below 0.04), markedly raised. | with no treatment, at the start |
-| BNP | BNP 1,400 pg/mL, markedly raised. | with no treatment, at the start |
-| Electrolytes and creatinine | Potassium 4.6, bicarbonate 17 (low), creatinine 1.9 mg/dL (rising). Lactate 5.2 mmol/L (high). | with no treatment, at the start |
-| Chest X-ray | Pulmonary edema with a normal-sized heart. | with no treatment, at the start |
-| Bedside echocardiogram | Severely reduced left ventricular function, ejection fraction about 15%. Akinetic anterior wall and apex. Moderate mitral regurgitation. No pericardial effusion. | with no treatment, at the start |
+| 12-lead ECG | Sinus tachycardia 134/min. ST elevation in V1 to V5 with Q waves, and reciprocal ST depression inferiorly. Extensive anterior STEMI. | after a combination of treatments, minute 18 |
+| 12-lead ECG | Sinus tachycardia 142/min with frequent ventricular ectopic beats. ST elevation in V1 to V5 with Q waves. Extensive anterior STEMI. | after a combination of treatments, minute 25 |
+| 12-lead ECG | Sinus tachycardia 129/min. ST elevation in V1 to V4 is falling, with T wave inversion. Reperfusion pattern. | after a combination of treatments, minute 43 |
+| Troponin | Troponin I 11.1 ng/mL (normal below 0.04), markedly raised and rising. | after a combination of treatments, minute 18 |
+| Troponin | Troponin I 12.9 ng/mL (normal below 0.04). It is still rising after reperfusion, as expected. | after a combination of treatments, minute 43 |
+| BNP | BNP 1,400 pg/mL, markedly raised. | after a combination of treatments, minute 18 |
+| BNP | BNP 1,100 pg/mL, still markedly raised. It falls over days. | after a combination of treatments, minute 43 |
+| Electrolytes and creatinine | Potassium 4.6, bicarbonate 17 (low), creatinine 1.9 mg/dL (rising). Lactate 5.2 mmol/L (high). | after a combination of treatments, minute 18 |
+| Electrolytes and creatinine | Potassium 5.3, bicarbonate 12 (very low), creatinine 2.4 mg/dL. Lactate 8.1 mmol/L (very high). | after a combination of treatments, minute 25 |
+| Electrolytes and creatinine | Potassium 4.6, bicarbonate 18, creatinine 1.9 mg/dL. Lactate 4.4 mmol/L, falling slowly with the pressor. | after a combination of treatments, minute 24 |
+| Electrolytes and creatinine | Potassium 4.4, bicarbonate 21, creatinine 1.8 mg/dL. Lactate 2.6 mmol/L, falling. | after a combination of treatments, minute 43 |
+| Chest X-ray | Pulmonary edema with a normal-sized heart. | after a combination of treatments, minute 18 |
+| Chest X-ray | Worse pulmonary edema with a normal-sized heart, since the fluid bolus. | after a combination of treatments, minute 13 |
+| Chest X-ray | Pulmonary edema is clearing, with a normal-sized heart. | after a combination of treatments, minute 43 |
+| Bedside echocardiogram | Severely reduced pumping, ejection fraction about 15%. The anterior wall and apex do not move. Moderate mitral regurgitation. No pericardial effusion. | after a combination of treatments, minute 18 |
+| Bedside echocardiogram | Severely reduced pumping, ejection fraction about 20%. The anterior wall and apex are stunned and barely move. The mitral regurgitation is milder. No pericardial effusion. | after a combination of treatments, minute 43 |
+
+### Results that stay the same after correct treatment, and why
+
+Every other examination finding, test result and listening site changes as the patient responds to treatment. These stay the same because physiology says they should.
+
+| Result | Why it does not change |
+| --- | --- |
 
 ### Exams and tests rated helpful
 
@@ -1873,23 +2066,23 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 
 | Topic | Answer | First seen |
 | --- | --- | --- |
-| complaint | My chest has been squeezing for hours. And I cannot breathe. | with no treatment, at the start |
-| onset | This morning. About three hours ago. | with no treatment, at the start |
-| severity | 7 out of 10. | with no treatment, at the start |
-| location | All across my chest. | with no treatment, at the start |
-| radiation | Into my left arm. | with no treatment, at the start |
-| sweating | Yes, I am soaked. | with no treatment, at the start |
-| nausea | I have been sick twice. | with no treatment, at the start |
-| breathless | Yes. I cannot lie flat. I am drowning. | with no treatment, at the start |
-| syncope | I feel like I will pass out. | with no treatment, at the start |
-| prior | Two heart attacks before, but nothing like today. | with no treatment, at the start |
-| pmh | Two heart attacks and diabetes. | with no treatment, at the start |
-| meds | Aspirin, metoprolol, ramipril and metformin. | with no treatment, at the start |
-| adherence | I take them every day. | with no treatment, at the start |
-| allergies | None. | with no treatment, at the start |
-| social | I gave up smoking after my last heart attack. | with no treatment, at the start |
-| family | My brother died of a heart attack. | with no treatment, at the start |
-| lastmeal | Breakfast. I have not kept anything down since. | with no treatment, at the start |
+| complaint | My chest has been squeezing for hours. And I cannot breathe. | after a combination of treatments, minute 18 |
+| onset | This morning. About three hours ago. | after a combination of treatments, minute 18 |
+| severity | 7 out of 10. | after a combination of treatments, minute 18 |
+| location | All across my chest. | after a combination of treatments, minute 18 |
+| radiation | Into my left arm. | after a combination of treatments, minute 18 |
+| sweating | Yes, I am soaked. | after a combination of treatments, minute 18 |
+| nausea | I have been sick twice. | after a combination of treatments, minute 18 |
+| breathless | Yes. I cannot lie flat. I am drowning. | after a combination of treatments, minute 18 |
+| syncope | I feel like I will pass out. | after a combination of treatments, minute 18 |
+| prior | Two heart attacks before, but nothing like today. | after a combination of treatments, minute 18 |
+| pmh | Two heart attacks and diabetes. | after a combination of treatments, minute 18 |
+| meds | Aspirin, metoprolol, ramipril and metformin. | after a combination of treatments, minute 18 |
+| adherence | I take them every day. | after a combination of treatments, minute 18 |
+| allergies | None. | after a combination of treatments, minute 18 |
+| social | I gave up smoking after my last heart attack. | after a combination of treatments, minute 18 |
+| family | My brother died of a heart attack. | after a combination of treatments, minute 18 |
+| lastmeal | Breakfast. I have not kept anything down since. | after a combination of treatments, minute 18 |
 
 ### What you hear at each listening site
 
@@ -1897,21 +2090,27 @@ The learner presses a site with the stethoscope. A site with no finding of its o
 
 | Site | Finding | First seen |
 | --- | --- | --- |
-| heart: aortic | Fast and regular. A gallop is not heard at this site. | with no treatment, at the start |
-| heart: pulmonic | Fast and regular. Nothing abnormal at this site. | with no treatment, at the start |
-| heart: tricuspid | Fast and regular. Nothing abnormal at this site. | with no treatment, at the start |
-| heart: mitral | A third heart sound (gallop) and a holosystolic murmur at the apex from mitral regurgitation. | with no treatment, at the start |
-| lungs: upper | Crackles reach the upper zones. | with no treatment, at the start |
-| lungs: upper | Crackles at the edges of the upper zones. | after every key action, minute 30 |
-| lungs: lower | Coarse crackles at both bases. | with no treatment, at the start |
+| heart: aortic | Fast and regular. Nothing abnormal at this site. | after a combination of treatments, minute 18 |
+| heart: aortic | Regular, a little fast. Nothing abnormal at this site. | after a combination of treatments, minute 43 |
+| heart: pulmonic | Fast and regular. Nothing abnormal at this site. | after a combination of treatments, minute 18 |
+| heart: pulmonic | Regular, a little fast. Nothing abnormal at this site. | after a combination of treatments, minute 43 |
+| heart: tricuspid | Fast and regular. Nothing abnormal at this site. | after a combination of treatments, minute 18 |
+| heart: tricuspid | Regular, a little fast. Nothing abnormal at this site. | after a combination of treatments, minute 43 |
+| heart: mitral | A third heart sound (gallop) and a holosystolic murmur at the apex from mitral regurgitation. | after a combination of treatments, minute 18 |
+| heart: mitral | A softer third heart sound and a quieter murmur at the apex. | after a combination of treatments, minute 43 |
+| lungs: upper | Crackles reach the upper zones. | after a combination of treatments, minute 18 |
+| lungs: upper | Crackles to the very top of the upper zones. | after a combination of treatments, minute 13 |
+| lungs: upper | Crackles at the edges of the upper zones. | after a combination of treatments, minute 43 |
+| lungs: lower | Coarse crackles at both bases. | after a combination of treatments, minute 18 |
+| lungs: lower | Crackles at the bases only. | after a combination of treatments, minute 43 |
 
 ### What the patient says (every line)
 
 | Line | First seen |
 | --- | --- |
-| I feel terrible. I cannot breathe, and my chest is so tight. | with no treatment, at the start |
-| I... cannot... I feel like I am dying. | with no treatment, minute 14 |
-| The pain has gone. I can breathe again. | after every key action, minute 30 |
+| I... cannot... I feel like I am dying. | after a combination of treatments, minute 18 |
+| I feel terrible. I cannot breathe, and my chest is so tight. | after a combination of treatments, minute 10 |
+| The pain has gone. I can breathe again. | after a combination of treatments, minute 43 |
 
 ### Echocardiogram (every state the case can show)
 
@@ -1919,7 +2118,8 @@ Size values are multiples of normal (1 is normal). Ejection fraction is the frac
 
 | Ejection fraction | LV size | LA size | Wall thickness | Effusion | RV collapse | Mitral regurgitation | Weak wall | Caption | First seen |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 0.15 | 1.3 | 1.2 | 0.7 | 0 | false | true | anterior-apex | Severely reduced pumping, ejection fraction about 15%. The anterior wall and apex do not move. Moderate mitral regurgitation. No pericardial effusion. | with no treatment, at the start |
+| 0.15 | 1.3 | 1.2 | 0.7 | 0 | false | true | anterior-apex | Severely reduced pumping, ejection fraction about 15%. The anterior wall and apex do not move. Moderate mitral regurgitation. No pericardial effusion. | after a combination of treatments, minute 18 |
+| 0.2 | 1.3 | 1.2 | 0.7 | 0 | false | false | anterior-apex | Severely reduced pumping, ejection fraction about 20%. The anterior wall and apex are stunned and barely move. The mitral regurgitation is milder. No pericardial effusion. | after a combination of treatments, minute 43 |
 
 ### What the patient looks like (every feature the case can show)
 
@@ -1927,33 +2127,33 @@ Skin also turns paler as the patient worsens, and breathing speed follows the br
 
 | Feature | First seen |
 | --- | --- |
-| sweating: yes | with no treatment, at the start |
-| blue lips: yes | with no treatment, at the start |
-| neck veins distended: yes | with no treatment, at the start |
-| leg swelling: no | with no treatment, at the start |
-| labored breathing: yes | with no treatment, at the start |
-| distressed face: no | with no treatment, at the start |
-| oxygen mask: none | with no treatment, at the start |
-| IV line: no | with no treatment, at the start |
-| defibrillator pads: no | with no treatment, at the start |
-| pericardial drain: no | with no treatment, at the start |
-| died: no | with no treatment, at the start |
-| distressed face: yes | with no treatment, minute 1 |
-| sweating: no | with no treatment, when the case ended (dead) |
-| blue lips: no | with no treatment, when the case ended (dead) |
-| labored breathing: no | with no treatment, when the case ended (dead) |
-| died: yes | with no treatment, when the case ended (dead) |
-| oxygen mask: niv | after every key action, at the start |
-| IV line: yes | after every key action, at the start |
-| oxygen mask: o2 | after Oxygen by mask, at the start |
-| defibrillator pads: yes | after Synchronized cardioversion, at the start |
+| sweating: yes | after a combination of treatments, minute 18 |
+| blue lips: yes | after a combination of treatments, minute 18 |
+| neck veins distended: yes | after a combination of treatments, minute 18 |
+| leg swelling: no | after a combination of treatments, minute 18 |
+| labored breathing: yes | after a combination of treatments, minute 18 |
+| distressed face: yes | after a combination of treatments, minute 18 |
+| oxygen mask: none | after a combination of treatments, minute 18 |
+| IV line: no | after a combination of treatments, minute 18 |
+| defibrillator pads: no | after a combination of treatments, minute 18 |
+| pericardial drain: no | after a combination of treatments, minute 18 |
+| died: no | after a combination of treatments, minute 18 |
+| IV line: yes | after a combination of treatments, minute 11 |
+| sweating: no | after a combination of treatments, minute 26 |
+| blue lips: no | after a combination of treatments, minute 26 |
+| labored breathing: no | after a combination of treatments, minute 26 |
+| distressed face: no | after a combination of treatments, minute 26 |
+| defibrillator pads: yes | after a combination of treatments, minute 26 |
+| died: yes | after a combination of treatments, minute 26 |
+| oxygen mask: o2 | after a combination of treatments, minute 9 |
+| oxygen mask: niv | after a combination of treatments, minute 8 |
 
 ### 12-lead ECG patterns this case shows
 
 | Pattern | First seen |
 | --- | --- |
-| anterior-stemi | with no treatment, at the start |
-| anterior-stemi-reperfused | after every key action, minute 30 |
+| anterior-stemi | after a combination of treatments, minute 18 |
+| anterior-stemi-reperfused | after a combination of treatments, minute 43 |
 
 ### Sounds
 
@@ -1961,14 +2161,14 @@ These are synthesized approximations. Every combination the case can play:
 
 | Sounds | First seen |
 | --- | --- |
-| heart: s3, lungs: crackles | with no treatment, at the start |
-| at the aortic site: heart: normal, lungs: crackles | with no treatment, at the start |
-| at the pulmonic site: heart: normal, lungs: crackles | with no treatment, at the start |
-| at the tricuspid site: heart: normal, lungs: crackles | with no treatment, at the start |
-| at the mitral site: heart: s3, lungs: crackles | with no treatment, at the start |
-| at the upper site: heart: normal, lungs: crackles | with no treatment, at the start |
-| at the lower site: heart: normal, lungs: crackles | with no treatment, at the start |
-| at the upper site: heart: normal, lungs: clear | after every key action, minute 30 |
+| heart: s3, lungs: crackles | after a combination of treatments, minute 18 |
+| at the aortic site: heart: normal, lungs: crackles | after a combination of treatments, minute 18 |
+| at the pulmonic site: heart: normal, lungs: crackles | after a combination of treatments, minute 18 |
+| at the tricuspid site: heart: normal, lungs: crackles | after a combination of treatments, minute 18 |
+| at the mitral site: heart: s3, lungs: crackles | after a combination of treatments, minute 18 |
+| at the upper site: heart: normal, lungs: crackles | after a combination of treatments, minute 18 |
+| at the lower site: heart: normal, lungs: crackles | after a combination of treatments, minute 18 |
+| at the upper site: heart: normal, lungs: clear | after a combination of treatments, minute 43 |
 
 ### Review decision
 
@@ -2064,22 +2264,36 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 
 | Exam | Finding | First seen |
 | --- | --- | --- |
-| General inspection | Unresponsive, pale and not breathing normally. The pupils are wide. | with no treatment, at the start |
-| Listen to the heart | No heart sounds are heard. | with no treatment, at the start |
-| Listen to the lungs | No breath sounds apart from the ventilations. | with no treatment, at the start |
-| Check neck veins (JVP) | Not assessable. | with no treatment, at the start |
-| Check pulses and perfusion | No carotid or femoral pulse. | with no treatment, at the start |
+| General inspection | Unresponsive, pale and not breathing normally. The pupils are wide. | after a combination of treatments, minute 12 |
+| General inspection | Unresponsive and pale, with the chest moving under the compressions. The pupils are wide and fixed. | after a combination of treatments, minute 8 |
+| Listen to the heart | No heart sounds are heard. | after a combination of treatments, minute 12 |
+| Listen to the heart | No spontaneous heart sounds. Only the sound of the compressions. | after a combination of treatments, minute 8 |
+| Listen to the lungs | No breathing. No breath sounds. | after a combination of treatments, minute 12 |
+| Listen to the lungs | The chest rises with each bag-mask breath. No spontaneous breathing. | after a combination of treatments, minute 12 |
+| Check neck veins (JVP) | Not assessable. | after a combination of treatments, minute 12 |
+| Check neck veins (JVP) | Not assessable. The neck veins pulse with each compression. | after a combination of treatments, minute 8 |
+| Check pulses and perfusion | No carotid or femoral pulse. | after a combination of treatments, minute 12 |
+| Check pulses and perfusion | No spontaneous pulse. A femoral pulse is felt with each compression, so the compressions are working. | after a combination of treatments, minute 8 |
 
 ### Test results (every different result the case can produce)
 
 | Test | Result | First seen |
 | --- | --- | --- |
-| 12-lead ECG | Ventricular fibrillation. No organized electrical activity. | with no treatment, at the start |
-| Troponin | Troponin I 0.3 ng/mL (normal below 0.04), already rising. | with no treatment, at the start |
-| BNP | BNP 120 pg/mL. | with no treatment, at the start |
-| Electrolytes and creatinine | Potassium 4.0, bicarbonate 14 (low), creatinine 1.1 mg/dL. Lactate 9 mmol/L (very high). | with no treatment, at the start |
-| Chest X-ray | Normal heart size. Clear lungs. | with no treatment, at the start |
-| Bedside echocardiogram | No organized cardiac contraction: the heart is quivering. No pericardial effusion. | with no treatment, at the start |
+| 12-lead ECG | Ventricular fibrillation. No organized electrical activity. | after a combination of treatments, minute 12 |
+| 12-lead ECG | Ventricular fibrillation with compression artifact. No organized electrical activity. | after a combination of treatments, minute 8 |
+| Troponin | Troponin I 0.3 ng/mL (normal below 0.04), already rising. | after a combination of treatments, minute 12 |
+| BNP | BNP 120 pg/mL. | after a combination of treatments, minute 12 |
+| Electrolytes and creatinine | Potassium 4.0, bicarbonate 14 (low), creatinine 1.1 mg/dL. Lactate 9 mmol/L (very high). | after a combination of treatments, minute 12 |
+| Chest X-ray | Normal heart size. Clear lungs. | after a combination of treatments, minute 12 |
+| Chest X-ray | Normal heart size. Clear lungs. A fractured rib on the left from the compressions. | after a combination of treatments, minute 8 |
+| Bedside echocardiogram | No organized cardiac contraction: the heart is quivering. No pericardial effusion. | after a combination of treatments, minute 12 |
+
+### Results that stay the same after correct treatment, and why
+
+Every other examination finding, test result and listening site changes as the patient responds to treatment. These stay the same because physiology says they should.
+
+| Result | Why it does not change |
+| --- | --- |
 
 ### Exams and tests rated helpful
 
@@ -2100,17 +2314,17 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 
 | Topic | Answer | First seen |
 | --- | --- | --- |
-| collapse | A bystander saw him drop in the shopping centre about eight minutes ago. Compressions started after three minutes. We have not shocked him yet. | with no treatment, at the start |
-| complaint | Collapsed and unresponsive, no pulse. Ventricular fibrillation on the monitor. | with no treatment, at the start |
-| onset | About eight minutes ago. | with no treatment, at the start |
-| syncope | He was walking and simply dropped. | with no treatment, at the start |
-| prior | His friend says he has had chest pain on and off for two days. | with no treatment, at the start |
-| pmh | His wife says high cholesterol. He has not seen a doctor for years. | with no treatment, at the start |
-| meds | None that his wife knows of. | with no treatment, at the start |
-| allergies | None known. | with no treatment, at the start |
-| family | His father died suddenly at 52. | with no treatment, at the start |
-| social | He smokes about 20 a day. | with no treatment, at the start |
-| lastmeal | He had lunch an hour ago. | with no treatment, at the start |
+| collapse | A bystander saw him drop in the shopping centre about eight minutes ago. Compressions started after three minutes. We have not shocked him yet. | after a combination of treatments, minute 12 |
+| complaint | Collapsed and unresponsive, no pulse. Ventricular fibrillation on the monitor. | after a combination of treatments, minute 12 |
+| onset | About eight minutes ago. | after a combination of treatments, minute 12 |
+| syncope | He was walking and simply dropped. | after a combination of treatments, minute 12 |
+| prior | His friend says he has had chest pain on and off for two days. | after a combination of treatments, minute 12 |
+| pmh | His wife says high cholesterol. He has not seen a doctor for years. | after a combination of treatments, minute 12 |
+| meds | None that his wife knows of. | after a combination of treatments, minute 12 |
+| allergies | None known. | after a combination of treatments, minute 12 |
+| family | His father died suddenly at 52. | after a combination of treatments, minute 12 |
+| social | He smokes about 20 a day. | after a combination of treatments, minute 12 |
+| lastmeal | He had lunch an hour ago. | after a combination of treatments, minute 12 |
 
 ### What you hear at each listening site
 
@@ -2118,18 +2332,24 @@ The learner presses a site with the stethoscope. A site with no finding of its o
 
 | Site | Finding | First seen |
 | --- | --- | --- |
-| heart: aortic | No heart sounds are heard. | with no treatment, at the start |
-| heart: pulmonic | No heart sounds are heard. | with no treatment, at the start |
-| heart: tricuspid | No heart sounds are heard. | with no treatment, at the start |
-| heart: mitral | No heart sounds are heard at the apex. | with no treatment, at the start |
-| lungs: upper | No breath sounds apart from the ventilations. | with no treatment, at the start |
-| lungs: lower | No breath sounds apart from the ventilations. | with no treatment, at the start |
+| heart: aortic | No heart sounds are heard. | after a combination of treatments, minute 12 |
+| heart: aortic | Only compression noise. No spontaneous heart sounds. | after a combination of treatments, minute 8 |
+| heart: pulmonic | No heart sounds are heard. | after a combination of treatments, minute 12 |
+| heart: pulmonic | Only compression noise. No spontaneous heart sounds. | after a combination of treatments, minute 8 |
+| heart: tricuspid | No heart sounds are heard. | after a combination of treatments, minute 12 |
+| heart: tricuspid | Only compression noise. No spontaneous heart sounds. | after a combination of treatments, minute 8 |
+| heart: mitral | No heart sounds are heard. | after a combination of treatments, minute 12 |
+| heart: mitral | Only compression noise. No spontaneous heart sounds. | after a combination of treatments, minute 8 |
+| lungs: upper | No breath sounds. | after a combination of treatments, minute 12 |
+| lungs: upper | Breath sounds are heard only with each bag-mask breath. | after a combination of treatments, minute 12 |
+| lungs: lower | No breath sounds. | after a combination of treatments, minute 12 |
+| lungs: lower | Breath sounds are heard only with each bag-mask breath. | after a combination of treatments, minute 12 |
 
 ### What the patient says (every line)
 
 | Line | First seen |
 | --- | --- |
-| He is unresponsive. | with no treatment, at the start |
+| He is unresponsive. | after a combination of treatments, minute 12 |
 
 ### Echocardiogram (every state the case can show)
 
@@ -2137,7 +2357,7 @@ Size values are multiples of normal (1 is normal). Ejection fraction is the frac
 
 | Ejection fraction | LV size | LA size | Wall thickness | Effusion | RV collapse | Mitral regurgitation | Weak wall | Caption | First seen |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 0.12 | 1 | 1 | 1 | 0 | false | false | anterior-apex | No organized cardiac contraction: the heart is quivering. No pericardial effusion. | with no treatment, at the start |
+| 0.12 | 1 | 1 | 1 | 0 | false | false | anterior-apex | No organized cardiac contraction: the heart is quivering. No pericardial effusion. | after a combination of treatments, minute 12 |
 
 ### What the patient looks like (every feature the case can show)
 
@@ -2145,29 +2365,29 @@ Skin also turns paler as the patient worsens, and breathing speed follows the br
 
 | Feature | First seen |
 | --- | --- |
-| sweating: no | with no treatment, at the start |
-| blue lips: yes | with no treatment, at the start |
-| neck veins distended: no | with no treatment, at the start |
-| leg swelling: no | with no treatment, at the start |
-| labored breathing: no | with no treatment, at the start |
-| distressed face: no | with no treatment, at the start |
-| oxygen mask: none | with no treatment, at the start |
-| IV line: no | with no treatment, at the start |
-| defibrillator pads: no | with no treatment, at the start |
-| pericardial drain: no | with no treatment, at the start |
-| died: no | with no treatment, at the start |
-| blue lips: no | with no treatment, when the case ended (dead) |
-| died: yes | with no treatment, when the case ended (dead) |
-| oxygen mask: o2 | after every key action, at the start |
-| IV line: yes | after every key action, at the start |
-| defibrillator pads: yes | after every key action, at the start |
-| oxygen mask: niv | after Non-invasive ventilation (BiPAP), at the start |
+| sweating: no | after a combination of treatments, minute 12 |
+| blue lips: no | after a combination of treatments, minute 12 |
+| neck veins distended: no | after a combination of treatments, minute 12 |
+| leg swelling: no | after a combination of treatments, minute 12 |
+| labored breathing: no | after a combination of treatments, minute 12 |
+| distressed face: no | after a combination of treatments, minute 12 |
+| oxygen mask: none | after a combination of treatments, minute 12 |
+| IV line: no | after a combination of treatments, minute 12 |
+| defibrillator pads: no | after a combination of treatments, minute 12 |
+| pericardial drain: no | after a combination of treatments, minute 12 |
+| died: yes | after a combination of treatments, minute 12 |
+| blue lips: yes | after a combination of treatments, minute 10 |
+| died: no | after a combination of treatments, minute 10 |
+| IV line: yes | after a combination of treatments, minute 11 |
+| oxygen mask: o2 | after a combination of treatments, minute 12 |
+| defibrillator pads: yes | after a combination of treatments, minute 12 |
+| oxygen mask: niv | after a combination of treatments, minute 12 |
 
 ### 12-lead ECG patterns this case shows
 
 | Pattern | First seen |
 | --- | --- |
-| normal | with no treatment, at the start |
+| normal | after a combination of treatments, minute 12 |
 
 ### Sounds
 
@@ -2175,13 +2395,13 @@ These are synthesized approximations. Every combination the case can play:
 
 | Sounds | First seen |
 | --- | --- |
-| heart: none, lungs: none | with no treatment, at the start |
-| at the aortic site: heart: none, lungs: none | with no treatment, at the start |
-| at the pulmonic site: heart: none, lungs: none | with no treatment, at the start |
-| at the tricuspid site: heart: none, lungs: none | with no treatment, at the start |
-| at the mitral site: heart: none, lungs: none | with no treatment, at the start |
-| at the upper site: heart: none, lungs: none | with no treatment, at the start |
-| at the lower site: heart: none, lungs: none | with no treatment, at the start |
+| heart: none, lungs: none | after a combination of treatments, minute 12 |
+| at the aortic site: heart: none, lungs: none | after a combination of treatments, minute 12 |
+| at the pulmonic site: heart: none, lungs: none | after a combination of treatments, minute 12 |
+| at the tricuspid site: heart: none, lungs: none | after a combination of treatments, minute 12 |
+| at the mitral site: heart: none, lungs: none | after a combination of treatments, minute 12 |
+| at the upper site: heart: none, lungs: none | after a combination of treatments, minute 12 |
+| at the lower site: heart: none, lungs: none | after a combination of treatments, minute 12 |
 
 ### Review decision
 
@@ -2277,25 +2497,50 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 
 | Exam | Finding | First seen |
 | --- | --- | --- |
-| General inspection | Anxious and restless with a severe headache, a little confused, sweaty. No facial droop and he moves all four limbs. | with no treatment, at the start |
-| General inspection | Drowsy and confused, sweaty, with a severe headache. He does not follow commands reliably. | with no treatment, minute 40 |
-| General inspection | Calmer. The headache is easing and he is alert. | after every key action, minute 19 |
-| Listen to the heart | Fast, regular. A loud second heart sound and a fourth heart sound. No murmur. | with no treatment, at the start |
-| Listen to the lungs | Fine crackles at both bases. | with no treatment, at the start |
-| Listen to the lungs | Clear on both sides. | after every key action, minute 10 |
-| Check neck veins (JVP) | Neck veins are not raised. | with no treatment, at the start |
-| Check pulses and perfusion | Strong, bounding pulses, equal in both arms and both legs. | with no treatment, at the start |
+| General inspection | Anxious and restless with a severe headache, a little confused, sweaty. No facial droop and he moves all four limbs. | after a combination of treatments, minute 18 |
+| General inspection | Drowsy and confused, sweaty, with a severe headache. He does not follow commands reliably. | after a combination of treatments, minute 35 |
+| General inspection | Still restless, but the headache is starting to ease as the pressure falls. | after a combination of treatments, minute 20 |
+| General inspection | Calmer. The headache is easing and he is alert. | after a combination of treatments, minute 39 |
+| General inspection | Drowsy, cold and pale after the pressure fell too fast. | after a combination of treatments, minute 72 |
+| Listen to the heart | Fast, regular. A loud second heart sound and a fourth heart sound. No murmur. | after a combination of treatments, minute 18 |
+| Listen to the heart | Regular at about 85/min. The second heart sound is softer as the pressure falls, and the fourth heart sound is still there. | after a combination of treatments, minute 39 |
+| Listen to the lungs | Fine crackles at both bases. | after a combination of treatments, minute 18 |
+| Listen to the lungs | The crackles are fewer and confined to the lowest part of both bases. | after a combination of treatments, minute 25 |
+| Listen to the lungs | Clear on both sides. | after a combination of treatments, minute 20 |
+| Check neck veins (JVP) | Neck veins are not raised. | after a combination of treatments, minute 18 |
+| Check pulses and perfusion | Strong, bounding pulses, equal in both arms and both legs. | after a combination of treatments, minute 18 |
+| Check pulses and perfusion | Strong, regular pulses, equal in both arms and both legs. Less bounding than before. | after a combination of treatments, minute 39 |
+| Check pulses and perfusion | Thin, weak pulses and cool hands after the pressure fell too fast. | after a combination of treatments, minute 72 |
 
 ### Test results (every different result the case can produce)
 
 | Test | Result | First seen |
 | --- | --- | --- |
-| 12-lead ECG | Sinus rhythm 98/min. Left ventricular hypertrophy with a strain pattern. | with no treatment, at the start |
-| Troponin | Troponin I 0.09 ng/mL (normal below 0.04), a small leak from the strained heart. | with no treatment, at the start |
-| BNP | BNP 380 pg/mL, raised. | with no treatment, at the start |
-| Electrolytes and creatinine | Potassium 3.9, sodium 140, creatinine 2.1 mg/dL. The kidneys are injured. | with no treatment, at the start |
-| Chest X-ray | Mild cardiomegaly and early pulmonary edema. The aortic outline is normal. | with no treatment, at the start |
-| Bedside echocardiogram | Thickened left ventricular walls with good pumping, ejection fraction about 60%. Normal aortic root. No pericardial effusion. | with no treatment, at the start |
+| 12-lead ECG | Sinus rhythm 101/min. Left ventricular hypertrophy with a strain pattern. | after a combination of treatments, minute 18 |
+| Troponin | Troponin I 0.09 ng/mL (normal below 0.04), a small leak from the strained heart. | after a combination of treatments, minute 18 |
+| BNP | BNP 380 pg/mL, raised. | after a combination of treatments, minute 18 |
+| Electrolytes and creatinine | Potassium 3.9, sodium 140, creatinine 2.1 mg/dL. The kidneys are injured. | after a combination of treatments, minute 18 |
+| Electrolytes and creatinine | Potassium 3.9, sodium 140, creatinine 1.9 mg/dL. The kidneys are recovering as the pressure comes down. | after a combination of treatments, minute 20 |
+| Electrolytes and creatinine | Potassium 3.9, sodium 140, creatinine 2.5 mg/dL. The kidneys are worse after the pressure fell too fast. | after a combination of treatments, minute 72 |
+| Chest X-ray | Mild cardiomegaly and early pulmonary edema. The aortic outline is normal. | after a combination of treatments, minute 18 |
+| Chest X-ray | Mild cardiomegaly. The pulmonary edema is clearing. The aortic outline is normal. | after a combination of treatments, minute 25 |
+| Bedside echocardiogram | Thickened left ventricular walls with good pumping, ejection fraction about 60%. Mildly enlarged left atrium. No pericardial effusion. | after a combination of treatments, minute 18 |
+
+### Results that stay the same after correct treatment, and why
+
+Every other examination finding, test result and listening site changes as the patient responds to treatment. These stay the same because physiology says they should.
+
+| Result | Why it does not change |
+| --- | --- |
+| Examination: Check neck veins (JVP) | The neck veins are never raised in this case: the problem is pressure, not fluid overload of the right heart. |
+| Test: 12-lead ECG | The left ventricular hypertrophy and strain pattern persist: This comes from ten years of high blood pressure and does not change in minutes. |
+| Test: Troponin | The small troponin leak is from the strained heart and does not change in minutes. |
+| Test: BNP | BNP is raised from the strained heart and falls over days, not minutes. |
+| Test: Bedside echocardiogram | The thickened heart muscle persists: This comes from ten years of high blood pressure and does not change in minutes. |
+| Listening site: heart pulmonic | Nothing is heard at the pulmonic area in any state of this case. |
+| Listening site: heart tricuspid | Nothing is heard at the lower left sternal edge in any state of this case. |
+| Listening site: heart mitral | The fourth heart sound persists: This comes from ten years of high blood pressure and does not change in minutes. |
+| Listening site: lungs upper | The upper lungs stay clear in every state of this case: the fluid sits at the bases. |
 
 ### Exams and tests rated helpful
 
@@ -2323,22 +2568,22 @@ Numbers in a finding are examples, because vital signs change every minute. "Fir
 
 | Topic | Answer | First seen |
 | --- | --- | --- |
-| complaint | My head is pounding and my vision is blurry. | with no treatment, at the start |
-| onset | Since yesterday evening. It got worse today. | with no treatment, at the start |
-| severity | The headache is a 9 out of 10. | with no treatment, at the start |
-| location | All over my head, worst at the back. | with no treatment, at the start |
-| vision | Everything is blurry. | with no treatment, at the start |
-| neuro | I feel muddled, but I can move everything. | with no treatment, at the start |
-| breathless | Yes, a bit, especially lying down. | with no treatment, at the start |
-| nausea | I have vomited once. | with no treatment, at the start |
-| prior | My pressure has been high before, but never this high. | with no treatment, at the start |
-| pmh | High blood pressure for ten years. | with no treatment, at the start |
-| meds | Amlodipine and lisinopril. | with no treatment, at the start |
-| adherence | I ran out two weeks ago. I could not afford the refill. | with no treatment, at the start |
-| allergies | None. | with no treatment, at the start |
-| family | Both my parents had strokes. | with no treatment, at the start |
-| social | I smoke. No cocaine or other drugs. Two coffees a day. | with no treatment, at the start |
-| lastmeal | Breakfast. | with no treatment, at the start |
+| complaint | My head is pounding and my vision is blurry. | after a combination of treatments, minute 18 |
+| onset | Since yesterday evening. It got worse today. | after a combination of treatments, minute 18 |
+| severity | The headache is a 9 out of 10. | after a combination of treatments, minute 18 |
+| location | All over my head, worst at the back. | after a combination of treatments, minute 18 |
+| vision | Everything is blurry. | after a combination of treatments, minute 18 |
+| neuro | I feel muddled, but I can move everything. | after a combination of treatments, minute 18 |
+| breathless | Yes, a bit, especially lying down. | after a combination of treatments, minute 18 |
+| nausea | I have vomited once. | after a combination of treatments, minute 18 |
+| prior | My pressure has been high before, but never this high. | after a combination of treatments, minute 18 |
+| pmh | High blood pressure for ten years. | after a combination of treatments, minute 18 |
+| meds | Amlodipine and lisinopril. | after a combination of treatments, minute 18 |
+| adherence | I ran out two weeks ago. I could not afford the refill. | after a combination of treatments, minute 18 |
+| allergies | None. | after a combination of treatments, minute 18 |
+| family | Both my parents had strokes. | after a combination of treatments, minute 18 |
+| social | I smoke. No cocaine or other drugs. Two coffees a day. | after a combination of treatments, minute 18 |
+| lastmeal | Breakfast. | after a combination of treatments, minute 18 |
 
 ### What you hear at each listening site
 
@@ -2346,21 +2591,23 @@ The learner presses a site with the stethoscope. A site with no finding of its o
 
 | Site | Finding | First seen |
 | --- | --- | --- |
-| heart: aortic | A loud second heart sound at the aortic area. No murmur. | with no treatment, at the start |
-| heart: pulmonic | Normal sounds. No murmur. | with no treatment, at the start |
-| heart: tricuspid | Normal sounds. No murmur. | with no treatment, at the start |
-| heart: mitral | A fourth heart sound at the apex. No murmur. | with no treatment, at the start |
-| lungs: upper | Clear in the upper zones. | with no treatment, at the start |
-| lungs: lower | Fine crackles at both bases. | with no treatment, at the start |
-| lungs: lower | Clear at the bases. | after every key action, minute 10 |
+| heart: aortic | A loud second heart sound at the aortic area. No murmur. | after a combination of treatments, minute 18 |
+| heart: aortic | The second heart sound is softer at the aortic area as the pressure falls. No murmur. | after a combination of treatments, minute 39 |
+| heart: pulmonic | Normal sounds. No murmur. | after a combination of treatments, minute 18 |
+| heart: tricuspid | Normal sounds. No murmur. | after a combination of treatments, minute 18 |
+| heart: mitral | A fourth heart sound at the apex. No murmur. | after a combination of treatments, minute 18 |
+| lungs: upper | Clear in the upper zones. | after a combination of treatments, minute 18 |
+| lungs: lower | Fine crackles at both bases. | after a combination of treatments, minute 18 |
+| lungs: lower | Fine crackles at the lowest part of both bases only. | after a combination of treatments, minute 25 |
+| lungs: lower | Clear at the bases. | after a combination of treatments, minute 20 |
 
 ### What the patient says (every line)
 
 | Line | First seen |
 | --- | --- |
-| My head is pounding and I cannot see properly. | with no treatment, at the start |
-| I cannot think straight... | with no treatment, minute 40 |
-| The headache is much better. | after every key action, minute 19 |
+| My head is pounding and I cannot see properly. | after a combination of treatments, minute 18 |
+| I cannot think straight... | after a combination of treatments, minute 35 |
+| The headache is much better. | after a combination of treatments, minute 39 |
 
 ### Echocardiogram (every state the case can show)
 
@@ -2368,7 +2615,7 @@ Size values are multiples of normal (1 is normal). Ejection fraction is the frac
 
 | Ejection fraction | LV size | LA size | Wall thickness | Effusion | RV collapse | Mitral regurgitation | Weak wall | Caption | First seen |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 0.6 | 1 | 1.2 | 1.5 | 0 | false | false | none | Thickened left ventricular walls with good pumping, ejection fraction about 60%. Mildly enlarged left atrium. No pericardial effusion. | with no treatment, at the start |
+| 0.6 | 1 | 1.2 | 1.5 | 0 | false | false | none | Thickened left ventricular walls with good pumping, ejection fraction about 60%. Mildly enlarged left atrium. No pericardial effusion. | after a combination of treatments, minute 18 |
 
 ### What the patient looks like (every feature the case can show)
 
@@ -2376,31 +2623,31 @@ Skin also turns paler as the patient worsens, and breathing speed follows the br
 
 | Feature | First seen |
 | --- | --- |
-| sweating: yes | with no treatment, at the start |
-| blue lips: no | with no treatment, at the start |
-| neck veins distended: no | with no treatment, at the start |
-| leg swelling: no | with no treatment, at the start |
-| labored breathing: yes | with no treatment, at the start |
-| distressed face: no | with no treatment, at the start |
-| oxygen mask: none | with no treatment, at the start |
-| IV line: no | with no treatment, at the start |
-| defibrillator pads: no | with no treatment, at the start |
-| pericardial drain: no | with no treatment, at the start |
-| died: no | with no treatment, at the start |
-| distressed face: yes | with no treatment, minute 1 |
-| sweating: no | with no treatment, when the case ended (dead) |
-| labored breathing: no | with no treatment, when the case ended (dead) |
-| died: yes | with no treatment, when the case ended (dead) |
-| IV line: yes | after every key action, at the start |
-| oxygen mask: o2 | after Oxygen by mask, at the start |
-| oxygen mask: niv | after Non-invasive ventilation (BiPAP), at the start |
-| defibrillator pads: yes | after Synchronized cardioversion, at the start |
+| sweating: yes | after a combination of treatments, minute 18 |
+| blue lips: no | after a combination of treatments, minute 18 |
+| neck veins distended: no | after a combination of treatments, minute 18 |
+| leg swelling: no | after a combination of treatments, minute 18 |
+| labored breathing: yes | after a combination of treatments, minute 18 |
+| distressed face: yes | after a combination of treatments, minute 18 |
+| oxygen mask: none | after a combination of treatments, minute 18 |
+| IV line: no | after a combination of treatments, minute 18 |
+| defibrillator pads: no | after a combination of treatments, minute 18 |
+| pericardial drain: no | after a combination of treatments, minute 18 |
+| died: no | after a combination of treatments, minute 18 |
+| IV line: yes | after a combination of treatments, minute 11 |
+| defibrillator pads: yes | after a combination of treatments, minute 26 |
+| oxygen mask: o2 | after a combination of treatments, minute 62 |
+| sweating: no | after a combination of treatments, minute 82 |
+| labored breathing: no | after a combination of treatments, minute 82 |
+| distressed face: no | after a combination of treatments, minute 82 |
+| died: yes | after a combination of treatments, minute 82 |
+| oxygen mask: niv | after a combination of treatments, minute 74 |
 
 ### 12-lead ECG patterns this case shows
 
 | Pattern | First seen |
 | --- | --- |
-| lvh-strain | with no treatment, at the start |
+| lvh-strain | after a combination of treatments, minute 18 |
 
 ### Sounds
 
@@ -2408,20 +2655,20 @@ These are synthesized approximations. Every combination the case can play:
 
 | Sounds | First seen |
 | --- | --- |
-| heart: normal, lungs: crackles | with no treatment, at the start |
-| at the aortic site: heart: normal, lungs: crackles | with no treatment, at the start |
-| at the pulmonic site: heart: normal, lungs: crackles | with no treatment, at the start |
-| at the tricuspid site: heart: normal, lungs: crackles | with no treatment, at the start |
-| at the mitral site: heart: normal, lungs: crackles | with no treatment, at the start |
-| at the upper site: heart: normal, lungs: crackles | with no treatment, at the start |
-| at the lower site: heart: normal, lungs: crackles | with no treatment, at the start |
-| heart: normal, lungs: clear | after every key action, minute 10 |
-| at the aortic site: heart: normal, lungs: clear | after every key action, minute 10 |
-| at the pulmonic site: heart: normal, lungs: clear | after every key action, minute 10 |
-| at the tricuspid site: heart: normal, lungs: clear | after every key action, minute 10 |
-| at the mitral site: heart: normal, lungs: clear | after every key action, minute 10 |
-| at the upper site: heart: normal, lungs: clear | after every key action, minute 10 |
-| at the lower site: heart: normal, lungs: clear | after every key action, minute 10 |
+| heart: normal, lungs: crackles | after a combination of treatments, minute 18 |
+| at the aortic site: heart: normal, lungs: crackles | after a combination of treatments, minute 18 |
+| at the pulmonic site: heart: normal, lungs: crackles | after a combination of treatments, minute 18 |
+| at the tricuspid site: heart: normal, lungs: crackles | after a combination of treatments, minute 18 |
+| at the mitral site: heart: normal, lungs: crackles | after a combination of treatments, minute 18 |
+| at the upper site: heart: normal, lungs: crackles | after a combination of treatments, minute 18 |
+| at the lower site: heart: normal, lungs: crackles | after a combination of treatments, minute 18 |
+| heart: normal, lungs: clear | after a combination of treatments, minute 20 |
+| at the aortic site: heart: normal, lungs: clear | after a combination of treatments, minute 20 |
+| at the pulmonic site: heart: normal, lungs: clear | after a combination of treatments, minute 20 |
+| at the tricuspid site: heart: normal, lungs: clear | after a combination of treatments, minute 20 |
+| at the mitral site: heart: normal, lungs: clear | after a combination of treatments, minute 20 |
+| at the upper site: heart: normal, lungs: clear | after a combination of treatments, minute 20 |
+| at the lower site: heart: normal, lungs: clear | after a combination of treatments, minute 20 |
 
 ### Review decision
 

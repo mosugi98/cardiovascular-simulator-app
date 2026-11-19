@@ -288,7 +288,7 @@ function renderPlay(def, mode, { notice } = {}) {
 
   /* probandus and scene */
   const bubble = h('p', { class: 'bubble', 'aria-live': 'polite' });
-  const hint = h('p', { class: 'hint', 'aria-live': 'polite' }, 'Pick a tool, or press a body site on the patient. The full list of actions is below.');
+  const hint = h('p', { class: 'hint', 'aria-live': 'polite' }, 'Pick a tool, or press a body site on the patient. Open "What do you do?" below for the full list of actions.');
   const scene = createScene(def, (z) => onSite(z));
 
   /* history chat */
@@ -655,7 +655,7 @@ function renderPlay(def, mode, { notice } = {}) {
         h('button', { type: 'button', onClick: () => { stopAll(); location.hash = '#/'; } }, 'Leave case'))),
     notice ? h('p', { class: 'notice info', role: 'alert' }, notice) : null,
     notReviewed(),
-    vitalsStrip,
+    h('div', { class: 'strip-anchor' }, vitalsStrip),
     h('div', { class: 'bay' },
       h('div', { class: 'station' },
         h('div', { class: 'station-left' },
@@ -664,9 +664,13 @@ function renderPlay(def, mode, { notice } = {}) {
         h('div', { class: 'station-right' }, monitor, probandus)),
       instruments,
       h('div', { class: 'workbench' },
-        h('section', { class: 'panel orders', 'aria-label': 'Actions' }, h('h2', {}, 'What do you do?'), groups, audioStatus,
-          h('p', { class: 'small muted' }, 'Heart and lung sounds are simulated in your browser. They are approximations, not recordings.')),
-        h('section', { class: 'panel findings', 'aria-label': 'Findings' }, h('h2', {}, 'Findings'), logRegion),
+        // The full list of actions stays closed until the learner opens it. The tools, the body sites and the
+        // conversation work without it.
+        h('details', { class: 'panel orders' },
+          h('summary', {}, h('h2', {}, 'What do you do?')),
+          h('div', { class: 'orders-body' }, groups)),
+        h('section', { class: 'panel findings', 'aria-label': 'Findings' }, h('h2', {}, 'Findings'), audioStatus,
+          h('p', { class: 'small muted' }, 'Heart and lung sounds are simulated in your browser. They are approximations, not recordings.'), logRegion),
         h('section', { class: 'panel history', 'aria-label': 'History' }, h('h2', {}, 'History'),
           h('p', { class: 'small muted' }, `You are talking to ${who}. Type a question, or pick one.`),
           chips, chatForm, chatStatus, chatRegion))));

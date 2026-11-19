@@ -1,5 +1,6 @@
-﻿import { lin, round } from '../engine/util.js';
+import { lin, round } from '../engine/util.js';
 import { SRC } from './sources.js';
+import * as R from './results/stemi.js';
 import { unindicated } from './shared.js';
 
 export const P = {
@@ -90,18 +91,7 @@ export default {
       lastmeal: 'Breakfast, about four hours ago.',
     },
   },
-  auscultation: {
-    heart: {
-      aortic: () => 'Normal first and second sounds. No murmur at the aortic area.',
-      pulmonic: () => 'Normal first and second sounds. No murmur at the pulmonic area.',
-      tricuspid: () => 'Normal sounds. No murmur at the lower left sternal edge.',
-      mitral: () => 'At the apex there is a soft fourth sound. No murmur.',
-    },
-    lungs: {
-      upper: () => 'Clear in the upper zones.',
-      lower: (s) => (s.severity > 0.7 ? 'Crackles at the bases.' : 'Clear at the bases.'),
-    },
-  },
+  auscultation: R.auscultation,
 
   setup: () => ({ severity: P.startSeverity, flags: {} }),
 
@@ -186,26 +176,9 @@ export default {
     niv: { rating: 'neutral', why: 'He is not in respiratory failure.', source: '', text: 'BiPAP is applied.' },
   },
 
-  exam: {
-    inspect: (s) => (s.flags.reperfused
-      ? 'Comfortable, pain-free, no longer sweating.'
-      : s.severity > 0.7 ? 'Grey, drenched in sweat, drowsy and in severe distress.' : 'Anxious, pale and sweaty, clutching his chest.'),
-    heartSounds: (s) => `Regular rhythm at about ${round(s.vitals.hr)}/min. Normal first and second sounds, a soft fourth sound, no murmur.`,
-    lungs: (s) => (s.severity > 0.7 ? 'Crackles at both lung bases.' : 'Clear on both sides.'),
-    jvp: () => 'Neck veins are not raised.',
-    pulses: (s) => (s.severity > 0.7 ? 'Weak, fast pulses. Cold, clammy hands and feet.' : 'Pulses strong and equal in both arms. Warm hands.'),
-  },
-
-  tests: {
-    ecg12: (s) => (s.flags.reperfused
-      ? `Sinus rhythm ${round(s.vitals.hr)}/min. ST elevation in V1 to V4 is falling, with new T wave inversion. Reperfusion pattern.`
-      : `Sinus rhythm ${round(s.vitals.hr)}/min. ST elevation of 3 to 4 mm in V1 to V4 with reciprocal ST depression in II, III and aVF. Anterior STEMI.`),
-    troponin: () => 'Troponin I 0.12 ng/mL (normal below 0.04), and rising.',
-    bnp: () => 'BNP 210 pg/mL, mildly raised.',
-    bmp: () => 'Potassium 4.1, sodium 139, creatinine 1.0 mg/dL, glucose 128 mg/dL.',
-    cxr: (s) => ((s.flags.fluids ?? 0) > 0 ? 'Normal heart size. Early vascular congestion after the fluid bolus.' : 'Normal heart size. Clear lung fields.'),
-    echo: () => 'Hypokinesis of the anterior wall and apex. Estimated ejection fraction 40%. No pericardial effusion.',
-  },
+  exam: R.exam,
+  tests: R.tests,
+  unchanged: R.unchanged,
 
   useful: {
     ecg12: { why: 'The 12-lead ECG makes the diagnosis and starts reperfusion.', source: SRC.STEMI },

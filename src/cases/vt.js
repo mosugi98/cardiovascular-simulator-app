@@ -1,5 +1,6 @@
 import { lin, round, addEvent } from '../engine/util.js';
 import { SRC } from './sources.js';
+import * as R from './results/vt.js';
 import { unindicated } from './shared.js';
 
 export const P = {
@@ -63,15 +64,7 @@ export default {
       lastmeal: 'Lunch, two hours ago.',
     },
   },
-  auscultation: {
-    heart: {
-      aortic: (s) => (s.flags.sinus ? 'Regular. No murmur.' : 'Very fast and regular. No murmur.'),
-      pulmonic: (s) => (s.flags.sinus ? 'Regular. No murmur.' : 'Very fast and regular. No murmur.'),
-      tricuspid: (s) => (s.flags.sinus ? 'Regular. No murmur.' : 'Very fast and regular. The first sound varies in loudness from beat to beat.'),
-      mitral: (s) => (s.flags.sinus ? 'Regular. A soft third heart sound.' : 'Very fast and regular. The first sound varies in loudness from beat to beat.'),
-    },
-    lungs: { upper: () => 'Clear in the upper zones.', lower: () => 'Clear at the bases.' },
-  },
+  auscultation: R.auscultation,
   echo: () => ({
     ef: 0.3, lv: 1.15, la: 1, wall: 0.8, effusion: 0, rvCollapse: false, mr: false, hypokinesis: 'anterior-apex',
     caption: 'Reduced pumping, ejection fraction about 30%. A thin, akinetic scar in the anterior wall and apex. No pericardial effusion.',
@@ -142,24 +135,9 @@ export default {
     defib: harmful('An unsynchronized shock on a patient who has a pulse can trigger ventricular fibrillation.', P.harm.defib, 'An unsynchronized shock is delivered.'),
   },
 
-  exam: {
-    inspect: (s) => (s.flags.sinus ? 'Calmer, color returning, no longer sweating.' : 'Pale, sweaty and drowsy, clutching his chest.'),
-    heartSounds: (s) => (s.flags.sinus ? `Regular at about ${round(s.vitals.hr)}/min.` : 'Very fast and regular. The first heart sound varies in loudness.'),
-    lungs: () => 'Clear on both sides.',
-    jvp: (s) => (s.flags.sinus ? 'Not raised.' : 'Neck veins show occasional large pulsations (cannon waves).'),
-    pulses: (s) => (s.flags.sinus ? 'Regular pulse. Warm hands.' : 'Fast, weak pulse. Cool hands.'),
-  },
-
-  tests: {
-    ecg12: (s) => (s.flags.sinus
-      ? 'Sinus rhythm with old anterior Q waves.'
-      : `Regular wide-complex tachycardia at ${round(s.vitals.hr)}/min, no P waves, QRS about 160 ms. Ventricular tachycardia.`),
-    troponin: () => 'Troponin I 0.08 ng/mL (normal below 0.04), mildly raised.',
-    bnp: () => 'BNP 540 pg/mL, raised.',
-    bmp: () => 'Potassium 3.4 (low), magnesium 1.5 (low), creatinine 1.2 mg/dL.',
-    cxr: () => 'Mild cardiomegaly. Clear lung fields.',
-    echo: () => 'Reduced pumping, ejection fraction about 30%. A thin, akinetic scar in the anterior wall and apex. No pericardial effusion.',
-  },
+  exam: R.exam,
+  tests: R.tests,
+  unchanged: R.unchanged,
 
   useful: {
     ecg12: { why: 'The 12-lead shows the wide-complex tachycardia, but must never delay a shock in an unstable patient.', source: SRC.VT },

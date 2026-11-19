@@ -1,5 +1,6 @@
 import { lin, round, addEvent } from '../engine/util.js';
 import { SRC } from './sources.js';
+import * as R from './results/arrest.js';
 import { unindicated } from './shared.js';
 
 export const P = {
@@ -64,18 +65,7 @@ export default {
       lastmeal: 'He had lunch an hour ago.',
     },
   },
-  auscultation: {
-    heart: {
-      aortic: (s) => (s.flags.rosc ? 'Fast and regular. No murmur.' : 'No heart sounds are heard.'),
-      pulmonic: (s) => (s.flags.rosc ? 'Fast and regular. No murmur.' : 'No heart sounds are heard.'),
-      tricuspid: (s) => (s.flags.rosc ? 'Fast and regular. No murmur.' : 'No heart sounds are heard.'),
-      mitral: (s) => (s.flags.rosc ? 'Fast and regular. No murmur.' : 'No heart sounds are heard at the apex.'),
-    },
-    lungs: {
-      upper: (s) => (s.flags.rosc ? 'Air entry on both sides with assisted breaths.' : 'No breath sounds apart from the ventilations.'),
-      lower: (s) => (s.flags.rosc ? 'Air entry on both sides with assisted breaths.' : 'No breath sounds apart from the ventilations.'),
-    },
-  },
+  auscultation: R.auscultation,
   echo: (s) => ({
     ef: s.flags.rosc ? 0.25 : 0.12, lv: 1, la: 1, wall: 1, effusion: 0, rvCollapse: false, mr: false, hypokinesis: 'anterior-apex',
     caption: s.flags.rosc
@@ -145,26 +135,9 @@ export default {
     pericardiocentesis: { rating: 'harmful', why: 'There is no sign of an effusion, and stopping compressions for a procedure costs time.', source: SRC.ARREST, apply: (s) => { harm(s, P.harm.pericardiocentesis); }, text: 'The needle is placed. No fluid is found.' },
   },
 
-  exam: {
-    inspect: (s) => (s.flags.rosc ? 'Pale and clammy, breathing with assistance. The pupils react to light.' : 'Unresponsive, pale and not breathing normally. The pupils are wide.'),
-    heartSounds: (s) => (s.flags.rosc ? `Fast and regular at about ${round(s.vitals.hr)}/min.` : 'No heart sounds are heard.'),
-    lungs: (s) => (s.flags.rosc ? 'Air entry on both sides with assisted breaths.' : 'No breath sounds apart from the ventilations.'),
-    jvp: (s) => (s.flags.rosc ? 'Not raised.' : 'Not assessable.'),
-    pulses: (s) => (s.flags.rosc ? 'Weak but present carotid and femoral pulses.' : 'No carotid or femoral pulse.'),
-  },
-
-  tests: {
-    ecg12: (s) => (s.flags.rosc
-      ? `Sinus tachycardia ${round(s.vitals.hr)}/min with ST elevation in V1 to V4. Anterior STEMI.`
-      : 'Ventricular fibrillation. No organized electrical activity.'),
-    troponin: () => 'Troponin I 0.3 ng/mL (normal below 0.04), already rising.',
-    bnp: () => 'BNP 120 pg/mL.',
-    bmp: () => 'Potassium 4.0, bicarbonate 14 (low), creatinine 1.1 mg/dL. Lactate 9 mmol/L (very high).',
-    cxr: () => 'Normal heart size. Clear lungs.',
-    echo: (s) => (s.flags.rosc
-      ? 'Reduced pumping, ejection fraction about 25%, with an akinetic anterior wall and apex. No pericardial effusion.'
-      : 'No organized cardiac contraction: the heart is quivering. No pericardial effusion.'),
-  },
+  exam: R.exam,
+  tests: R.tests,
+  unchanged: R.unchanged,
 
   useful: {},
 

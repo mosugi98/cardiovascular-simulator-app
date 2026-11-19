@@ -57,6 +57,18 @@ Make the simulator feel like standing at a resus bay. The learner sees the patie
     - **Hypertensive emergency:** severe blood pressure with headache, blurred vision and early pulmonary edema. One IV blood-pressure drug lowers it steadily. A second drug on top drops it too fast and is harmful, as are aspirin and heparin before a bleed is excluded.
 29. The board lists all nine cases with nine bays. The case search finds every new case by name, category, chief complaint, number and `PREFIX-number`.
 
+### The orders panel
+32. The Orders panel, headed "What do you do?", is a disclosure. It is closed when a case starts and after "Play again", and it opens only when the learner presses its heading. Pressing the heading again closes it. It works by mouse, touch and keyboard (Enter and Space), and the heading can be reached with the Tab key.
+33. Closed, the panel is a compact heading at least 44 px tall. Opening it grows the panel downward and does not move anything else. Findings stay beside it while it is closed and while it is open.
+34. Nothing the learner needs is hidden inside the closed panel. The tools, the body sites and the history chat work without opening it, and every result, including sound messages, appears in Findings.
+35. Whether the panel is open is not remembered. A new case, or a replay, starts with it closed.
+
+### Findings that follow treatment
+36. Every examination finding, test result and listening-site finding reflects the patient's current state, including the response to each treatment given. A treatment that helps improves the findings, a harmful treatment worsens them, and a patient left untreated shows them getting worse. Findings are never baseline data only.
+37. A finding may stay the same after correct treatment only when physiology says it should, for example a normal troponin in a rhythm problem. Each such finding is listed with its reason in `docs/clinical-content-review.md`. Findings that the clinical picture says must change are not listed.
+38. Test results that follow a trend change with time: troponin rises while a heart attack is open, and lactate falls once circulation is restored.
+39. The echo result in the findings is the same text as the caption on the live ultrasound screen, so the written result and the picture always agree.
+
 ### Accessibility and motion
 30. All v1 accessibility requirements still apply. In addition: every body site and tool has an accessible name, the chat is a labelled live region with a labelled input, and the ECG printout and echo keep their text equivalents.
 31. With reduced motion requested, the printout appears at once and breathing, sweating, compressions and flashing alarms are not animated.
@@ -75,6 +87,12 @@ Make the simulator feel like standing at a resus bay. The learner sees the patie
 - **CPR running:** the rescuer's hands animate until a pulse returns or the case ends.
 - **Patient dies:** the monitor shows no pulse, the patient looks dead, and the history input is disabled.
 - **Monitor not on screen at 360 px:** the compact vitals strip appears and does not cause sideways scrolling.
+- **The vitals strip appearing or disappearing:** it never changes the height of the page or moves any content.
+- **Orders panel closed while the case is paused or has ended:** it can still be opened to read, but the buttons inside are disabled.
+- **Giving the same treatment again:** the findings do not change a second time for the same cause, and a harmful treatment given twice worsens the patient twice.
+- **A finding that changes only in one site:** the other sites keep their own findings (for example a gallop at the apex, nothing at the aortic area).
+- **Pressing Finish case several times quickly:** one debrief and one recorded attempt.
+- **A web address that names an unknown case or mode:** the board is shown.
 
 ## Definition of Done
 - [ ] All nine cases can be played from the board to the debrief in both modes, with a win and a loss, on the live site.
@@ -88,6 +106,14 @@ Make the simulator feel like standing at a resus bay. The learner sees the patie
 - [ ] The monitor and 12-lead show the right rhythm and pattern for all nine cases.
 - [ ] `npm test` passes, with new tests for history matching, body-site findings, the new actions, every new case, and the 12-lead patterns.
 - [ ] `docs/clinical-content-review.md` lists every new history answer, finding by body site, echo state, ECG pattern, alarm limit and triage level. A test fails if it is out of date.
+- [ ] "What do you do?" is closed when every case starts, opens only when its heading is pressed (mouse and keyboard), and is closed again after Play again and in a new case.
+- [ ] With the panel closed, the tools, body sites, history chat and findings all work, and the sound message is visible.
+- [ ] For every case, each examination finding, test result and listening-site finding either differs between the start and the recovered patient, or is listed with a reason in the review file. A test enforces this.
+- [ ] For each treatment in a table of responses (for example furosemide in heart failure, drainage in tamponade, the cath lab in STEMI), the findings the treatment should change do change. A test enforces this.
+- [ ] A patient left untreated, and a patient given a harmful treatment, show worse findings, not only worse vital signs.
+- [ ] A fuzz test of random sessions in every case and both modes finds no impossible vital signs, no ended case that changes, and no text containing `undefined` or `NaN`.
+- [ ] A random-input test of the screens finds no script error, no sideways scroll and no executed or rendered markup from typed questions.
+- [ ] Case timers and document listeners are released when a case ends or is left.
 - [ ] The accessibility scan reports no violations on the board, intro, play (with ECG, echo and chat in use) and debrief screens, at 1100 px and 360 px.
 - [ ] No page scrolls sideways at 360 px, with the printout, echo and chat open.
 - [ ] No request goes to any domain other than the site's own.

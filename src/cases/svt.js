@@ -1,5 +1,6 @@
 import { lin, round, addEvent } from '../engine/util.js';
 import { SRC } from './sources.js';
+import * as R from './results/svt.js';
 import { unindicated } from './shared.js';
 
 export const P = {
@@ -56,15 +57,7 @@ export default {
       lastmeal: 'A sandwich at lunch.',
     },
   },
-  auscultation: {
-    heart: {
-      aortic: (s) => (s.flags.sinus ? 'Regular. Normal sounds.' : 'Very fast and regular. No murmur at the aortic area.'),
-      pulmonic: (s) => (s.flags.sinus ? 'Regular. Normal sounds.' : 'Very fast and regular. No murmur at the pulmonic area.'),
-      tricuspid: (s) => (s.flags.sinus ? 'Regular. Normal sounds.' : 'Very fast and regular. No murmur at the lower left sternal edge.'),
-      mitral: (s) => (s.flags.sinus ? 'Regular. Normal sounds.' : 'Very fast and regular, too fast to separate the heart sounds. No murmur.'),
-    },
-    lungs: { upper: () => 'Clear in the upper zones.', lower: () => 'Clear at the bases.' },
-  },
+  auscultation: R.auscultation,
   echo: () => ({
     ef: 0.6, lv: 1, la: 1, wall: 1, effusion: 0, rvCollapse: false, mr: false, hypokinesis: null,
     caption: 'Normal pumping, ejection fraction about 60%. Normal valves. No pericardial effusion.',
@@ -125,24 +118,9 @@ export default {
     oxygen: { rating: 'neutral', why: 'Her oxygen saturation is normal.', source: SRC.SVT, text: 'Oxygen is started.' },
   },
 
-  exam: {
-    inspect: (s) => (s.flags.sinus ? 'Calm and comfortable.' : 'Anxious but comfortable, a little pale, talking in full sentences.'),
-    heartSounds: (s) => (s.flags.sinus ? `Regular at about ${round(s.vitals.hr)}/min. Normal sounds.` : `Very fast and perfectly regular, about ${round(s.vitals.hr)}/min. Normal sounds, no murmur.`),
-    lungs: () => 'Clear on both sides.',
-    jvp: (s) => (s.flags.sinus ? 'Not raised.' : 'Not raised. Rapid regular pulsations are visible in the neck.'),
-    pulses: (s) => (s.flags.sinus ? 'Regular pulse, equal in both arms.' : 'Fast, regular, thready radial pulse, too fast to count exactly. Warm hands.'),
-  },
-
-  tests: {
-    ecg12: (s) => (s.flags.sinus
-      ? `Sinus rhythm ${round(s.vitals.hr)}/min. Normal. No delta wave.`
-      : `Regular narrow-complex tachycardia at ${round(s.vitals.hr)}/min with no visible P waves and mild ST depression. Supraventricular tachycardia.`),
-    troponin: () => 'Troponin I below 0.04 ng/mL (normal).',
-    bnp: () => 'BNP 40 pg/mL, normal.',
-    bmp: () => 'Potassium 4.1, magnesium 2.0, creatinine 0.8 mg/dL.',
-    cxr: () => 'Normal heart size. Clear lung fields.',
-    echo: () => 'Normal pumping, ejection fraction about 60%. Normal valves. No pericardial effusion.',
-  },
+  exam: R.exam,
+  tests: R.tests,
+  unchanged: R.unchanged,
 
   useful: {
     ecg12: { why: 'The ECG confirms a regular narrow-complex tachycardia and looks for pre-excitation.', source: SRC.SVT },

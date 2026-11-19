@@ -1,5 +1,6 @@
 import { lin, round, addEvent } from '../engine/util.js';
 import { SRC } from './sources.js';
+import * as R from './results/shock.js';
 import { unindicated } from './shared.js';
 
 export const P = {
@@ -68,21 +69,12 @@ export default {
       lastmeal: 'Breakfast. I have not kept anything down since.',
     },
   },
-  auscultation: {
-    heart: {
-      aortic: () => 'Fast and regular. A gallop is not heard at this site.',
-      pulmonic: () => 'Fast and regular. Nothing abnormal at this site.',
-      tricuspid: () => 'Fast and regular. Nothing abnormal at this site.',
-      mitral: () => 'A third heart sound (gallop) and a holosystolic murmur at the apex from mitral regurgitation.',
-    },
-    lungs: {
-      upper: (s) => (s.flags.reperfused ? 'Crackles at the edges of the upper zones.' : 'Crackles reach the upper zones.'),
-      lower: () => 'Coarse crackles at both bases.',
-    },
-  },
-  echo: () => ({
-    ef: 0.15, lv: 1.3, la: 1.2, wall: 0.7, effusion: 0, rvCollapse: false, mr: true, hypokinesis: 'anterior-apex',
-    caption: 'Severely reduced pumping, ejection fraction about 15%. The anterior wall and apex do not move. Moderate mitral regurgitation. No pericardial effusion.',
+  auscultation: R.auscultation,
+  echo: (s) => ({
+    ef: s.flags.reperfused ? 0.2 : 0.15, lv: 1.3, la: 1.2, wall: 0.7, effusion: 0, rvCollapse: false, mr: !s.flags.reperfused, hypokinesis: 'anterior-apex',
+    caption: s.flags.reperfused
+      ? 'Severely reduced pumping, ejection fraction about 20%. The anterior wall and apex are stunned and barely move. The mitral regurgitation is milder. No pericardial effusion.'
+      : 'Severely reduced pumping, ejection fraction about 15%. The anterior wall and apex do not move. Moderate mitral regurgitation. No pericardial effusion.',
   }),
 
   setup: () => ({ severity: P.startSeverity, flags: {} }),
@@ -151,25 +143,9 @@ export default {
     furosemide: { rating: 'neutral', why: 'A diuretic can help the lungs once blood pressure is supported, but it does not treat the shock.', source: SRC.SHOCK, text: 'Furosemide is given.' },
   },
 
-  exam: {
-    inspect: (s) => (s.flags.reperfused ? 'Pale, but warmer and more alert. Breathing easier.'
-      : s.severity > 0.8 ? 'Grey, mottled and barely responding.' : 'Pale, cold and clammy, drowsy and short of breath. The skin is mottled at the knees.'),
-    heartSounds: (s) => `Fast and regular at about ${round(s.vitals.hr)}/min. A third heart sound (gallop).`,
-    lungs: (s) => (s.flags.reperfused ? 'Crackles at the bases only.' : 'Crackles up to the mid-zones on both sides.'),
-    jvp: () => 'Neck veins are raised, about 12 cm.',
-    pulses: (s) => (s.vitals.sbp < 80 ? 'Pulses are barely palpable and fast. Cold hands and feet. Capillary refill is slow.' : 'Weak, thready pulses. Cool hands and feet.'),
-  },
-
-  tests: {
-    ecg12: (s) => (s.flags.reperfused
-      ? `Sinus tachycardia ${round(s.vitals.hr)}/min. ST elevation in V1 to V4 is falling, with T wave inversion. Reperfusion pattern.`
-      : `Sinus tachycardia ${round(s.vitals.hr)}/min. ST elevation in V1 to V5 with Q waves, and reciprocal ST depression inferiorly. Extensive anterior STEMI.`),
-    troponin: () => 'Troponin I 8.4 ng/mL (normal below 0.04), markedly raised.',
-    bnp: () => 'BNP 1,400 pg/mL, markedly raised.',
-    bmp: () => 'Potassium 4.6, bicarbonate 17 (low), creatinine 1.9 mg/dL (rising). Lactate 5.2 mmol/L (high).',
-    cxr: () => 'Pulmonary edema with a normal-sized heart.',
-    echo: () => 'Severely reduced left ventricular function, ejection fraction about 15%. Akinetic anterior wall and apex. Moderate mitral regurgitation. No pericardial effusion.',
-  },
+  exam: R.exam,
+  tests: R.tests,
+  unchanged: R.unchanged,
 
   useful: {
     ecg12: { why: 'The ECG shows the cause: a large anterior heart attack.', source: SRC.SHOCK },

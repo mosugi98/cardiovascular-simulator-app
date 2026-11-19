@@ -106,6 +106,7 @@ test('the review file lists the handover, echo, ECG morphology, alarms and patie
     for (const kind of ['heart', 'lungs']) {
       for (const [area, fn] of Object.entries(def.auscultation?.[kind] ?? {})) assert.ok(md.includes(fn(s)), `${def.id} ${kind} ${area}`);
     }
+    for (const [key, why] of Object.entries(def.unchanged ?? {})) assert.ok(md.includes(why), `${def.id} unchanged ${key}`);
   }
   for (const needle of ['## History taking', 'What you hear at each listening site', '### ECG pattern: svt', '### ECG pattern: vt', '### ECG pattern: lvh-strain',
     '### ECG pattern: anterior-stemi', '### ECG pattern: lbbb', '### ECG pattern: pericarditis', 'Monitor alarms and nurse call-outs',
