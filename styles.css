@@ -57,6 +57,9 @@ button[aria-pressed="true"] { background: var(--scrub-soft); border-color: var(-
 .notice.info { border-color: var(--scrub); background: var(--scrub-soft); color: #08373b; }
 .notice.error { border-color: var(--bad); background: #fdecec; color: #5a0b0d; }
 
+.return-nav { margin: 0 0 4px; }
+.return-link { display: inline-block; padding: 10px 0; font-weight: 600; color: var(--scrub); text-underline-offset: 3px; }
+
 /* ---------- Case list: the department board ---------- */
 .board-head { position: relative; border-radius: 12px; overflow: hidden; background: var(--monitor); color: #e8f1f5; padding: 18px 18px 0; margin-bottom: 14px; }
 .board-head h1 { color: #fff; margin-bottom: 4px; }

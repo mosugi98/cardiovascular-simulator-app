@@ -11,6 +11,7 @@ import { createScene } from './patientScene.js';
 import { activeAlarms, topLevel, newCallouts } from './alarms.js';
 import { ask, suggestedQuestion, MAX_QUESTION_LENGTH } from './history.js';
 import { createAudio } from './audio.js';
+import { parseReturn } from './embed.js';
 
 const NOT_REVIEWED = 'Educational demo. The clinical content has not been clinically reviewed. Do not use it for real patient care.';
 
@@ -42,11 +43,19 @@ function icon(inner) {
   return span;
 }
 
+// Another app on this site can open a case directly and give the learner a way back.
+const RETURN = parseReturn(location.search, location.origin);
+const embedded = window.self !== window.top;
+const returnNav = () => (RETURN
+  ? h('nav', { class: 'return-nav', 'aria-label': 'Return' },
+    h('a', { class: 'return-link', href: RETURN.href, target: embedded ? '_top' : null, rel: 'noopener' }, `Back to ${RETURN.label}`))
+  : null);
+
 function show(titleText, ...content) {
   cleanup();
   cleanup = () => {};
   const heading = h('h1', { tabindex: '-1' }, titleText);
-  root.replaceChildren(h('main', {}, heading, ...content));
+  root.replaceChildren(h('main', {}, returnNav(), heading, ...content));
   document.title = `${titleText} | Cardiovascular Simulator`;
   heading.focus({ preventScroll: true });
   window.scrollTo(0, 0);
