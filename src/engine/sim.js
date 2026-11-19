@@ -84,6 +84,14 @@ export function finish(def, state) {
   endCase(def, state, 'finished', 'You ended the case.');
 }
 
+/** Show a new rhythm and ECG at once, instead of waiting for the next clock tick. */
+function syncDisplay(def, state) {
+  if (state.status !== 'active') return;
+  const tg = def.targets(state);
+  state.rhythm = tg.rhythm;
+  state.ecg = { ...tg.ecg };
+}
+
 function resolveRating(def, state, id) {
   const spec = def.treat[id];
   if (!spec) return { ...DEFAULT_TREAT };
@@ -95,7 +103,7 @@ function resolveRating(def, state, id) {
  * Carry out an action. Returns { ok, entry } or { ok: false, error }.
  * In learning mode the action's time cost passes after it is carried out.
  */
-export function perform(def, state, id) {
+export function perform(def, state, id, opts = {}) {
   if (state.status !== 'active') return { ok: false, error: 'The case has ended.' };
   const action = CATALOG[id];
   if (!action) return { ok: false, error: `Unknown action: ${id}` };
@@ -104,7 +112,14 @@ export function perform(def, state, id) {
   }
 
   const repeat = state.log.some((e) => e.id === id && e.kind === action.kind);
-  const entry = { t: state.t, id, kind: action.kind, label: action.label };
+  const entry = { t: state.t, id, kind: action.kind, label: opts.label ?? action.label };
+
+  if (action.kind === 'history') {
+    Object.assign(entry, { rating: 'neutral', why: 'Taking a history is part of every assessment. It is not scored.', source: '', text: opts.text ?? '' });
+    state.log.push(entry);
+    if (state.mode === MODES.LEARNING) advance(def, state, action.cost);
+    return { ok: true, entry };
+  }
 
   if (action.kind === 'treat') {
     let r = resolveRating(def, state, id);
@@ -120,7 +135,10 @@ export function perform(def, state, id) {
     Object.assign(entry, useful && !repeat
       ? { rating: 'helpful', why: useful.why, source: useful.source ?? '' }
       : { rating: 'neutral', why: repeat ? 'Repeating this adds little.' : 'Reasonable, but it does not change management here.', source: '' });
-    entry.text = def.exam[id](state);
+    // Listening at a particular site gives that site's finding, when the case has one.
+    const sound = id === 'heartSounds' ? 'heart' : id === 'lungs' ? 'lungs' : null;
+    const atSite = sound && opts.area ? def.auscultation?.[sound]?.[opts.area] : null;
+    entry.text = atSite ? atSite(state) : def.exam[id](state);
     state.log.push(entry);
   } else if (action.kind === 'test') {
     const useful = def.useful?.[id];
@@ -132,6 +150,7 @@ export function perform(def, state, id) {
     entry.text = state.status === 'active' || state.status === 'stabilized' || state.status === 'finished'
       ? def.tests[id](state)
       : 'The patient deteriorated before this result came back.';
+    syncDisplay(def, state);
     return { ok: true, entry };
   } else {
     // wait
@@ -141,12 +160,14 @@ export function perform(def, state, id) {
   }
 
   if (state.mode === MODES.LEARNING) advance(def, state, action.cost);
+  syncDisplay(def, state);
   return { ok: true, entry };
 }
 
 /** Actions to show in the menu for a mode. */
 export function menuFor(mode) {
   return Object.entries(CATALOG)
+    .filter(([, a]) => a.kind !== 'history')
     .filter(([, a]) => !(mode === MODES.CHALLENGE && a.kind === 'wait'))
     .map(([id, a]) => ({ id, ...a }));
 }

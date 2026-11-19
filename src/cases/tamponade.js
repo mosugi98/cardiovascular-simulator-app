@@ -1,5 +1,6 @@
 ﻿import { lin, round, addEvent } from '../engine/util.js';
 import { SRC } from './sources.js';
+import { unindicated } from './shared.js';
 
 export const P = {
   startSeverity: 0.45,
@@ -36,7 +37,7 @@ export default {
   params: P,
 
   triage: { level: 1, label: 'Resuscitation' },
-  person: { age: 45, sex: 'man', pose: 'upright', skin: '#8F5E40', hair: '#1f1b19', bay: 1 },
+  person: { age: 45, sex: 'man', pose: 'upright', skin: '#8F5E40', hair: '#1f1b19', bay: 4 },
   look: { sweaty: true, jvp: (s) => !s.flags.drained, edema: false, dyspnea: (s) => !s.flags.drained },
   handover: 'Paramedic handover: 45-year-old man with 3 days of worsening breathlessness and chest discomfort that is easier when he leans forward. He had a viral illness last week. No regular medicines, no known allergies. He has become paler and sleepier on the way in.',
   speech(s) {
@@ -52,6 +53,39 @@ export default {
       ? 'Effusion reduced to a small rim. Right heart chambers fill normally.'
       : 'Large circumferential pericardial effusion with the right ventricle collapsing in diastole. Tamponade physiology.',
   }),
+
+  history: {
+    speaker: 'Patient',
+    chips: ['complaint', 'onset', 'provoking', 'infection', 'breathless', 'pmh', 'meds', 'allergies'],
+    answers: {
+      complaint: (s) => (s.flags.drained ? 'I feel so much better now.' : 'I cannot get my breath, and my chest hurts.'),
+      onset: 'It has been getting worse for three days.',
+      severity: '6 out of 10 when I breathe in.',
+      location: 'In the middle of my chest.',
+      quality: 'Sharp, and it catches when I breathe in.',
+      radiation: 'It goes into my left shoulder.',
+      provoking: 'It is better when I lean forward. Lying flat is terrible.',
+      breathless: 'Yes. I cannot lie flat.',
+      syncope: 'I feel faint when I stand up.',
+      infection: 'I had a nasty cold and a fever last week.',
+      pmh: 'Nothing. I am usually healthy.',
+      meds: 'None. I took ibuprofen for the pain.',
+      adherence: 'I do not take any regular medicines.',
+      allergies: 'None.',
+      family: 'Nothing that I know of.',
+      social: 'I do not smoke. A couple of beers at the weekend.',
+      lastmeal: 'Yesterday evening. I have no appetite.',
+    },
+  },
+  auscultation: {
+    heart: {
+      aortic: () => 'Distant, muffled heart sounds, even over the aortic area.',
+      pulmonic: () => 'Distant, muffled heart sounds, even over the pulmonic area.',
+      tricuspid: () => 'Distant, muffled heart sounds. No rub is heard.',
+      mitral: () => 'Distant, muffled heart sounds, fast. No murmur.',
+    },
+    lungs: { upper: () => 'Clear in the upper zones.', lower: () => 'Clear at the bases. Breath sounds are quiet because he is breathing shallowly.' },
+  },
 
   setup: () => ({ severity: P.startSeverity, flags: {} }),
 
@@ -82,6 +116,7 @@ export default {
   },
 
   treat: {
+    ...unindicated(SRC.PERICARDIAL),
     pericardiocentesis: {
       rating: 'helpful', why: 'Draining the fluid is the definitive treatment for tamponade that is causing shock.', source: SRC.PERICARDIAL,
       apply: (s) => {

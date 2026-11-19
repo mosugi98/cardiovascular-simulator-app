@@ -65,6 +65,34 @@ export const ECG_PATTERNS = Object.freeze({
       V2: { st: 0.12, pr: -0.04 }, V3: { st: 0.12, pr: -0.05 }, V4: { st: 0.12, pr: -0.05 }, V5: { st: 0.12, pr: -0.05 }, V6: { st: 0.12, pr: -0.05 },
     },
   },
+  svt: {
+    label: 'Supraventricular tachycardia: fast and regular with narrow complexes, no visible P waves, and mild ST depression in the inferior and lateral leads',
+    width: 1,
+    leads: {
+      II: { st: -0.08 }, III: { st: -0.08 }, aVF: { st: -0.08 }, V4: { st: -0.1 }, V5: { st: -0.12 }, V6: { st: -0.1 },
+    },
+  },
+  vt: {
+    label: 'Ventricular tachycardia: fast, regular, very wide complexes with no P waves, deep S waves in V1 to V3 and broad R waves in V5, V6, I and aVL, with discordant ST and T waves',
+    width: 3.2,
+    leads: {
+      V1: { r: 0.1, s: -1.8, st: 0.3, t: 0.5 }, V2: { r: 0.1, s: -2.0, st: 0.35, t: 0.5 }, V3: { r: 0.2, s: -1.5, st: 0.25, t: 0.4 },
+      V4: { r: 0.5, s: -0.8, st: 0, t: 0.1 },
+      V5: { q: 0, r: 1.3, s: 0, st: -0.2, t: -0.5 }, V6: { q: 0, r: 1.2, s: 0, st: -0.2, t: -0.5 },
+      I: { q: 0, r: 0.9, s: 0, st: -0.15, t: -0.4 }, aVL: { q: 0, r: 0.8, s: 0, st: -0.15, t: -0.4 },
+      II: { r: 0.7, s: -0.3, st: 0.05, t: 0.3 }, III: { r: 0.4, s: -0.6, st: 0.1, t: 0.3 }, aVF: { r: 0.5, s: -0.4, st: 0.08, t: 0.3 },
+      aVR: { r: 0, s: -1.1, st: 0.1, t: 0.3 },
+    },
+  },
+  'lvh-strain': {
+    label: 'Left ventricular hypertrophy with strain: very tall R waves in V5 and V6 and deep S waves in V1 and V2, with ST depression and inverted T waves in the lateral leads',
+    width: 1.15,
+    leads: {
+      V1: { r: 0.1, s: -1.7, t: 0.2 }, V2: { r: 0.3, s: -2.2, t: 0.4 }, V3: { r: 0.8, s: -1.4 },
+      V4: { r: 1.6, s: -0.4 }, V5: { r: 2.4, s: -0.1, st: -0.15, t: -0.35 }, V6: { r: 2.0, s: 0, st: -0.15, t: -0.3 },
+      I: { r: 1.0, st: -0.1, t: -0.2 }, aVL: { r: 1.1, st: -0.12, t: -0.25 },
+    },
+  },
   lbbb: {
     label: 'Left bundle branch block: wide QRS, deep S or QS waves in V1 to V3 with ST elevation, broad R waves in I, aVL, V5 and V6 with ST depression and inverted T waves',
     width: 2.2,
@@ -103,7 +131,7 @@ export function buildBeats({ rhythm, hr, ecg = {} }, seconds, random = Math.rand
   let n = 0;
   while (t < seconds + 1) {
     const rr = rhythm === 'afib' ? base * (0.55 + 0.9 * random()) : base;
-    beats.push({ start: t, rr, alt: ecg.alternans ? (n % 2 === 0 ? 1 : 0.6) : 1, pAmp: rhythm === 'afib' ? 0 : 1 });
+    beats.push({ start: t, rr, alt: ecg.alternans ? (n % 2 === 0 ? 1 : 0.6) : 1, pAmp: rhythm === 'afib' || rhythm === 'svt' || rhythm === 'vt' ? 0 : 1 });
     t += rr;
     n++;
   }
@@ -111,6 +139,11 @@ export function buildBeats({ rhythm, hr, ecg = {} }, seconds, random = Math.rand
 }
 
 export function leadValue(t, beats, lead, { rhythm, ecg = {} }) {
+  if (rhythm === 'asystole') return 0.01 * Math.sin(t * 7.1);
+  if (rhythm === 'vf') {
+    const k = LEADS.indexOf(lead) + 1;
+    return 0.45 * Math.sin(t * 19 + k + Math.sin(t * 3.1) * 2) + 0.3 * Math.sin(t * 31 + 1.3 * k) + 0.15 * Math.sin(t * 7.7 + k);
+  }
   const pattern = ECG_PATTERNS[ecg.pattern] ?? ECG_PATTERNS.normal;
   const beat = beats.find((b) => t >= b.start && t < b.start + b.rr) ?? beats[beats.length - 1];
   const phase = (t - beat.start) / beat.rr;

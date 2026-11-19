@@ -1,5 +1,6 @@
 ﻿import { lin, round } from '../engine/util.js';
 import { SRC } from './sources.js';
+import { unindicated } from './shared.js';
 
 export const P = {
   startSeverity: 0.35,
@@ -47,7 +48,7 @@ export default {
   params: P,
 
   triage: { level: 2, label: 'Emergent' },
-  person: { age: 58, sex: 'man', pose: 'reclined', skin: '#B97D5A', hair: '#2b2623', bay: 4 },
+  person: { age: 58, sex: 'man', pose: 'reclined', skin: '#B97D5A', hair: '#2b2623', bay: 9 },
   look: { sweaty: true, jvp: () => false, edema: false, dyspnea: (s) => s.severity > 0.7 },
   handover: 'Paramedic handover: 58-year-old man with 45 minutes of crushing central chest pain that began while he carried shopping upstairs. He smokes and is treated for high blood pressure (amlodipine). No known allergies. He has not taken any aspirin. Pain 8 out of 10, sweaty and nauseated.',
   speech(s) {
@@ -63,6 +64,44 @@ export default {
       ? 'Anterior wall and apex still move poorly after reperfusion. Estimated ejection fraction about 40%. No pericardial effusion.'
       : 'Anterior wall and apex barely move. Estimated ejection fraction about 40%. No pericardial effusion.',
   }),
+
+  history: {
+    speaker: 'Patient',
+    chips: ['complaint', 'onset', 'severity', 'radiation', 'pmh', 'meds', 'allergies'],
+    answers: {
+      complaint: 'I have a crushing pain in the middle of my chest.',
+      onset: 'About 45 minutes ago. I was carrying shopping up the stairs.',
+      severity: (s) => (s.flags.reperfused ? 'It is down to a 2 out of 10 now.' : '8 out of 10.'),
+      location: 'Right in the middle of my chest, behind the breastbone.',
+      quality: 'Like a heavy weight, or a tight band squeezing me.',
+      radiation: 'It goes into my left arm and my jaw.',
+      provoking: 'It came on with the stairs. It has not eased with rest.',
+      sweating: 'Yes, I am drenched.',
+      nausea: 'I feel sick, but I have not vomited.',
+      breathless: 'A little. I cannot take a deep breath.',
+      syncope: 'No, but I feel faint.',
+      prior: 'I get a tightness on stairs sometimes, but never like this.',
+      pmh: 'High blood pressure and high cholesterol. No heart problems that I know of.',
+      meds: 'Amlodipine for my blood pressure. Nothing else.',
+      adherence: 'I take them most days.',
+      allergies: 'None that I know of.',
+      family: 'My father had a heart attack at 55.',
+      social: 'I smoke 20 a day. A few beers at the weekend. No drugs.',
+      lastmeal: 'Breakfast, about four hours ago.',
+    },
+  },
+  auscultation: {
+    heart: {
+      aortic: () => 'Normal first and second sounds. No murmur at the aortic area.',
+      pulmonic: () => 'Normal first and second sounds. No murmur at the pulmonic area.',
+      tricuspid: () => 'Normal sounds. No murmur at the lower left sternal edge.',
+      mitral: () => 'At the apex there is a soft fourth sound. No murmur.',
+    },
+    lungs: {
+      upper: () => 'Clear in the upper zones.',
+      lower: (s) => (s.severity > 0.7 ? 'Crackles at the bases.' : 'Clear at the bases.'),
+    },
+  },
 
   setup: () => ({ severity: P.startSeverity, flags: {} }),
 
@@ -114,6 +153,7 @@ export default {
   },
 
   treat: {
+    ...unindicated(SRC.STEMI),
     aspirin: { rating: 'helpful', why: 'Aspirin limits further clot growth in an acute heart attack.', source: SRC.STEMI, apply: (s) => { s.flags.aspirin = true; }, text: 'He chews the aspirin.' },
     heparin: { rating: 'helpful', why: 'Anticoagulation is given alongside primary PCI.', source: SRC.STEMI, apply: (s) => { s.flags.heparin = true; }, text: 'Heparin is given.' },
     p2y12: { rating: 'helpful', why: 'A P2Y12 inhibitor is loaded as part of dual antiplatelet therapy for PCI.', source: SRC.STEMI, apply: (s) => { s.flags.p2y12 = true; }, text: 'Ticagrelor is given.' },

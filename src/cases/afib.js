@@ -1,5 +1,6 @@
-import { lin, round, addEvent } from '../engine/util.js';
+﻿import { lin, round, addEvent } from '../engine/util.js';
 import { SRC } from './sources.js';
+import { unindicated } from './shared.js';
 
 export const P = {
   startSeverity: 0.3,
@@ -50,7 +51,7 @@ export default {
   params: P,
 
   triage: { level: 3, label: 'Urgent' },
-  person: { age: 68, sex: 'woman', pose: 'reclined', skin: '#E6BC9A', hair: '#b9b6b1', bay: 3 },
+  person: { age: 68, sex: 'woman', pose: 'reclined', skin: '#E6BC9A', hair: '#b9b6b1', bay: 8 },
   look: { sweaty: false, jvp: () => false, edema: false, dyspnea: (s) => s.severity > 0.7 },
   handover: 'Paramedic handover: 68-year-old woman with 6 hours of a fast, uneven heartbeat and mild light-headedness. No chest pain. She has high blood pressure (ramipril) and takes no blood thinners. No known allergies. She walked to the ambulance.',
   speech(s) {
@@ -63,6 +64,38 @@ export default {
     ef: 0.55, lv: 1, la: 1.35, wall: 1, effusion: 0, rvCollapse: false, mr: false, hypokinesis: null,
     caption: 'Ejection fraction about 55%. Mildly enlarged left atrium. No pericardial effusion. Bedside views cannot rule out a clot in the left atrial appendage.',
   }),
+
+  history: {
+    speaker: 'Patient',
+    chips: ['complaint', 'onset', 'palpitations', 'syncope', 'pmh', 'meds', 'social', 'allergies'],
+    answers: {
+      complaint: 'My heart is racing and it feels uneven.',
+      onset: 'About six hours ago, while I was making breakfast.',
+      severity: 'It is not painful. It is just uncomfortable, and I feel dizzy.',
+      location: 'It is in my chest. A fluttering feeling.',
+      palpitations: 'Yes, it is racing and skipping.',
+      syncope: 'I feel light-headed, but I have not fainted.',
+      breathless: 'A little, when I walk.',
+      prior: 'It has never happened before.',
+      neuro: (s) => (s.flags.stroke ? 'My right arm will not move and I cannot find the words.' : 'No weakness or numbness.'),
+      pmh: 'High blood pressure.',
+      meds: 'Ramipril. No blood thinners.',
+      adherence: 'I take it every morning.',
+      allergies: 'None that I know of.',
+      family: 'My sister has an irregular heartbeat.',
+      social: 'A glass of wine most evenings, and about four coffees a day. I do not smoke.',
+      lastmeal: 'Tea and toast this morning.',
+    },
+  },
+  auscultation: {
+    heart: {
+      aortic: () => 'Fast and irregular. No murmur at the aortic area.',
+      pulmonic: () => 'Fast and irregular. No murmur at the pulmonic area.',
+      tricuspid: () => 'Fast and irregular. No murmur at the lower left sternal edge.',
+      mitral: (s) => (s.flags.sinus ? 'Regular rhythm. No murmur at the apex.' : 'Irregularly irregular and fast at the apex. The first sound changes in loudness from beat to beat. No murmur.'),
+    },
+    lungs: { upper: () => 'Clear in the upper zones.', lower: () => 'Clear at the bases.' },
+  },
 
   setup: () => ({ severity: P.startSeverity, flags: {} }),
 
@@ -113,6 +146,7 @@ export default {
   },
 
   treat: {
+    ...unindicated(SRC.AF),
     diltiazem: rateControlDrug('Diltiazem', 'Diltiazem is given IV. Her heart rate starts to come down.'),
     metoprolol: rateControlDrug('Metoprolol', 'Metoprolol is given IV. Her heart rate starts to come down.'),
     heparin: {

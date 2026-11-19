@@ -53,7 +53,7 @@ export function debrief(def, state) {
     score,
     breakdown: { keyScore: Math.round(keyScore), outcomeScore, harmPenalty, harmCount },
     timeline: done.map((e) => ({
-      t: e.t, id: e.id, label: e.label, kind: e.kind,
+      t: e.t, id: e.id, label: e.label, kind: e.kind, text: e.text,
       rating: e.rating, why: e.why, source: e.source,
     })),
     missed: keyResults.filter((k) => k.status === 'missed'),

@@ -5,6 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildReviewMarkdown, collectVariants, echoLabel, lookFeatures } from '../scripts/clinicalReview.js';
 import { sceneModel } from '../src/ui/patientScene.js';
+import { answerFor } from '../src/ui/history.js';
 import { CASES } from '../src/cases/index.js';
 import { CATALOG } from '../src/engine/catalog.js';
 import { createSim, perform, advance, MODES } from '../src/engine/sim.js';
@@ -66,6 +67,19 @@ test('every exam finding, test result and sound that random play can produce is 
         const snd = def.sounds(s);
         if (!v.sounds.has(`heart: ${snd.heart}, lungs: ${snd.lungs}`)) missing.push(`${def.id} sounds ${snd.heart}/${snd.lungs}`);
         if (!v.speech.has(norm(def.speech(s)))) missing.push(`${def.id} speech: ${def.speech(s)}`);
+        for (const kind of ['heart', 'lungs']) {
+          for (const [area, fn] of Object.entries(def.auscultation?.[kind] ?? {})) {
+            if (!v.ausc.get(`${kind}: ${area}`)?.has(norm(fn(s)))) missing.push(`${def.id} ${kind} ${area}: ${fn(s)}`);
+          }
+        }
+        for (const id of Object.keys(def.history.answers)) {
+          const t = answerFor(def, s, id).text;
+          if (!v.hist.get(id)?.has(norm(t))) missing.push(`${def.id} history ${id}: ${t}`);
+        }
+        for (const area of ['aortic', 'mitral', 'upper', 'lower']) {
+          const snd = def.sounds(s, area);
+          if (!v.sounds.has(`at the ${area} site: heart: ${snd.heart}, lungs: ${snd.lungs}`)) missing.push(`${def.id} sound at ${area}`);
+        }
         if (!v.echo.has(echoLabel(def.echo(s)))) missing.push(`${def.id} echo: ${echoLabel(def.echo(s))}`);
         for (const f of lookFeatures(sceneModel(def, s))) if (!v.looks.has(f)) missing.push(`${def.id} look: ${f}`);
         if (s.ecg.pattern && !v.patterns.has(s.ecg.pattern)) missing.push(`${def.id} ecg pattern ${s.ecg.pattern}`);
@@ -83,7 +97,18 @@ test('the review file lists the handover, echo, ECG morphology, alarms and patie
     for (const d of [def.speech(createSim(def, MODES.CHALLENGE))]) assert.ok(md.includes(d), `${def.id} speech`);
     assert.ok(md.includes(def.echo(createSim(def, MODES.CHALLENGE)).caption), `${def.id} echo caption`);
   }
-  for (const needle of ['### ECG pattern: anterior-stemi', '### ECG pattern: lbbb', '### ECG pattern: pericarditis', 'Monitor alarms and nurse call-outs',
+  for (const def of CASES) {
+    const s = createSim(def, MODES.CHALLENGE);
+    for (const [id, a] of Object.entries(def.history.answers)) {
+      const text = typeof a === 'function' ? a(s) : a;
+      assert.ok(md.includes(text), `${def.id} history ${id}`);
+    }
+    for (const kind of ['heart', 'lungs']) {
+      for (const [area, fn] of Object.entries(def.auscultation?.[kind] ?? {})) assert.ok(md.includes(fn(s)), `${def.id} ${kind} ${area}`);
+    }
+  }
+  for (const needle of ['## History taking', 'What you hear at each listening site', '### ECG pattern: svt', '### ECG pattern: vt', '### ECG pattern: lvh-strain',
+    '### ECG pattern: anterior-stemi', '### ECG pattern: lbbb', '### ECG pattern: pericarditis', 'Monitor alarms and nurse call-outs',
     'Sats are down to', 'Normal values for each lead', 'blue lips: yes', 'neck veins distended: yes', 'leg swelling: yes', 'pericardial drain: yes']) {
     assert.ok(md.includes(needle), `missing: ${needle}`);
   }

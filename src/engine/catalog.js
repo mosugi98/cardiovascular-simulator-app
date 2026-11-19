@@ -34,6 +34,18 @@ export const CATALOG = {
   cardioversion: { kind: 'treat', group: 'Treatments', label: 'Synchronized cardioversion', cost: 5 },
   cathLab: { kind: 'treat', group: 'Treatments', label: 'Activate cath lab (primary PCI)', cost: 2 },
   pericardiocentesis: { kind: 'treat', group: 'Treatments', label: 'Pericardiocentesis', cost: 10 },
+  cpr: { kind: 'treat', group: 'Treatments', label: 'Start chest compressions (CPR)', cost: 1 },
+  defib: { kind: 'treat', group: 'Treatments', label: 'Defibrillate (unsynchronized shock)', cost: 1 },
+  epinephrine: { kind: 'treat', group: 'Treatments', label: 'Epinephrine IV', cost: 1 },
+  amiodarone: { kind: 'treat', group: 'Treatments', label: 'Amiodarone IV', cost: 3 },
+  adenosine: { kind: 'treat', group: 'Treatments', label: 'Adenosine rapid IV push', cost: 2 },
+  vagal: { kind: 'treat', group: 'Treatments', label: 'Vagal maneuver (modified Valsalva)', cost: 2 },
+  labetalol: { kind: 'treat', group: 'Treatments', label: 'Labetalol IV', cost: 3 },
+  nicardipine: { kind: 'treat', group: 'Treatments', label: 'Nicardipine IV infusion', cost: 3 },
+  dobutamine: { kind: 'treat', group: 'Treatments', label: 'Dobutamine infusion', cost: 3 },
+
+  // Questions put to the patient (or paramedic). Not shown as a button: the History panel asks them.
+  history: { kind: 'history', group: 'History', label: 'Ask a question', cost: 1 },
 };
 
 export const GROUPS = ['Examine', 'Tests', 'Treatments'];

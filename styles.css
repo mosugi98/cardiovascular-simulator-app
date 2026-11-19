@@ -103,16 +103,31 @@ legend { font-weight: 700; padding: 0 6px; }
 .clock { font-variant-numeric: tabular-nums; font-weight: 700; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--sheet); }
 .badge { display: inline-block; font-size: 0.875rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--sheet); }
 
-.bay { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 14px; align-items: start; }
-/* On a roomy screen the monitor stays pinned while you work down the orders. */
-@media (min-width: 900px) and (min-height: 780px) { .bay-side .monitor { position: sticky; top: 8px; z-index: 3; } }
-.bay-main, .bay-side { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
-@media (max-width: 899px) {
-  .bay { display: flex; flex-direction: column; align-items: stretch; }
-  .bay-main, .bay-side { display: contents; }
-  .probandus { order: 1; } .monitor { order: 2; } .scene-wrap { order: 3; } .tray-wrap { order: 4; }
-  .instruments { order: 5; } .findings { order: 6; } .orders { order: 7; }
+/* Three bands: the station (patient and monitor), the instruments, then the workbench (orders, findings, history). */
+.bay { display: flex; flex-direction: column; gap: 14px; }
+.station { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; align-items: start; }
+.station-left, .station-right { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.workbench { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; }
+.workbench .history { grid-column: 1 / -1; }
+@media (min-width: 900px) { .station { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); } }
+@media (min-width: 1100px) {
+  .workbench { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .workbench .history { grid-column: auto; }
 }
+/* Below 700 px everything stacks: probandus, monitor, patient, tools, instruments, history, findings, orders. */
+@media (max-width: 699px) {
+  .bay, .station, .station-left, .station-right, .workbench { display: contents; }
+  .bay { display: flex; flex-direction: column; gap: 14px; }
+  .probandus { order: 1; } .monitor { order: 2; } .scene-wrap { order: 3; } .tray-wrap { order: 4; }
+  .instruments { order: 5; } .history { order: 6; } .findings { order: 7; } .orders { order: 8; }
+}
+
+/* A compact strip of vitals stays at the top while the monitor is out of view. */
+.vitals-strip { position: sticky; top: 0; z-index: 6; display: none; gap: 6px 16px; flex-wrap: wrap; justify-content: center; background: var(--monitor); color: #dfeaf1; padding: 6px 12px; margin: 0 -16px 10px; font-variant-numeric: tabular-nums; }
+.vitals-strip.show { display: flex; }
+.vitals-strip b { font-weight: 800; }
+.vitals-strip span:nth-child(1) b { color: var(--ecg); } .vitals-strip span:nth-child(2) b { color: var(--bp); }
+.vitals-strip span:nth-child(3) b { color: var(--spo2); } .vitals-strip span:nth-child(4) b { color: var(--amber); }
 
 /* Bedside monitor */
 .monitor { background: var(--monitor); color: #dfeaf1; border: 6px solid var(--monitor-edge); border-radius: 16px; padding: 0 0 10px; overflow: hidden; }
@@ -171,7 +186,20 @@ canvas.pleth { height: 56px; }
 .scene { background:
     linear-gradient(#b9c9ce 0 6px, transparent 6px),
     repeating-linear-gradient(90deg, #d5e1e4 0 46px, #c9d8dc 46px 54px, #dbe6e8 54px 100px); }
-.scene-svg { display: block; width: 100%; height: auto; }
+.scene-svg { display: block; width: 100%; height: auto; aspect-ratio: 520 / 580; max-height: 540px; margin: 0 auto; }
+.site-label { display: none; font: 700 12px var(--font); fill: #0a3f45; paint-order: stroke; stroke: #fff; stroke-width: 3px; stroke-linejoin: round; }
+.scene-svg[data-tool="stethoscope"] .site-label { display: inline; }
+.chestpiece { display: none; pointer-events: none; }
+.chestpiece.on { display: inline; animation: chestpiece-in 1.2s ease-out; }
+@keyframes chestpiece-in { from { opacity: 0; transform: translateY(-6px); } 15% { opacity: 1; } }
+.scene-svg[data-tool="stethoscope"] .zone:not([data-tool="stethoscope"]) { opacity: 0.25; pointer-events: none; }
+.dev-cpr { display: none; }
+.scene-svg[data-cpr="true"] .dev-cpr { display: inline; }
+.compress { animation: compress 0.55s ease-in-out infinite; }
+@keyframes compress { 50% { transform: translateY(14px); } }
+.scene-svg[data-cpr="true"] .breathe { animation: compress-chest 0.55s ease-in-out infinite; }
+@keyframes compress-chest { 50% { transform: scaleY(0.97); } }
+.scene-svg[data-breathing="false"] .breathe { animation: none; }
 .tray-wrap { background: var(--sheet); border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
 .tray { display: flex; flex-wrap: wrap; gap: 8px; }
 .tool { display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 0; padding: 6px 6px; flex: 1 1 92px; }
@@ -197,12 +225,16 @@ canvas.pleth { height: 56px; }
 .scene-svg[data-dead="true"] { filter: saturate(0.55); }
 .scene-svg[data-dyspnea="true"] .mouth-closed { display: none; }
 .scene-svg[data-dyspnea="true"] .mouth-open, .scene-svg[data-dyspnea="true"] .strain { display: inline; }
-.scene-svg[data-distress="true"] .brow { transform: rotate(-9deg); transform-box: fill-box; transform-origin: center; }
+.scene-svg[data-distress="true"] .brow-l { transform: rotate(10deg); transform-box: fill-box; transform-origin: center; }
+.scene-svg[data-distress="true"] .brow-r { transform: rotate(-10deg); transform-box: fill-box; transform-origin: center; }
+.scene-svg[data-unresponsive="true"] .eye-open { display: none; }
+.scene-svg[data-unresponsive="true"] .eye-shut { display: inline; }
+.scene-svg[data-unresponsive="true"] .mouth-closed { display: none; }
+.scene-svg[data-unresponsive="true"] .mouth-open { display: inline; }
 .scene-svg[data-jvp="true"] .jvp { display: inline; }
 .scene-svg[data-sweat="true"] .drops { display: inline; }
 .scene-svg[data-edema="true"] .edema-marks { display: inline; }
-.scene-svg[data-edema="true"] .shin { stroke-width: 44px; }
-.scene-svg .shin { stroke-width: 30px; }
+.scene-svg[data-edema="true"] .ankle { transform: scale(1.18, 1); transform-box: fill-box; transform-origin: center; }
 .scene-svg[data-iv="true"] .dev-iv, .scene-svg[data-pads="true"] .dev-pads, .scene-svg[data-probe="true"] .dev-probe, .scene-svg[data-drain="true"] .dev-drain { display: inline; }
 .scene-svg[data-mask="o2"] .dev-mask, .scene-svg[data-mask="niv"] .dev-mask { display: inline; }
 .scene-svg[data-mask="o2"] .mask-niv, .scene-svg[data-mask="niv"] .mask-o2 { display: none; }
@@ -256,6 +288,22 @@ summary { cursor: pointer; font-weight: 700; padding: 8px 0; min-height: 44px; d
 .log li.nurse { background: #eef6f6; border-left: 4px solid var(--scrub); padding-left: 10px; }
 .log button { margin-top: 6px; min-height: 36px; padding: 6px 10px; }
 @media (max-width: 899px) { .log { max-height: 280px; } }
+
+/* History chat */
+.history .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 8px; }
+.chip { min-height: 36px; padding: 4px 12px; border-radius: 999px; font-size: 0.9375rem; background: var(--scrub-soft); border-color: #9ccaca; }
+.ask { display: flex; gap: 8px; margin-bottom: 6px; }
+.ask input { flex: 1; min-width: 0; min-height: 44px; border: 1px solid var(--line); border-radius: 8px; padding: 0 12px; background: #fff; }
+.ask input:disabled { background: #eef2f2; }
+.chat { list-style: none; margin: 0; padding: 0; max-height: 320px; overflow-y: auto; }
+.chat li { padding: 8px 10px; margin: 0 0 6px; border-radius: 12px; max-width: 94%; }
+.chat .chat-you { background: var(--scrub-soft); margin-left: auto; border-bottom-right-radius: 4px; }
+.chat .chat-them { background: #fff; border: 1px solid var(--line); border-bottom-left-radius: 4px; }
+.chat .chat-unsure { background: #f4f1e6; border: 1px dashed #b9ad7a; border-bottom-left-radius: 4px; color: var(--muted); }
+.history-group details { padding: 0; border: 0; }
+.history-group summary { min-height: 36px; }
+.history-list { list-style: none; margin: 0 0 6px; padding: 0; display: grid; gap: 6px; }
+.history-list li { border-top: 1px solid var(--line); padding-top: 6px; }
 
 /* ---------- Debrief ---------- */
 .score { font-size: 2.5rem; font-weight: 800; margin: 4px 0; }

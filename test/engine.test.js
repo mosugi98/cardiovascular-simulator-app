@@ -11,6 +11,11 @@ const WIN = {
   'afib-rvr': ['ecg12', 'pulses', 'bmp', 'echo', 'heparin', 'diltiazem'],
   'cardiac-tamponade': ['echo', 'pericardiocentesis'],
   adhf: ['ecg12', 'niv', 'furosemide', 'nitro'],
+  'svt-stable': ['ecg12', 'vagal', 'adenosine'],
+  'vt-unstable': ['cardioversion', 'amiodarone', 'inspect', 'ecg12', 'bmp', 'oxygen'],
+  'cardiogenic-shock': ['ecg12', 'echo', 'norepi', 'cathLab', 'dobutamine', 'oxygen'],
+  'cardiac-arrest': ['cpr', 'defib', 'epinephrine', 'defib', 'amiodarone', 'oxygen'],
+  'hypertensive-emergency': ['ecg12', 'labetalol', 'furosemide', 'nitro', 'inspect', 'bmp'],
 };
 
 function playLearning(def, actions, { waitUntilEnd = true } = {}) {
@@ -57,8 +62,14 @@ test('cases start active with plausible vitals', () => {
   for (const def of CASES) {
     const s = createSim(def, MODES.LEARNING);
     assert.equal(s.status, 'active');
+    if (def.id === 'cardiac-arrest') {
+      assert.equal(Math.round(s.vitals.hr), 0, 'no pulse');
+      assert.equal(Math.round(s.vitals.sbp), 0, 'no blood pressure');
+      assert.equal(s.rhythm, 'vf');
+      continue;
+    }
     assert.ok(s.vitals.hr > 40 && s.vitals.hr < 200, def.id);
-    assert.ok(s.vitals.sbp > 60 && s.vitals.sbp < 220, def.id);
+    assert.ok(s.vitals.sbp > 60 && s.vitals.sbp < 260, def.id);
   }
 });
 
@@ -149,6 +160,11 @@ const HARMFUL = {
   'afib-rvr': 'cardioversion',
   'cardiac-tamponade': 'nitro',
   adhf: 'diltiazem',
+  'svt-stable': 'epinephrine',
+  'vt-unstable': 'diltiazem',
+  'cardiogenic-shock': 'fluids',
+  'cardiac-arrest': 'cardioversion',
+  'hypertensive-emergency': 'aspirin',
 };
 
 for (const def of CASES) {

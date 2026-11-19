@@ -6,6 +6,7 @@ import { CHALLENGE_SIM_MIN_PER_SEC } from '../src/engine/sim.js';
 import { BASE_LEADS, ECG_PATTERNS, LEADS } from '../src/ui/ecg12.js';
 import { ALARM_LIMITS } from '../src/ui/alarms.js';
 import { sceneModel } from '../src/ui/patientScene.js';
+import { INTENTS, answerFor, DEFAULT_ANSWER } from '../src/ui/history.js';
 
 function flatten(obj, prefix = '') {
   const rows = [];
@@ -39,6 +40,8 @@ export function collectVariants(def) {
   const echo = new Map();
   const looks = new Map();
   const patterns = new Map();
+  const ausc = new Map();
+  const hist = new Map();
   const note = (store, id, key, text, when) => {
     if (!store.has(id)) store.set(id, new Map());
     if (!store.get(id).has(key)) store.get(id).set(key, { text, when });
@@ -47,9 +50,21 @@ export function collectVariants(def) {
   const sample = (s, when) => {
     for (const [id, fn] of Object.entries(def.exam)) { const t = fn(s); note(exam, id, norm(t), t, when); }
     for (const [id, fn] of Object.entries(def.tests)) { const t = fn(s); note(tests, id, norm(t), t, when); }
-    const snd = def.sounds(s);
-    const label = `heart: ${snd.heart}, lungs: ${snd.lungs}`;
-    if (!sounds.has(label)) sounds.set(label, when);
+    for (const area of [undefined, 'aortic', 'pulmonic', 'tricuspid', 'mitral', 'upper', 'lower']) {
+      const snd = def.sounds(s, area);
+      const label = `${area ? `at the ${area} site: ` : ''}heart: ${snd.heart}, lungs: ${snd.lungs}`;
+      if (!sounds.has(label)) sounds.set(label, when);
+    }
+    for (const kind of ['heart', 'lungs']) {
+      for (const [area, fn] of Object.entries(def.auscultation?.[kind] ?? {})) {
+        const t = fn(s);
+        note(ausc, `${kind}: ${area}`, norm(t), t, when);
+      }
+    }
+    for (const id of Object.keys(def.history.answers)) {
+      const t = answerFor(def, s, id).text;
+      note(hist, id, norm(t), t, when);
+    }
     const said = def.speech(s);
     if (!speech.has(norm(said))) speech.set(norm(said), { text: said, when });
     const e = def.echo(s);
@@ -76,7 +91,7 @@ export function collectVariants(def) {
     route(`after ${CATALOG[id].label}`, [id]);
     if (id !== 'heparin') route(`after Heparin then ${CATALOG[id].label}`, ['heparin', id]);
   }
-  return { exam, tests, sounds, speech, echo, looks, patterns };
+  return { exam, tests, sounds, speech, echo, looks, patterns, ausc, hist };
 }
 
 /** A stable text key for an echo state, and for how the patient looks. Exported for the tests. */
@@ -122,6 +137,15 @@ export function buildReviewMarkdown() {
   out.push('## Shared action menu');
   out.push('');
   out.push(table(['Action', 'Type', 'Minutes (learning mode)'], Object.values(CATALOG).map((a) => [a.label, a.kind, a.cost])));
+
+  out.push('');
+  out.push('## History taking');
+  out.push('');
+  out.push('The learner types a question or picks a suggested one. The question is matched to a topic by its words, tried in this order so the more specific topic wins. A question that matches no topic gets the polite "not sure" answer and costs no time. Each question that is understood costs 1 minute in learning mode.');
+  out.push('');
+  out.push(table(['Topic', 'Suggested question'], INTENTS.map((i) => [i.id, i.ask])));
+  out.push('');
+  out.push(`Topics a case does not answer fall back to "${DEFAULT_ANSWER.symptom}" for symptoms and "${DEFAULT_ANSWER.history}" for past history. A question that is not understood gets: "${DEFAULT_ANSWER.unknown}"`);
 
   out.push('');
   out.push('## Monitor alarms and nurse call-outs');
@@ -233,6 +257,16 @@ export function buildReviewMarkdown() {
     out.push(table(['Key action', 'Satisfied by', 'Weight', 'Deadline (min)', 'Why', 'Source'], def.key.map((k) => [
       k.label, k.ids.map((id) => CATALOG[id].label).join(' or '), k.weight, k.deadline ?? 'none', k.why, k.source,
     ])));
+    out.push('');
+    out.push(`### History answers (spoken by the ${def.history.speaker.toLowerCase()})`);
+    out.push('');
+    out.push(table(['Topic', 'Answer', 'First seen'], [...variants.hist.entries()].flatMap(([id, byKey]) => [...byKey.values()].map((v) => [id, v.text, v.when]))));
+    out.push('');
+    out.push('### What you hear at each listening site');
+    out.push('');
+    out.push('The learner presses a site with the stethoscope. A site with no finding of its own falls back to the general heart or lung finding listed under examination findings.');
+    out.push('');
+    out.push(table(['Site', 'Finding', 'First seen'], [...variants.ausc.entries()].flatMap(([site, byKey]) => [...byKey.values()].map((v) => [site, v.text, v.when]))));
     out.push('');
     out.push('### What the patient says (every line)');
     out.push('');

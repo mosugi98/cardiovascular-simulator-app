@@ -9,6 +9,7 @@ import { renderEcg12 } from './ecg12.js';
 import { startEchoRenderer, describeEcho } from './echo.js';
 import { createScene } from './patientScene.js';
 import { activeAlarms, topLevel, newCallouts } from './alarms.js';
+import { ask, suggestedQuestion, MAX_QUESTION_LENGTH } from './history.js';
 import { createAudio } from './audio.js';
 
 const NOT_REVIEWED = 'Educational demo. The clinical content has not been clinically reviewed. Do not use it for real patient care.';
@@ -166,7 +167,7 @@ function renderList() {
   const strip = h('canvas', { 'aria-hidden': 'true' });
   show('Cardiovascular Simulator',
     h('div', { class: 'board-head' },
-      h('p', {}, 'Four patients are waiting in the resus bays. Pick one, examine them, read the monitor, order tests and treat. A scored debrief follows.'),
+      h('p', {}, `${CASES.length} patients are waiting in the resus bays. Pick one, talk to them, examine them, read the monitor, order tests and treat. A scored debrief follows.`),
       strip),
     notReviewed(),
     store.persistent ? null : h('p', { class: 'notice error', role: 'alert' }, 'Your browser is blocking storage, so your progress will not be remembered. You can still play every case.'),
@@ -232,7 +233,7 @@ function vitalText(key, s) {
 
 const TOOLS = [
   { id: 'look', label: 'Look', mode: 'now', action: 'inspect', hint: 'You look the patient over.', svg: '<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>' },
-  { id: 'stethoscope', label: 'Stethoscope', mode: 'pick', hint: 'Stethoscope ready. Press the chest on the patient.', svg: '<path d="M6 3v6a4 4 0 0 0 8 0V3"/><path d="M10 13v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="11" r="2"/>' },
+  { id: 'stethoscope', label: 'Stethoscope', mode: 'pick', hint: 'Stethoscope in hand. Press a listening site on the chest. Press Escape to put it down.', svg: '<path d="M6 3v6a4 4 0 0 0 8 0V3"/><path d="M10 13v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="11" r="2"/>' },
   { id: 'hands', label: 'Hands', mode: 'pick', hint: 'Hands ready. Press the neck or the wrist on the patient.', svg: '<path d="M8 13V5a1.5 1.5 0 0 1 3 0v6M11 11V4a1.5 1.5 0 0 1 3 0v7M14 11V5.5a1.5 1.5 0 0 1 3 0V13M8 13l-2-2a1.6 1.6 0 0 0-2.3 2.2L8 19c1 1.4 2.6 2 4.4 2H14a5 5 0 0 0 5-5v-3"/>' },
   { id: 'ecg', label: 'ECG machine', mode: 'now', action: 'ecg12', hint: 'Electrodes on. The ECG is printing.', svg: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M5 13h3l2-5 3 9 2-4h4"/>' },
   { id: 'echo', label: 'Ultrasound', mode: 'now', action: 'echo', hint: 'Probe on the chest. The image is live.', svg: '<path d="M9 3h6v8l3 3v4a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3v-4l3-3z"/>' },
@@ -252,6 +253,7 @@ function renderPlay(def, mode, { notice } = {}) {
   let silencedUntil = 0;
   let prevAlarmIds = new Set();
   let lastSpeech = '';
+  const who = def.history.speaker === 'Paramedic' ? 'the paramedic' : 'the patient';
 
   /* monitor */
   const vitalEls = {};
@@ -280,11 +282,45 @@ function renderPlay(def, mode, { notice } = {}) {
   const pauseBtn = h('button', { type: 'button', 'aria-pressed': 'false' }, 'Pause');
   const actionButtons = [];
   const toolButtons = [];
+  const stripVals = Object.fromEntries(['hr', 'bp', 'spo2', 'rr'].map((k) => [k, h('b', {})]));
+  const vitalsStrip = h('div', { class: 'vitals-strip', 'aria-hidden': 'true' },
+    h('span', {}, 'HR ', stripVals.hr), h('span', {}, 'BP ', stripVals.bp), h('span', {}, 'SpO2 ', stripVals.spo2), h('span', {}, 'RR ', stripVals.rr));
 
   /* probandus and scene */
   const bubble = h('p', { class: 'bubble', 'aria-live': 'polite' });
-  const hint = h('p', { class: 'hint', 'aria-live': 'polite' }, 'Pick a tool, or press a body zone on the patient. The full list of actions is on the right.');
-  const scene = createScene(def, (z) => { scene.flashZone(z.action); hint.textContent = z.label; doAction(z.action); });
+  const hint = h('p', { class: 'hint', 'aria-live': 'polite' }, 'Pick a tool, or press a body site on the patient. The full list of actions is below.');
+  const scene = createScene(def, (z) => onSite(z));
+
+  /* history chat */
+  const chatLog = h('ol', { class: 'chat' });
+  const chatRegion = h('div', { role: 'log', 'aria-live': 'polite', 'aria-label': 'Conversation' }, chatLog);
+  const qInput = h('input', { type: 'text', id: 'question', maxlength: String(MAX_QUESTION_LENGTH), autocomplete: 'off', placeholder: 'Type a question' });
+  const askBtn = h('button', { type: 'submit', class: 'primary' }, 'Ask');
+  const chatStatus = h('p', { class: 'small muted', role: 'status' });
+  const chips = h('div', { class: 'chips', role: 'group', 'aria-label': 'Suggested questions' },
+    def.history.chips.map((id) => h('button', { type: 'button', class: 'chip', onClick: () => sendQuestion(suggestedQuestion(id)) }, suggestedQuestion(id))));
+  const chatForm = h('form', { class: 'ask', onSubmit: (e) => { e.preventDefault(); sendQuestion(qInput.value); qInput.value = ''; } },
+    h('label', { for: 'question', class: 'visually-hidden' }, `Your question to ${who}`), qInput, askBtn);
+
+  function addChat(speaker, text, kind) {
+    chatLog.append(h('li', { class: `chat-${kind}` }, h('strong', {}, `${speaker}: `), text));
+    chatLog.scrollTop = chatLog.scrollHeight; // keep the latest line in view
+  }
+  function chatLocked() {
+    if (s.status !== 'active') return 'The case has ended, so you cannot ask more questions.';
+    if (paused) return 'The case is paused. Resume to ask more questions.';
+    return '';
+  }
+  function sendQuestion(text) {
+    if (chatLocked()) return;
+    const r = ask(def, s, text);
+    if (!r) return;
+    addChat('You', r.question, 'you');
+    addChat(r.speaker, r.text, r.understood ? 'them' : 'unsure');
+    // A question that is not understood costs no time.
+    if (r.understood) perform(def, s, 'history', { label: r.question, text: `${r.speaker}: ${r.text}` });
+    update();
+  }
 
   /* instruments */
   const paperCanvas = h('canvas', { class: 'paper', role: 'img', 'aria-label': '12-lead ECG printout' });
@@ -347,11 +383,13 @@ function renderPlay(def, mode, { notice } = {}) {
     echoCanvas.setAttribute('aria-label', describeEcho(e));
   }
 
-  function playSound(kind) {
+  function playSound(kind, area) {
     audioStatus.textContent = '';
     try {
-      const snd = def.sounds(s);
-      const secs = kind === 'heart' ? audio.playHeart(snd.heart, s.vitals.hr) : audio.playLungs(snd.lungs);
+      const snd = def.sounds(s, area);
+      const type = kind === 'heart' ? snd.heart : snd.lungs;
+      if (type === 'none') { audioStatus.textContent = kind === 'heart' ? 'No heart sounds are heard.' : 'No breath sounds are heard.'; return; }
+      const secs = kind === 'heart' ? audio.playHeart(type, s.vitals.hr) : audio.playLungs(type);
       audioStatus.textContent = secs ? 'Playing simulated sound.' : 'Sounds are muted.';
     } catch (err) {
       audioStatus.textContent = 'Sound could not play in this browser. The written findings still apply.';
@@ -359,13 +397,14 @@ function renderPlay(def, mode, { notice } = {}) {
   }
 
   function addLogEntry(e) {
+    if (e.kind === 'history') return; // questions and answers are in the conversation
     const li = h('li', {}, h('div', { class: 'time' }, `T+${Math.floor(e.t)} min`));
     if (e.kind === 'event') {
       li.append(h('div', { class: 'event' }, e.text));
     } else {
       li.append(h('div', {}, h('strong', {}, e.label)), h('div', {}, e.text ?? ''));
-      if (e.id === 'heartSounds') li.append(h('button', { type: 'button', onClick: () => playSound('heart') }, 'Play simulated heart sounds'));
-      if (e.id === 'lungs') li.append(h('button', { type: 'button', onClick: () => playSound('lungs') }, 'Play simulated lung sounds'));
+      if (e.id === 'heartSounds') li.append(h('button', { type: 'button', onClick: () => playSound('heart', e._area) }, 'Play simulated heart sounds'));
+      if (e.id === 'lungs') li.append(h('button', { type: 'button', onClick: () => playSound('lungs', e._area) }, 'Play simulated lung sounds'));
       if (e.id === 'ecg12' && e._ecg) li.append(h('button', { type: 'button', onClick: () => showEcg(e) }, 'View printout'));
       if (e.id === 'echo' && e._echo) li.append(h('button', { type: 'button', onClick: showEcho }, 'View echo'));
     }
@@ -408,14 +447,18 @@ function renderPlay(def, mode, { notice } = {}) {
       el.stat.textContent = st;
       el.box.dataset.state = st;
     }
+    for (const k of ['hr', 'bp', 'spo2', 'rr']) stripVals[k].textContent = vitalText(k, s);
     const desc = describeRhythm(s.rhythm, s.vitals.hr, s.ecg);
     rhythmText.textContent = `Lead ${def.monitorLead}. ${desc}`;
     canvas.setAttribute('aria-label', `ECG trace. ${desc}.`);
     clock.textContent = `Time: ${Math.floor(s.t)} min${mode === MODES.CHALLENGE && paused ? ' (paused)' : ''}`;
     deadBanner.hidden = s.status !== 'dead';
-    const said = s.status === 'dead' ? '' : def.speech(s);
-    if (said !== lastSpeech) { lastSpeech = said; bubble.textContent = said ? `"${said}"` : 'The patient does not respond.'; }
-    scene.update(s, { probeOn: echoOn });
+    const m = scene.update(s, { probeOn: echoOn });
+    const said = s.status === 'dead' ? '' : m.unresponsive ? 'unresponsive' : def.speech(s);
+    if (said !== lastSpeech) {
+      lastSpeech = said;
+      bubble.textContent = said === 'unresponsive' ? 'The patient does not respond.' : said ? `"${said}"` : 'The patient does not respond.';
+    }
     updateEchoText();
     updateAlarms();
     while (rendered < s.log.length) addLogEntry(s.log[rendered++]);
@@ -423,13 +466,19 @@ function renderPlay(def, mode, { notice } = {}) {
     for (const b of actionButtons) b.disabled = locked;
     for (const b of toolButtons) b.disabled = locked;
     for (const z of scene.zones) z.setAttribute('aria-disabled', String(locked));
+    const why = chatLocked();
+    qInput.disabled = !!why;
+    askBtn.disabled = !!why;
+    for (const c of chips.children) c.disabled = !!why;
+    chatStatus.textContent = why;
     if (s.status !== 'active') endCase();
   }
 
-  function doAction(id) {
+  function doAction(id, opts = {}) {
     if (paused || s.status !== 'active') return;
-    const r = perform(def, s, id);
+    const r = perform(def, s, id, opts);
     if (!r.ok) { audioStatus.textContent = r.error; update(); return; }
+    if (opts.area) r.entry._area = opts.area;
     const ok = !/^The patient deteriorated/.test(r.entry.text ?? '');
     if (id === 'ecg12' && ok) {
       r.entry._ecg = { rhythm: s.rhythm, hr: s.vitals.hr, ecg: { ...s.ecg }, heading: `12-lead ECG at T+${Math.floor(r.entry.t)} min` };
@@ -444,6 +493,15 @@ function renderPlay(def, mode, { notice } = {}) {
       return;
     }
     update();
+  }
+
+  /** A body site was pressed: examine there, and show the stethoscope where it went. */
+  function onSite(z) {
+    if (paused || s.status !== 'active') return;
+    scene.flashZone(z);
+    hint.textContent = z.label;
+    const base = z.action === 'heartSounds' ? 'Listen to the heart' : z.action === 'lungs' ? 'Listen to the lungs' : null;
+    doAction(z.action, z.area ? { area: z.area, label: `${base}: ${z.short}` } : {});
   }
 
   let ended = false;
@@ -480,6 +538,12 @@ function renderPlay(def, mode, { notice } = {}) {
     if (level && performance.now() >= silencedUntil) audio.beep(level === 'high' ? 1175 : 784, level === 'high' ? 0.22 : 0.14, 0.08);
   }, 2000);
 
+  // Escape puts the stethoscope (or hands) down.
+  function onKey(e) { if (e.key === 'Escape' && tool) putToolDown(); }
+  document.addEventListener('keydown', onKey);
+
+  let monitorWatch = null;
+
   function stopAll() {
     traces.stop();
     echoRenderer?.stop();
@@ -487,8 +551,10 @@ function renderPlay(def, mode, { notice } = {}) {
     if (timer) clearInterval(timer);
     clearInterval(alarmTimer);
     if (debriefTimer) { clearTimeout(debriefTimer); debriefTimer = null; }
+    monitorWatch?.disconnect();
     audio.stop();
     document.removeEventListener('visibilitychange', onVisibility);
+    document.removeEventListener('keydown', onKey);
   }
 
   // Leaving the page mid-case restarts the case from the beginning.
@@ -527,13 +593,20 @@ function renderPlay(def, mode, { notice } = {}) {
   } }, 'Monitor beeps: off');
 
   /* tool tray */
+  function putToolDown() {
+    tool = null;
+    toolButtons.filter((b) => b.dataset.tool).forEach((b) => b.setAttribute('aria-pressed', 'false'));
+    scene.setTool(null);
+    hint.textContent = 'Tool put down. Pick a tool, or press a body site.';
+  }
   const tray = h('div', { class: 'tray', role: 'group', 'aria-label': 'Examination tools' }, TOOLS.map((t) => {
     const btn = h('button', { type: 'button', class: 'tool', 'aria-pressed': t.mode === 'pick' ? 'false' : null, onClick: () => {
-      if (t.mode === 'now') { hint.textContent = t.hint; doAction(t.action); return; }
-      tool = tool === t.id ? null : t.id;
+      if (t.mode === 'now') { if (tool) putToolDown(); hint.textContent = t.hint; doAction(t.action); return; }
+      if (tool === t.id) { putToolDown(); return; }
+      tool = t.id;
       toolButtons.filter((b) => b.dataset.tool).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.tool === tool)));
       scene.setTool(tool);
-      hint.textContent = tool ? t.hint : 'Tool put down. Pick a tool, or press a body zone.';
+      hint.textContent = t.hint;
     } }, icon(t.svg), h('span', {}, t.label));
     if (t.mode === 'pick') btn.dataset.tool = t.id;
     toolButtons.push(btn);
@@ -560,6 +633,14 @@ function renderPlay(def, mode, { notice } = {}) {
     h('p', { class: 'who' }, h('strong', {}, personLine(def)), `, bay ${def.person.bay}. Triage ${def.triage.level}: ${def.triage.label}.`),
     h('p', { class: 'small' }, def.handover),
     bubble);
+  const monitor = h('section', { class: 'monitor', 'aria-label': 'Patient monitor' },
+    alarmBar,
+    h('div', { class: 'monitor-body' },
+      vitalsList,
+      h('div', { class: 'traces' },
+        h('div', { class: 'trace' }, h('div', { class: 'trace-label ecg' }, h('span', {}, 'ECG'), rhythmText), canvas),
+        h('div', { class: 'trace' }, h('div', { class: 'trace-label pleth' }, h('span', {}, 'SpO2 pulse wave')), pleth))),
+    deadBanner);
 
   show(def.name,
     h('div', { class: 'topbar' },
@@ -574,25 +655,27 @@ function renderPlay(def, mode, { notice } = {}) {
         h('button', { type: 'button', onClick: () => { stopAll(); location.hash = '#/'; } }, 'Leave case'))),
     notice ? h('p', { class: 'notice info', role: 'alert' }, notice) : null,
     notReviewed(),
+    vitalsStrip,
     h('div', { class: 'bay' },
-      h('div', { class: 'bay-main' },
-        h('section', { class: 'scene-wrap', 'aria-label': 'Patient' }, scene.el),
-        h('div', { class: 'tray-wrap' }, tray, hint),
-        instruments),
-      h('div', { class: 'bay-side' },
-        h('section', { class: 'monitor', 'aria-label': 'Patient monitor' },
-          alarmBar,
-          h('div', { class: 'monitor-body' },
-            vitalsList,
-            h('div', { class: 'traces' },
-              h('div', { class: 'trace' }, h('div', { class: 'trace-label ecg' }, h('span', {}, 'ECG'), rhythmText), canvas),
-              h('div', { class: 'trace' }, h('div', { class: 'trace-label pleth' }, h('span', {}, 'SpO2 pulse wave')), pleth))),
-          deadBanner),
-        probandus,
-        h('section', { class: 'panel findings', 'aria-label': 'Findings' }, h('h2', {}, 'Findings'), logRegion),
+      h('div', { class: 'station' },
+        h('div', { class: 'station-left' },
+          h('section', { class: 'scene-wrap', 'aria-label': 'Patient' }, scene.el),
+          h('div', { class: 'tray-wrap' }, tray, hint)),
+        h('div', { class: 'station-right' }, monitor, probandus)),
+      instruments,
+      h('div', { class: 'workbench' },
         h('section', { class: 'panel orders', 'aria-label': 'Actions' }, h('h2', {}, 'What do you do?'), groups, audioStatus,
-          h('p', { class: 'small muted' }, 'Heart and lung sounds are simulated in your browser. They are approximations, not recordings.')))));
+          h('p', { class: 'small muted' }, 'Heart and lung sounds are simulated in your browser. They are approximations, not recordings.')),
+        h('section', { class: 'panel findings', 'aria-label': 'Findings' }, h('h2', {}, 'Findings'), logRegion),
+        h('section', { class: 'panel history', 'aria-label': 'History' }, h('h2', {}, 'History'),
+          h('p', { class: 'small muted' }, `You are talking to ${who}. Type a question, or pick one.`),
+          chips, chatForm, chatStatus, chatRegion))));
 
+  // The compact vitals strip appears only while the monitor is off screen.
+  if ('IntersectionObserver' in window) {
+    monitorWatch = new IntersectionObserver(([entry]) => { vitalsStrip.classList.toggle('show', !entry.isIntersecting); });
+    monitorWatch.observe(monitor);
+  }
   cleanup = () => { stopAll(); };
   update();
 }
@@ -604,10 +687,20 @@ function renderDebrief(def, mode, s) {
   const d = debrief(def, s);
   store.recordResult(def.id, s.status, d.score);
 
-  const timeline = h('ol', { class: 'timeline' }, d.timeline.map((e) => h('li', { 'data-rating': e.rating },
+  const item = (e) => h('li', { 'data-rating': e.rating },
     h('div', {}, h('strong', {}, e.label), h('span', { class: `tag ${e.rating}` }, RATING_LABEL[e.rating]), h('span', { class: 'muted small' }, `  at ${Math.floor(e.t)} min`)),
     h('div', { class: 'small' }, e.why),
-    e.source ? h('div', { class: 'source' }, e.source) : null)));
+    e.source ? h('div', { class: 'source' }, e.source) : null);
+
+  // Questions are grouped into one line that opens to show the conversation.
+  const questions = d.timeline.filter((e) => e.kind === 'history');
+  const actions = d.timeline.filter((e) => e.kind !== 'history');
+  const historyItem = questions.length ? h('li', { 'data-rating': 'neutral', class: 'history-group' },
+    h('details', {},
+      h('summary', {}, `History: ${questions.length} ${questions.length === 1 ? 'question' : 'questions'} asked`),
+      h('ul', { class: 'history-list' }, questions.map((q) => h('li', {}, h('strong', {}, `${q.label} `), h('span', { class: 'muted' }, `(at ${Math.floor(q.t)} min)`), h('div', { class: 'small' }, q.text)))),
+      h('div', { class: 'small muted' }, 'Taking a history is part of every assessment. It is not scored.'))) : null;
+  const timeline = h('ol', { class: 'timeline' }, historyItem, actions.map(item));
 
   const late = d.keyResults.filter((k) => k.status === 'late');
   const missed = d.missed;

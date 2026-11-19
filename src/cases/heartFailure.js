@@ -1,5 +1,6 @@
 ﻿import { lin, round } from '../engine/util.js';
 import { SRC } from './sources.js';
+import { unindicated } from './shared.js';
 
 export const P = {
   startSeverity: 0.55,
@@ -41,7 +42,7 @@ export default {
   params: P,
 
   triage: { level: 2, label: 'Emergent' },
-  person: { age: 72, sex: 'man', pose: 'upright', skin: '#D2A07A', hair: '#e4e2de', bay: 2 },
+  person: { age: 72, sex: 'man', pose: 'upright', skin: '#D2A07A', hair: '#e4e2de', bay: 5 },
   look: { sweaty: false, jvp: () => true, edema: true, dyspnea: (s) => s.severity > 0.3 },
   handover: 'Paramedic handover: 72-year-old man with known heart failure. Three days of worsening breathlessness, sleeping on three pillows, swollen legs. He ran out of his water pill (furosemide) a week ago. Oxygen saturation 84% on air. No known allergies.',
   speech(s) {
@@ -53,6 +54,40 @@ export default {
     ef: 0.25, lv: 1.3, la: 1.4, wall: 0.7, effusion: 0, rvCollapse: false, mr: true, hypokinesis: null,
     caption: 'Dilated left ventricle with ejection fraction about 25%. Moderate functional mitral regurgitation. No pericardial effusion.',
   }),
+
+  history: {
+    speaker: 'Patient',
+    chips: ['complaint', 'onset', 'breathless', 'swelling', 'pmh', 'meds', 'adherence', 'allergies'],
+    answers: {
+      complaint: 'I cannot breathe properly, and my legs are swollen.',
+      onset: 'It has crept up over three days.',
+      severity: (s) => (s.severity <= 0.3 ? 'The breathlessness is a 3 out of 10 now.' : 'The breathlessness is a 9 out of 10.'),
+      breathless: 'Yes. I cannot lie flat. I sleep on three pillows and wake up gasping.',
+      swelling: 'Yes, up to my knees.',
+      palpitations: 'My heart is going fast, but it is regular.',
+      prior: 'Yes. I was in hospital with this last winter.',
+      pmh: 'Heart failure for four years, and a heart attack ten years ago.',
+      meds: 'Furosemide, ramipril and bisoprolol.',
+      adherence: 'I ran out of my water tablet a week ago. I could not get to the pharmacy.',
+      allergies: 'None that I know of.',
+      family: 'My brother had heart failure.',
+      social: 'I stopped smoking ten years ago. No alcohol.',
+      lastmeal: 'Soup at lunchtime. I could not eat much.',
+      infection: 'No cough or fever.',
+    },
+  },
+  auscultation: {
+    heart: {
+      aortic: () => 'Fast and regular. Nothing abnormal is heard at this site.',
+      pulmonic: () => 'Fast and regular. Nothing abnormal is heard at this site.',
+      tricuspid: () => 'Fast and regular. Nothing abnormal is heard at this site.',
+      mitral: () => 'A third heart sound (gallop) and a soft holosystolic murmur at the apex.',
+    },
+    lungs: {
+      upper: (s) => (s.severity > 0.3 ? 'Crackles reach the upper zones.' : 'Clear in the upper zones.'),
+      lower: (s) => (s.severity > 0.3 ? 'Coarse crackles at both bases.' : 'Fine crackles at the bases only.'),
+    },
+  },
 
   setup: () => ({ severity: P.startSeverity, flags: {} }),
 
@@ -94,6 +129,7 @@ export default {
   },
 
   treat: {
+    ...unindicated(SRC.HF),
     oxygen: { rating: 'helpful', why: 'Oxygen treats his low saturation while the cause is addressed.', source: SRC.HF, apply: (s) => { s.flags.oxygen = true; }, text: 'Oxygen is started.' },
     niv: { rating: 'helpful', why: 'BiPAP improves oxygenation and reduces the work of breathing in pulmonary edema.', source: SRC.HF, apply: (s) => { s.flags.niv = true; }, text: 'BiPAP is applied. His breathing eases.' },
     furosemide: { rating: 'helpful', why: 'IV loop diuretic removes the excess fluid and is the main treatment for congestion.', source: SRC.HF, apply: (s) => { s.flags.furosemide = true; }, text: 'Furosemide is given IV.' },
@@ -161,7 +197,11 @@ export default {
     { label: 'Confirm with a chest X-ray, BNP or echocardiogram', ids: ['cxr', 'bnp', 'echo'], weight: 10, deadline: 30, why: 'It confirms the diagnosis.', source: SRC.HF },
   ],
 
-  sounds: (s) => ({ heart: 's3', lungs: s.severity <= P.improvingSeverity ? 'clear' : 'crackles' }),
+  // The gallop is heard at the apex only. The crackles are heard at the bases first.
+  sounds: (s, area) => ({
+    heart: area && area !== 'mitral' ? 'normal' : 's3',
+    lungs: area === 'upper' && s.severity <= P.improvingSeverity ? 'clear' : 'crackles',
+  }),
 
   rules: [
     'Severity (0 to 1) rises by 0.008 per minute.',

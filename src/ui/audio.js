@@ -86,7 +86,7 @@ export function createAudio() {
 
     /** kind: normal | muffled | afib | s3. Returns the duration in seconds. */
     playHeart(kind, hr) {
-      if (muted) return 0;
+      if (muted || kind === 'none') return 0;
       const c = ensure();
       this.stop();
       const base = 60 / Math.max(40, Math.min(180, hr));
@@ -106,7 +106,7 @@ export function createAudio() {
 
     /** kind: clear | crackles. Returns the duration in seconds. */
     playLungs(kind) {
-      if (muted) return 0;
+      if (muted || kind === 'none') return 0;
       const c = ensure();
       this.stop();
       let t = c.currentTime + 0.1;

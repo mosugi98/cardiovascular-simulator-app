@@ -6,12 +6,17 @@ A browser-based cardiovascular emergency simulator for medical students, residen
 
 Live site: https://mosugi98.github.io/cardiovascular-simulator-app/
 
-## Cases
+## Cases (nine bays)
 
-- Anterior STEMI
-- Atrial fibrillation with rapid ventricular response
-- Acute decompensated heart failure
+- Hypertensive emergency
+- Cardiac arrest (ventricular fibrillation)
+- Cardiogenic shock
 - Cardiac tamponade
+- Acute decompensated heart failure
+- Unstable ventricular tachycardia with a pulse
+- Stable supraventricular tachycardia
+- Atrial fibrillation with rapid ventricular response
+- Anterior STEMI
 
 ## Modes
 
@@ -20,8 +25,11 @@ Live site: https://mosugi98.github.io/cardiovascular-simulator-app/
 
 ## The bay
 
-- **Probandus:** the patient lies on a trolley (SVG). They look worse as they deteriorate (paler, sweating, blue lips, neck veins, swollen legs, labored breathing), and what they say changes. Press a body zone to examine them: face, neck, chest (lungs and heart) and wrist.
-- **Tool tray:** Look, Stethoscope, Hands, ECG machine and Ultrasound. The full list of actions is still on the right, and works from the keyboard.
+- **Layout:** the patient and tools sit on the left of the station, the monitor and probandus card on the right. The ECG printout and echo appear in a band below. The workbench below has Orders, Findings and History side by side (on a phone everything stacks).
+- **Probandus:** the patient lies in a bed, seen from the front. They look worse as they deteriorate (paler, sweating, blue lips, neck veins, swollen legs, labored breathing), and what they say changes.
+- **Body sites:** 11 real buttons: face, neck veins, the four heart areas (aortic, pulmonic, tricuspid, mitral/apex), four lung zones and the wrist. Pick the stethoscope and the view zooms to the chest and labels each listening site. What you hear depends on where you listen: a gallop is heard at the apex only.
+- **Tool tray:** Look, Stethoscope, Hands, ECG machine and Ultrasound. The full list of actions is still available, and every body site works from the keyboard.
+- **History:** talk to the patient (or the paramedic, when the patient cannot speak). Type a question or pick a suggested one. Each question costs a minute in learning mode. History is not scored, and the debrief groups it into one line.
 - **Bedside monitor:** vitals, ECG, a pulse wave, alarms (with a nurse calling them out), an optional heartbeat beep, and silence alarms.
 - **12-lead ECG:** prints out on ECG paper with the right morphology in every lead (ST elevation, low voltage with alternans, LBBB, pericarditis, AF).
 - **Echo:** a live simulated apical four-chamber view that changes with the patient (for example, draining a tamponade).
@@ -59,6 +67,6 @@ npm run review:gen  # regenerate docs/clinical-content-review.md
 - `src/ui/`: screens, ECG renderer, synthesized sounds
 - `src/storage/progress.js`: browser storage, export and import
 - `docs/clinical-content-review.md`: every clinical value and rule with its source, for review (generated)
-- `spec/simulator-v1.md`: the specification this build follows
+- `spec/simulator-v1.md`: the first specification, and `spec/ui-v2.md`, the addendum for the resus bay UI and the nine cases
 
 Heart and lung sounds are synthesized in the browser and labelled "simulated". No content, code or audio from any other simulator is used.

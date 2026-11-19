@@ -26,6 +26,8 @@ export function describeRhythm(rhythm, hr, ecg = {}) {
   const tail = extras.length ? `, with ${extras.join(' and ')}` : '';
   switch (rhythm) {
     case 'afib': return `Atrial fibrillation: irregularly irregular, about ${rate} beats per minute${tail}`;
+    case 'svt': return `Supraventricular tachycardia: fast, regular, narrow complexes, about ${rate} beats per minute${tail}`;
+    case 'vt': return `Ventricular tachycardia: wide, regular complexes, about ${rate} beats per minute${tail}`;
     case 'vf': return 'Ventricular fibrillation: chaotic electrical activity, no effective heartbeat';
     case 'asystole': return 'Asystole: no electrical activity';
     default: return `Sinus rhythm, regular, about ${rate} beats per minute${tail}`;
@@ -53,8 +55,8 @@ export class EcgSampler {
       rr,
       base,
       amp: ecg.amp ?? 1,
-      stElev: ecg.stElev ?? 0,
-      pAmp: rhythm === 'afib' ? 0 : 1,
+      stElev: rhythm === 'svt' ? -0.08 : (ecg.stElev ?? 0),
+      pAmp: rhythm === 'afib' || rhythm === 'svt' || rhythm === 'vt' ? 0 : 1,
       alt: ecg.alternans ? (this.n % 2 === 0 ? 1 : 0.6) : 1,
     };
     this.nextStart += rr;
@@ -80,6 +82,10 @@ export class EcgSampler {
     }
     const beat = this._beatAt(t);
     const phase = (t - beat.start) / beat.rr;
+    if (rhythm === 'vt') {
+      // Wide, regular complexes: the QRS and T wave run together into one broad wave.
+      return beat.amp * (1.0 * g(phase, 0.3, 0.13) - 0.45 * g(phase, 0.66, 0.12));
+    }
     let v = beatValue(phase, beat);
     if (rhythm === 'afib') v += 0.035 * Math.sin(t * 52) + 0.025 * Math.sin(t * 37 + 1);
     return v;
